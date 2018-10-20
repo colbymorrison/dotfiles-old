@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/Colby/Documents/Python/hq'
+let g:netrw_dirhist_2='/Users/Colby/testfiles'
+let g:netrw_dirhist_3='/Users/Colby/Code/Machine-Learning/Karmalutional-Network/test'
+let g:netrw_dirhist_4='/Users/Colby/Code/Java/ParseHealthXML/src'
+let g:netrw_dirhist_5='/Users/Colby/Code/Python/btctracker'
+let g:netrw_dirhist_6='/Users/Colby/.vim/ftplugin/latex-suite/macros'
+let g:netrw_dirhist_7='/Users/Colby/.ssh'
+let g:netrw_dirhist_8='/Users/Colby/Google Drive/College/Junior/Language-Theory/hw3'
