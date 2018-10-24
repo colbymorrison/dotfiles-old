@@ -11,7 +11,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'valloric/YouCompleteMe'
+" Plugin 'valloric/YouCompleteMe'
+Plugin 'vim-latex/vim-latex'
 Plugin 'lervag/vimtex'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
@@ -38,7 +39,7 @@ let g:vimtex_disable_version_warning='1'
 
 " Settings
 set spelllang=en              
-set spellfile=$HOME/dotfiles
+set spellfile=$HOME/dotfiles/spell/en.utf-8.add
 set mouse=a
 set tabstop=4
 set shiftwidth=4
