@@ -38,7 +38,7 @@ let g:vimtex_disable_version_warning='1'
 
 " Settings
 set spelllang=en              
-set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
+set spellfile=$HOME/dotfiles
 set mouse=a
 set tabstop=4
 set shiftwidth=4

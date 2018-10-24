@@ -121,6 +121,7 @@ alias vbx='VBoxManage'
 alias texe='vim /Users/Colby/.vim/after/ftplugin/tex.vim'
 alias showde="defaults write com.apple.dock desktop-picture-show-debug-text -bool TRUE ; killall Dock"
 alias stopde='defaults delete com.apple.dock desktop-picture-show-debug-text ; killall Dock'
+alias python=python3
 
 # Commits git changed files
 function gitch(){
