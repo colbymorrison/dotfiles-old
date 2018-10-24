@@ -1,3 +1,4 @@
 .oh-my-zsh
 symlink.sh
 .vim/bundle
+.vim/.netrwhist

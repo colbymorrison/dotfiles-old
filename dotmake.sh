@@ -5,17 +5,12 @@
 # Variables
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files=".vimrc .vim .zshrc .bashrc .gitconfig" # The dotfiles in question
+files=".vimrc .vim .zshrc .bashrc .gitconfig .oh-my-zsh" # The dotfiles in question
 
 # Make directories
-echo "Making directories...\n"
-mkdir -p $dir
+echo "Making old directory...\n"
 mkdir -p $olddir
-
-# Clone from git
-echo "Cloning from git...\n"
 cd $dir
-git clone https://github.com/colbymorrison/dotfiles
 
 # Install ohmyzsh
 echo "Installing oh-my-zsh...\n"
