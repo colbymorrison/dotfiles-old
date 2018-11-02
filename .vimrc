@@ -4,14 +4,14 @@ syntax on
 
 " Vundle
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME/dotfiles/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'valloric/YouCompleteMe'
+Plugin 'valloric/YouCompleteMe'
 Plugin 'vim-latex/vim-latex'
 Plugin 'lervag/vimtex'
 " Plugin 'L9'
@@ -38,7 +38,6 @@ let g:tex_no_error=1
 let g:vimtex_disable_version_warning='1'
 
 " Settings
-set spell
 set spelllang=en              
 set spellfile=$HOME/dotfiles/.vim/spell/en.utf-8.add
 set mouse=a

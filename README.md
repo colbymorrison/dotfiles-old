@@ -9,7 +9,7 @@ They include:
 **[.vim](.vim)** - vim plugins/configuration files:
 [.vim/spell](.vim/spell) contains custom dictionary entries,
 [.vim/templates](.vim/templates) contains custom latex templates, they get copied into latex plugin directory after it is installed,
-[.vim/after](.vim/after) contains custom tex plugin mappings and scripts
+[.vim/after](.vim/after/ftplugin) contains custom tex plugin mappings and scripts
 
 
 **[.vimrc](.vimrc)** - vim configuration & settings

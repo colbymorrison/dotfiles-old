@@ -1,28 +1,18 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Environment Variables
-# Path to your oh-my-zsh installation.
 export ZSH="/Users/colby/.oh-my-zsh"
-export CLICOLOR=1
-export VISUAL=vim
-export EDITOR=$VISUAL
-export HELM_HOME=~/.helm
-export PATH=$PATH:/usr/local/mongo/bin
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="awesomepanda"
+ZSH_THEME="random"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "awesomepanda" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
  CASE_SENSITIVE="true"
@@ -68,7 +58,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git osx colorize)
 
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -78,8 +67,6 @@ plugins=(git osx colorize)
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
    export EDITOR='vim'
  fi
 
@@ -92,44 +79,12 @@ plugins=(git osx colorize)
 #POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
 #POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
 #POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-export DEFAULT_USER="$USER"
-
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#export DEFAULT_USER="$USER"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias rmt="rm -r ~/.Trash/*"
-alias rmd="rm -r ~/Downloads/*"
-alias rmde="rm -r ~/Desktop/*"
-alias ls='ls -A'
-alias vbx='VBoxManage'
-alias texe='vim /Users/Colby/.vim/after/ftplugin/tex.vim'
-alias showde="defaults write com.apple.dock desktop-picture-show-debug-text -bool TRUE ; killall Dock"
-alias stopde='defaults delete com.apple.dock desktop-picture-show-debug-text ; killall Dock'
-alias python=python3
-
-# Commits git changed files
-function gitch(){
-    git add -u
-    read "?Commit message: " msg
-    echo
-    git commit -m $msg
-    echo
-    git push -u origin $(git branch | grep \* | sed 's/* //')
-}
 
