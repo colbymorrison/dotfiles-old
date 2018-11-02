@@ -1,0 +1,9 @@
+alias rmt="rm -r ~/.Trash/*"
+alias rmd="rm -r ~/Downloads/*"
+alias rmde="rm -r ~/Desktop/*"
+alias ls='ls -A'
+alias vbx='VBoxManage'
+alias texe='vim /Users/Colby/.vim/after/ftplugin/tex.vim'
+alias showde="defaults write com.apple.dock desktop-picture-show-debug-text -bool TRUE ; killall Dock"
+alias stopde='defaults delete com.apple.dock desktop-picture-show-debug-text ; killall Dock'
+alias python=python3
