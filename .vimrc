@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/YouCompleteMe'
 Plugin 'vim-latex/vim-latex'
 Plugin 'lervag/vimtex'
+Plugin 'unblevable/quick-scope'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

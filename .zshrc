@@ -5,14 +5,14 @@ export ZSH="/Users/colby/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="random"
+ZSH_THEME="awesomepanda"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
- ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "awesomepanda" "agnoster" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "awesomepanda" "agnoster" "sunrise")
 
 # Uncomment the following line to use case-sensitive completion.
  CASE_SENSITIVE="true"
