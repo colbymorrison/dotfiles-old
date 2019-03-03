@@ -13,8 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/YouCompleteMe'
 Plugin 'vim-latex/vim-latex'
-Plugin 'lervag/vimtex'
-Plugin 'unblevable/quick-scope'
+"Plugin 'unblevable/quick-scope'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,11 +31,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Lets
-"vimtex on?
-let mapleader = "-"
+"let mapleader = "-"
 let g:tex_flavor='latex'
 let g:tex_no_error=1
-let g:vimtex_disable_version_warning='1'
 
 " Settings
 set spelllang=en              

@@ -21,7 +21,7 @@ echo "Installing vim plugins...\n"
 vim +PluginInstall
 
 # Move templates
-mv templates/* bundle/vim-latex/ftplugin/latex-suite/templates
+mv templates/* .vim/bundle/vim-latex/ftplugin/latex-suite/templates
 
 # Get rid of old files and symlink
 echo "Symlinking dotflines...\n"
