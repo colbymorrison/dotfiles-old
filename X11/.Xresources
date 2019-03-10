@@ -1,0 +1,4 @@
+xterm*background: black
+xterm*foreground: lightgray
+xterm*faceSize: 14
+xterm*font: *-fixed-*-*-*-20-*

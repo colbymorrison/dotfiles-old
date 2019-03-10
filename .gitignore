@@ -1,5 +1,4 @@
-.oh-my-zsh
-!.oh-my-zsh/custom
-symlink.sh
-.vim/bundle
-.vim/.netrwhist
+shell/.oh-my-zsh
+!shell/.oh-my-zsh/custom
+vim/.vim/bundle
+vim/.vim/.netrwhist

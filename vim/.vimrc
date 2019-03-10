@@ -4,7 +4,7 @@ syntax on
 
 " Vundle
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/dotfiles/.vim/bundle/Vundle.vim
+set rtp+=$HOME/dotfiles/vim/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -12,12 +12,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/YouCompleteMe'
-Plugin 'vim-latex/vim-latex'
-"Plugin 'unblevable/quick-scope'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"call vundle#end()            " required
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
