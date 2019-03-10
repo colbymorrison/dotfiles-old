@@ -1,4 +1,2 @@
-shell/.oh-my-zsh
-!shell/.oh-my-zsh/custom
 vim/.vim/bundle
 vim/.vim/.netrwhist
