@@ -1,0 +1,1 @@
+/home/colby/dotfiles/vim/.vim

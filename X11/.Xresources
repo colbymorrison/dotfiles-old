@@ -1,4 +1,5 @@
 xterm*background: black
 xterm*foreground: lightgray
+xterm*faceName: DejaVu Sans Mono Book
 xterm*faceSize: 14
 xterm*font: *-fixed-*-*-*-20-*
