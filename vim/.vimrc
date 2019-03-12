@@ -11,7 +11,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'valloric/YouCompleteMe'
+"Plugin 'valloric/YouCompleteMe'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
 "call vundle#end()            " required
@@ -32,6 +32,7 @@ Plugin 'valloric/YouCompleteMe'
 "let mapleader = "-"
 let g:tex_flavor='latex'
 let g:tex_no_error=1
+let g:powerline_pycmd="py3"
 
 " Settings
 set spelllang=en              
@@ -44,6 +45,7 @@ set shellslash
 set iskeyword+=:
 set sw=2
 set grepprg=grep\ -nH\ $*
+set laststatus=2
 
 " mappings
 nmap <S-ENTER> O<Esc>
