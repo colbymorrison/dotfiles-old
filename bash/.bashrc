@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-#
+# Run by interactive shells (after /etc/bash.bashrc)
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

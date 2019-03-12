@@ -2,11 +2,20 @@
 
 These are my dotfiles!
 
+Manage using GNU stow to symlink into home directory.
+Clone into `~`. Then
+```
+cd ~/dotfiles
+stow dir
+``` for each directory `dir` in dotfiles
+
 They include:
 
 **[git](git)** - git configuration files
 
-**[shell](shell)** - Shell customization for bash and zsh. [.oh-my-zsh/custom](shell/.oh-my-zsh/custom) Contains .zsh variables, aliases, etc.
+**[bash](bash)** - Bash dotfiles
+
+**[zsh](zsh)** - .zshrc and zsh_custom directory for aliases, env variables, etc. 
 
 **[vim](vim)** - vim configuration
 [.vimrc] (vim/.vimrc) General vim configuration.
@@ -15,7 +24,5 @@ They include:
 [.vim/after](vim/.vim/after/ftplugin) Custom tex plugin mappings and scripts
 
 **[X11](X11)** - X11 configruation files
-
-**[dotmake.sh](dotmake.sh)** - Sets up dotfiles on new computer, clone this repo into `~/dotfiles` and run this script. It installs oh-my-zsh into the `.oh-my-zsh` directory, installs vim plugins into the `.vim/bundle` directory, and sets up dotfile symlinks. NEES TO BE UPDATED
 
 

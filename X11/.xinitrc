@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Run when X is started from a shell with `start x` 
+# When X is started from ligthdm, similar behavior happens
+# as specified in /etc/lightdm/Xsession 
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
