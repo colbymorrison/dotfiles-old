@@ -2,20 +2,9 @@
 
 These are my dotfiles!
 
-They include:
+There is a branch for each OS I use, navigate to one to see those dotfiles.
 
-**[git](git)** - git configuration files
+In general, the dotfiles should be cloned into `~/dotfiles`. From there, I essentially foollow I essentally follow [this strategy](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html). Running the `link.sh` script will create symlinks to the dotfiles in the correct directory (`~` or `~/.config` usually). [GNU Stow](https://www.gnu.org/software/stow/) does most of the work for creating the symlinks, the link script simply calls stow on each directory in `~/dotfiles`. 
 
-**[shell](shell)** - Shell customization for bash and zsh. [.oh-my-zsh/custom](shell/.oh-my-zsh/custom) Contains .zsh variables, aliases, etc.
-
-**[vim](vim)** - vim configuration
-[.vimrc] (vim/.vimrc) General vim configuration.
-[.vim/spell](vim/.vim/spell) Custom dictionary entries.
-[templates](vim/templates) Custom latex templates, should be copied into latex plugin directory after it is installed.
-[.vim/after](vim/.vim/after/ftplugin) Custom tex plugin mappings and scripts
-
-**[X11](X11)** - X11 configruation files
-
-**[dotmake.sh](dotmake.sh)** - Sets up dotfiles on new computer, clone this repo into `~/dotfiles` and run this script. It installs oh-my-zsh into the `.oh-my-zsh` directory, installs vim plugins into the `.vim/bundle` directory, and sets up dotfile symlinks. NEES TO BE UPDATED
 
 
