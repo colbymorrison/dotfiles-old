@@ -1,7 +1,6 @@
-
-# Sourced by /etc/lightdm/Xsession
 xterm*background: black
 xterm*foreground: lightgray
 xterm*faceName: DejaVu Sans Mono for Powerline
 xterm*faceSize: 14
 xterm*seletctToClipboard: true
+XTerm.VT100.color4: CornflowerBlue
