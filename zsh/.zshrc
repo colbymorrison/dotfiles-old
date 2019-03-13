@@ -5,7 +5,7 @@ export ZSH="/Users/colby/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="awesomepanda"
+ZSH_THEME="sunrise"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
