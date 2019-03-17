@@ -1,3 +1,5 @@
 alias ls='ls --color=auto -A'
 alias ei3='vim ~/.config/i3/config'
-alias eip='vim ~/.config/polybar/config'
+alias epb='vim ~/.config/polybar/config'
+alias exg='vim /etc/X11/xorg.conf.d/xorg.conf'
+alias ka='killall'

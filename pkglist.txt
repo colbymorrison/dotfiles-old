@@ -6,6 +6,7 @@ automake
 bash
 binutils
 bison
+bluez
 bluez-utils
 bzip2
 cmake
@@ -64,6 +65,7 @@ nano
 ncurses5-compat-libs
 neofetch
 netctl
+networkmanager
 oh-my-zsh-git
 openssh
 pacaur
@@ -78,6 +80,8 @@ powerline-fonts-git
 powerline-vim
 procps-ng
 psmisc
+pulseaudio
+pulseaudio-bluetooth
 reiserfsprogs
 s-nail
 sed
