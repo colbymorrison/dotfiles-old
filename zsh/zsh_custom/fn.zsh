@@ -18,4 +18,9 @@ function winkey(){
     xmodmap -e "add Control = Control_L Control_R"
     xmodmap -e "add Mod4 = Super_L Super_R"
 }
-    
+
+# Restarts polybar
+function polyrs(){
+    killall polybar
+    ~/.config/polybar/launch.sh
+}

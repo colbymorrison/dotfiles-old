@@ -1,0 +1,2 @@
+systemctl --user start dispad.service
+~/.fehbg & 

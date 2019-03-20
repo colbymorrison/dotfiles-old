@@ -40,7 +40,7 @@ floating_modifier $MOD
 bindsym $MOD+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $MOD+Shift+q kill
+bindsym Control+q kill
 
 # start dmenu (a program launcher)
 bindsym $MOD+d exec dmenu_run
@@ -194,4 +194,25 @@ for_window [class="^.*"] border pixel 0
 gaps inner 20 
 gaps outer 0
 smart_borders on
+
+# Increase volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1000
+
+# Decrease volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1000
+
+# Mute volume
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Increase backlight
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+
+# Increase backlight
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+# Increase keyboard backlight
+bindsym XF86KbdBrightnessUp exec
+
+# Decrease keyboard backlight
+bindsym XF86KbdBrightnessDown exec
 

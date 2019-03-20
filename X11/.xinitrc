@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Run when X is started from a shell with `start x` 
+# Run when X is started from a shell with `startx` 
 # When X is started from ligthdm, similar behavior happens
 # as specified in /etc/lightdm/Xsession 
 
@@ -41,4 +41,5 @@ fi
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 exec i3
+~/.xprofile
 #exec xterm -geometry 80x66+0+0 -name login
