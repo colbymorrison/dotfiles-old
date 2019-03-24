@@ -180,10 +180,10 @@ mode "resize" {
 bindsym $MOD+r mode "resize"
 
 # Polybar
-execalways --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Startup programs
-exec --no-startup-id xterm
+exec --no-startup-id termite 
 exec firefox
 
 # Program hotkeys
@@ -191,8 +191,8 @@ bindsym $Mod+Shift+W exec firefox
 
 # Gaps
 for_window [class="^.*"] border pixel 0
-gaps inner 20 
-gaps outer 0
+gaps inner 10 
+gaps outer 10 
 smart_borders on
 
 # Increase volume
@@ -211,8 +211,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Increase keyboard backlight
-bindsym XF86KbdBrightnessUp exec
+bindsym XF86KbdBrightnessUp exec kdlt-up
 
 # Decrease keyboard backlight
-bindsym XF86KbdBrightnessDown exec
+bindsym XF86KbdBrightnessDown exec kdlt-down
 

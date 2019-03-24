@@ -10,6 +10,7 @@ bluez
 bluez-utils
 bzip2
 cmake
+compton
 coreutils
 cryptsetup
 device-mapper
@@ -36,6 +37,7 @@ glibc
 grep
 grub
 gtop
+gvim
 gzip
 hfsprogs
 i3-gaps
@@ -44,8 +46,10 @@ i3lock
 i3status
 inetutils
 intel-ucode
+intellij-idea-ultimate-edition
 iproute2
 iputils
+jdk8-openjdk
 jfsutils
 laptop-mode-tools
 less
@@ -97,6 +101,7 @@ systemd-sysvcompat
 tar
 task
 terminus-font
+termite
 termsyn-font
 texinfo
 timew
@@ -106,7 +111,6 @@ ttf-unifont
 usbutils
 util-linux
 vi
-vim
 vim-youcompleteme-git
 watson
 which

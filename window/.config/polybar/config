@@ -1,22 +1,22 @@
 [bar/top]
-monitor = eDP1
+monitor = ${env:DISPLAY_NM} 
 width = 100%
-height = 45
+height = 3% 
 
 background = #00000000
 foreground = #ccffffff
 
-line-color = ${bar/bottom.background}
-line-size = 16
+line-color = ${self.background}
+line-size = 5 
 
 spacing = 2
 padding-right = 5
 module-margin = 4
 
-font-0 = NotoSans-Regular:size=12;-1
-font-1 = MaterialIcons:size=14;0
-font-2 = Termsynu:size=12:antialias=false;-2
-font-3 = FontAwesome:size=14;0
+font-0 = ${env:NOTOT}
+font-1 = ${env:MATRT}
+font-2 = ${env:TERMST}
+font-3 = ${env:AWST}
 
 modules-left = powermenu mpd i3
 modules-right = pulseaudio backlight wireless-network wired-network battery date
@@ -24,11 +24,13 @@ modules-right = pulseaudio backlight wireless-network wired-network battery date
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+enable-ipc = true
+
 [bar/bottom]
-monitor = eDP1
+monitor = ${env:DISPLAY_NM}
 bottom = true
 width = 100%
-height = 30 
+height = 3% 
 
 background = ${bar/top.background}
 foreground = ${bar/top.foreground}
@@ -38,18 +40,22 @@ line-size = 2
 
 spacing = 3
 padding-right = 4
-module-margin-left = 0
+padding-left = 4
+module-margin-left = 4 
 module-margin-right = 6
 
-font-0 = NotoSans-Regular:size=8;0
-font-1 = unifont:size=6;-3
-font-2 = FontAwesome:size=8;-2
-font-3 = NotoSans-Regular:size=8;-1
-font-4 = MaterialIcons:size=10;-1
-font-5 = Termsynu:size=8:antialias=false;0
+font-0 = ${env:NOTOB} 
+font-1 = ${env:UNIB}
+font-2 = ${env:AWSB}
+font-3 = ${env:NOTOT}
+font-4 = ${env:MATRB}
+font-5 = ${env:TERMSB}
 
-modules-left = bspwm
+modules-left = network-stats-wireless network-stats-wired 
+
 modules-right = cpu memory
+
+enable-ipc = true
 
 [module/backlight]
 type = internal/xbacklight
@@ -106,7 +112,7 @@ animation-charging-framerate = 750
 type = internal/cpu
 interval = 0.5
 format = <label> <ramp-coreload>
-label = CPU
+label = %{A1:gtop:} CPU %percentage-sum% %{A}
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
@@ -141,7 +147,7 @@ date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 [module/memory]
 type = internal/memory
 format = <label> <bar-used>
-label = RAM
+label = RAM %gb_used%/%gb_free%
 
 bar-used-width = 30
 bar-used-foreground-0 = #aaff77
@@ -157,42 +163,15 @@ bar-used-empty = ─
 bar-used-empty-font = 6
 bar-used-empty-foreground = #444444
 
-[module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
-
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground =
-toggle-off-foreground = #55
-
-bar-progress-width = 45
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
 interface = wlp3s0
 interval = 3.0
-ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
-label-disconnected =    not connected
+label-connected = %{A1:%local_ip%  %downspeed%  %linkspeed%:}%essid%%{A} 
+label-disconnected =    
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 
@@ -209,41 +188,47 @@ animation-packetloss-framerate = 500
 
 [module/wired-network]
 type = internal/network
-interface = net0
+interface = enp0s20u1u4
 interval = 3.0
 
-label-connected =    %{T3}%local_ip%%{T-}
+label-connected =     
 label-disconnected-foreground = #66
 
-[module/volume]
-type = internal/volume
-speaker-mixer = Speaker
-headphone-mixer = Headphone
-headphone-id = 9
+label-disconnected = 
 
-format-volume = <ramp-volume> <label-volume>
-label-muted =   muted
-label-muted-foreground = #66
+[module/network-stats-wireless]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+ping-interval = 3
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
+label-connected = %local_ip%  %downspeed%  %signal%% 
+
+[module/network-stats-wired]
+type = internal/network
+interface = enp0s20u1u4
+interval = 3.0
+ping-interval = 3
+
+label-connected =  %local_ip%  %downspeed%  %linkspeed%  
 
 [module/powermenu]
 type = custom/menu
 
 format-padding = 5
 
-label-open = 
+label-open =  
 label-close = 
+label-sperator = | 
 
 menu-0-0 = Terminate WM
 menu-0-0-foreground = #fba922
 menu-0-0-exec = bspc quit -1
+
 menu-0-1 = Reboot
 menu-0-1-foreground = #fba922
 menu-0-1-exec = menu_open-1
+
 menu-0-2 = Power off
 menu-0-2-foreground = #fba922
 menu-0-2-exec = menu_open-2
@@ -333,4 +318,5 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = #555
+
 
