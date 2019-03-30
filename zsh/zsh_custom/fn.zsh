@@ -22,5 +22,5 @@ function winkey(){
 # Restarts polybar
 function polyrs(){
     killall polybar
-    ~/.config/polybar/launch.sh
+    ~/.config/polybar/launch.sh enp0s20u1 
 }

@@ -1,45 +1,65 @@
 #!/bin/sh
 
-# Run when X is started from a shell with `startx` 
-# When X is started from ligthdm, similar behavior happens
-# as specified in /etc/lightdm/Xsession 
+# Run directly when X is started from a shell with `startx` 
+# Also run from lightdm init script
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
+# Load profile
+for file in "/etc/profile" "$HOME/.profile" "/etc/xprofile" "$HOME/.xprofile"; do
+    if [ -f "$file" ]; then
+        echo "Loading profile from $file";
+        . "$file"
+    fi
+done
 
-# merge in defaults and keymaps
+# Load resources
+for file in "/etc/X11/xinit/.Xresources" "$HOME/.Xresources"; do
+    if [ -f "$file" ]; then
+        echo "Loading resource: $file"
+        xrdb -merge "$file"
+    fi
+done
 
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
+# Load keymaps
+for file in "/etc/X11/Xkbmap" "$HOME/.Xkbmap"; do
+    if [ -f "$file" ]; then
+        echo "Loading keymap: $file"
+        setxkbmap `cat "$file"`
+        XKB_IN_USE=yes
+    fi
+done
+
+
+# Load xmodmap if not using XKB
+if [ -z "$XKB_IN_USE" ]; then
+    for file in "/etc/X11/Xmodmap" "$HOME/.Xmodmap"; do
+        if [ -f "$file" ]; then
+           echo "Loading modmap: $file"
+           xmodmap "$file"
+        fi
+    done
 fi
 
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
+unset XKB_IN_USE
+
+# Run all system xinitrc shell scripts
+xinitdir="/etc/X11/xinit/xinitrc.d"
+if [ -d "$xinitdir" ]; then
+    for script in $xinitdir/*; do
+        echo "Loading xinit script $script"
+        if [ -x "$script" -a ! -d "$script" ]; then
+            . "$script"
+        fi
+    done
 fi
 
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+# Run user xsession shell script
+script="$HOME/.xsession"
+if [ -x "$script" -a ! -d "$script" ]; then
+    echo "Loading xsession script $script"
+    . "$script"
 fi
 
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
+# Set numlock on
+numlockx &
 
-# start some nice programs
 
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
-fi
-
-#twm &
-#xclock -geometry 50x50-1+1 &
-#xterm -geometry 80x50+494+51 &
-#xterm -geometry 80x20+494-0 &
-exec i3
-~/.xprofile
-#exec xterm -geometry 80x66+0+0 -name login

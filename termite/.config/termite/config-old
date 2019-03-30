@@ -4,8 +4,7 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
-font = DejaVu Sans Mono for Powerline, 7 
-
+font = DejaVu Sans Mono for Powerline, 16 
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -45,12 +44,12 @@ scrollback_lines = 10000
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
+foreground = #dcdccc
+foreground_bold = #ffffff
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-background = rgba(30, 30, 30, 0.6)
+background = rgba(111, 120, 118, 0.8)
 
 # If unset, will reverse foreground and background
 highlight = #2f2f2f

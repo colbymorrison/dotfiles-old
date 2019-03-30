@@ -1,5 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+filetype plugin on            " for vim-latex 
+filetype indent on            " for vim-latex 
 syntax on
 
 " Lets
@@ -24,4 +26,4 @@ set laststatus=2
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
-
+inoremap jj <Esc>

@@ -57,6 +57,9 @@ modules-right = cpu memory
 
 enable-ipc = true
 
+tray-position = left
+tray-background = ${bar/top.background}
+
 [module/backlight]
 type = internal/xbacklight
 format = <ramp> <bar>
@@ -166,7 +169,7 @@ bar-used-empty-foreground = #444444
 
 [module/wireless-network]
 type = internal/network
-interface = wlp3s0
+interface = wlan0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -188,7 +191,7 @@ animation-packetloss-framerate = 500
 
 [module/wired-network]
 type = internal/network
-interface = enp0s20u1u4
+interface = eth0
 interval = 3.0
 
 label-connected =     
@@ -198,19 +201,19 @@ label-disconnected =
 
 [module/network-stats-wireless]
 type = internal/network
-interface = wlp3s0
+interface = wlan0
 interval = 3.0
 ping-interval = 3
 
-label-connected = %local_ip%  %downspeed%  %signal%% 
+label-connected =   %local_ip%   %downspeed%   %upspeed%   %signal%% 
 
 [module/network-stats-wired]
 type = internal/network
-interface = enp0s20u1u4
+interface = eth0
 interval = 3.0
 ping-interval = 3
 
-label-connected =  %local_ip%  %downspeed%  %linkspeed%  
+label-connected =   %local_ip%   %downspeed%   %upspeed%   %linkspeed%  
 
 [module/powermenu]
 type = custom/menu
