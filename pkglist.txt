@@ -4,6 +4,7 @@ alsa-utils
 auracle-git
 autoconf
 automake
+autorandr
 bash
 binutils
 bison

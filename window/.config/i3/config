@@ -185,7 +185,11 @@ exec --no-startup-id termite
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 41.4011:-73.5423 
 exec firefox
+
+# Workspace bindings
+# for_window [class="Firefox"] tiling enable, move container to workspace 1 ????? 
 assign [class="Firefox"] 2
+assign [class="jetbrains-idea"] 3
 
 # Program hotkeys
 bindsym $Mod+Shift+W exec firefox

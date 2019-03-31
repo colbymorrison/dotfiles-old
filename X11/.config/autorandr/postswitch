@@ -1,0 +1,4 @@
+#! /bin/bash
+
+. /home/colby/scripts/monitor.sh
+/home/colby/.config/polybar/launch.sh
