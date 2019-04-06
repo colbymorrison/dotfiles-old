@@ -3,3 +3,5 @@
 	email = colbyamorrison@gmail.com
 [color]
 	ui = auto
+[core]
+	autocrlf = input
