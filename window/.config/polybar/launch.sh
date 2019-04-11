@@ -14,11 +14,13 @@ if [[ $width -le 1920 ]]; then
     font_sz=12
 # Mac
 elif [[ $width -le 2560 ]]; then
-    font_sz=16
+    font_sz=14
 # 4k
 else
     font_sz=16
 fi
+
+echo "POLYBAR FONTSIZE: $font_sz"
 
 # TODO: change to multiple bars started in if above w/ no env vars? 
 export NOTOT="NotoSans-Regular:size=$font_sz;-1"
@@ -30,9 +32,6 @@ export UNIB="unifont:size=$(($font_sz-2));-3"
 export AWSB="FontAwesome:size=$font_sz;0"
 export MATRB="MaterialIcons:size=$(($font_sz-2));-1"
 export TERMSB="Termsynu:size=$font_sz:antialias=false;0"
-
-# Ethernet name, it changes all the time
-#export ETH=enp0s20u2u1
 
 #Launch bar1 and bar2
 polybar top &

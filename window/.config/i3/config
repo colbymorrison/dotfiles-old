@@ -190,9 +190,11 @@ exec firefox
 # for_window [class="Firefox"] tiling enable, move container to workspace 1 ????? 
 assign [class="Firefox"] 2
 assign [class="jetbrains-idea"] 3
+assign [class="spotify"] 4
 
 # Program hotkeys
 bindsym $Mod+Shift+W exec firefox
+bindsym $Mod+Shift+S exec spotify
 
 # Gaps
 for_window [class="^.*"] border pixel 0
@@ -201,23 +203,23 @@ gaps outer 10
 smart_borders on
 
 # Increase volume
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1000
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1000
 
 # Decrease volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1000
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1000
 
 # Mute volume
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Increase backlight
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # Increase backlight
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Increase keyboard backlight
-bindsym XF86KbdBrightnessUp exec kdlt-up
+# bindsym XF86KbdBrightnessUp exec kdlt-up
 
 # Decrease keyboard backlight
-bindsym XF86KbdBrightnessDown exec kdlt-down
+# bindsym XF86KbdBrightnessDown exec kdlt-down
 

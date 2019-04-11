@@ -15,6 +15,8 @@ cmake
 compton
 coreutils
 cryptsetup
+cups
+cups-pdf
 deepin-screenshot
 device-mapper
 dhcpcd
@@ -78,6 +80,7 @@ netctl
 network-manager-applet
 networkmanager
 nm-connection-editor
+nss-mdns
 numlockx
 oh-my-zsh-git
 openssh
@@ -90,7 +93,6 @@ pixman
 pkgconf
 powerline
 powerline-fonts-git
-powerline-vim
 procps-ng
 psmisc
 pulseaudio

@@ -1,5 +1,5 @@
 [bar/top]
-monitor = ${env:DISPLAY_NM} 
+monitor = ${env:AUTORANDR_MONITORS:eDP1} 
 width = 100%
 height = 3% 
 
@@ -27,7 +27,7 @@ scroll-down = i3wm-wsprev
 enable-ipc = true
 
 [bar/bottom]
-monitor = ${env:DISPLAY_NM}
+monitor = ${env:AUTORANDR_MONITORS:eDP1}
 bottom = true
 width = 100%
 height = 3% 
