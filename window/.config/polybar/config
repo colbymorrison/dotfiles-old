@@ -19,7 +19,7 @@ font-2 = ${env:TERMST}
 font-3 = ${env:AWST}
 
 modules-left = powermenu mpd i3
-modules-right = pulseaudio backlight wireless-network wired-network battery date
+modules-right = pulseaudio backlight bluetooth wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -323,3 +323,7 @@ bar-volume-empty-font = 2
 bar-volume-empty-foreground = #555
 
 
+[module/bluetooth]
+type = custom/script
+exec = ~/scripts/bluetooth.sh
+interval = 10
