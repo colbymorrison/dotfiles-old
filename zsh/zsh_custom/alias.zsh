@@ -7,3 +7,4 @@ alias ka='killall'
 alias poly=''
 alias "pacman -S"='sudo pacman -S'
 alias "git s"='git status'
+alias bt=bluetoothctl

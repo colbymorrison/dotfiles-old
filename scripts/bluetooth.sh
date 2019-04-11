@@ -1,9 +1,10 @@
 #! /bin/bash
 
 if [ "$(systemctl is-active bluetooth.service)" = "active" ]; then
-  devices=$(bluetoothctl -- paired-devices)
-  if [ "$(echo $devices | wc -l)" -gt 0 ]; then
-    echo "  $(echo $devices | cut -f 3- -d ' ')"
+  device=$(bluetoothctl -- paired-devices)
+  deviceId=$(echo $device | cut -f 2 -d ' ')
+  if [ "$(bluetoothctl -- info $deviceId | grep Connected: | sed 's/Connected://g'|sed 's/^[ \t]*//')" == "yes" ]; then
+    echo "  $(echo $device | cut -f 3- -d ' ')"
   else
     echo  
   fi
