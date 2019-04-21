@@ -71,6 +71,7 @@ m4
 make
 man-db
 man-pages
+maven
 mdadm
 mesa
 nano
@@ -91,6 +92,7 @@ pciutils
 perl
 pixman
 pkgconf
+playerctl
 powerline
 powerline-fonts-git
 procps-ng

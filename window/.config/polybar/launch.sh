@@ -11,7 +11,7 @@ width=$(echo $DISPLAY_SZ | sed 's/x.*//g')
 # font_sz is our 12
 # 1080p
 if [[ $width -le 1920 ]]; then
-    font_sz=12
+    font_sz=14
 # Mac
 elif [[ $width -le 2560 ]]; then
     font_sz=14
