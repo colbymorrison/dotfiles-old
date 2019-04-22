@@ -24,3 +24,8 @@ function polyrs(){
     killall polybar
     ~/.config/polybar/launch.sh enp0s20u1 
 }
+
+# What directory am I in?
+precmd(){
+  pwd > /tmp/whereami
+}

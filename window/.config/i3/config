@@ -38,7 +38,7 @@ floating_modifier $MOD
 
 # start a terminal
 bindsym $MOD+Return exec i3-sensible-terminal
-bindsym $Mod+Shift+Return exec termite -d .
+bindsym $Mod+Shift+Return exec scripts/shell_cwd.sh
 
 # kill focused window
 bindsym $MOD+q kill
