@@ -12,6 +12,7 @@ bluez
 bluez-utils
 bzip2
 cmake
+code
 compton
 coreutils
 cryptsetup
@@ -102,6 +103,7 @@ pulseaudio-bluetooth
 python-pywal
 redshift
 reiserfsprogs
+ruby
 s-nail
 sed
 shadow

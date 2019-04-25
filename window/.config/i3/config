@@ -191,7 +191,7 @@ exec firefox
 # for_window [class="Firefox"] tiling enable, move container to workspace 1 ????? 
 assign [class="Firefox"] 2
 assign [class="jetbrains-idea"] 3
-assign [class="Spotify"] 4
+assign [class="spotify, Spotify"] 4
 
 # Program hotkeys
 bindsym $Mod+Shift+W exec firefox
