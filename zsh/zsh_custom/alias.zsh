@@ -5,6 +5,5 @@ alias exg='vim /etc/X11/xorg.conf.d/xorg.conf'
 alias etm='vim ~/.config/termite/config'
 alias ka='killall'
 alias poly=''
-alias "pacman -S"='sudo pacman -S'
-alias "git s"='git status'
 alias bt=bluetoothctl
+alias zth='zathura'

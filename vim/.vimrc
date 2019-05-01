@@ -8,6 +8,10 @@ syntax on
 "let mapleader = "-"
 let g:tex_flavor='latex'
 let g:tex_no_error=1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 " Settings
 set spelllang=en              
@@ -21,6 +25,9 @@ set iskeyword+=:
 set sw=2
 set grepprg=grep\ -nH\ $*
 set laststatus=2
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 " mappings
 nmap <S-ENTER> O<Esc>

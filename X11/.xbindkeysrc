@@ -82,6 +82,10 @@
 "playerctl previous"
     XF86AudioPrev
 
+# Screenshot
+"deepin-screenshot"
+    alt+shift+3
+
 
 # Examples of commands:
 

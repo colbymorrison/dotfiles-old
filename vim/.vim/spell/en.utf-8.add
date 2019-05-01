@@ -25,3 +25,7 @@ subsequences
 iff
 DeMorgan's
 setminus
+Stmt
+LALR
+nonterminal
+differentiable
