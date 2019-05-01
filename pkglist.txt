@@ -88,7 +88,9 @@ oh-my-zsh-git
 openssh
 pacaur
 pacman
+pacman-contrib
 patch
+pavucontrol
 pciutils
 perl
 pixman
@@ -101,6 +103,7 @@ psmisc
 pulseaudio
 pulseaudio-bluetooth
 python-pywal
+ranger
 redshift
 reiserfsprogs
 ruby
@@ -135,6 +138,7 @@ timew
 ttf-font-awesome-4
 ttf-material-icons
 ttf-unifont
+unclutter
 unzip
 usbutils
 util-linux
@@ -142,6 +146,7 @@ vi
 vim-instant-markdown
 vim-latexsuite
 vim-markdown
+vim-syntastic
 vim-youcompleteme-git
 watson
 which

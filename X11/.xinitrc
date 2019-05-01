@@ -61,5 +61,6 @@ fi
 
 # Set numlock on
 numlockx &
+unclutter &
 
 

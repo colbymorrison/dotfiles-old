@@ -191,16 +191,17 @@ exec firefox
 # for_window [class="Firefox"] tiling enable, move container to workspace 1 ????? 
 assign [class="Firefox"] 2
 assign [class="jetbrains-idea"] 3
-assign [class="spotify, Spotify"] 4
+assign [class="Spotify"] 4
 
 # Program hotkeys
 bindsym $Mod+Shift+W exec firefox
 bindsym $Mod+Shift+S exec spotify
 
 # Gaps
-for_window [class="^.*"] border pixel 0
-gaps inner 10 
-gaps outer 10 
+for_window [class=".*"] border pixel 0
+gaps inner 10
+gaps outer 5
+smart_gaps on
 smart_borders on
 
 # Increase volume
@@ -211,7 +212,6 @@ smart_borders on
 
 # Mute volume
 # bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-
 # Increase backlight
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
