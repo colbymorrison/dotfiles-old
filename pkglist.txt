@@ -41,6 +41,7 @@ gdrive
 gettext
 git
 glibc
+go
 grep
 grub
 gtop
@@ -164,6 +165,7 @@ xorg-xrandr
 xterm
 zathura
 zathura-pdf-mupdf
+zip
 zsh
 zsh-completions
 zsh-syntax-highlighting
