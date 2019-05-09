@@ -21,5 +21,5 @@ else
 fi
 
 
-polybar-msg hook ipc 0
+polybar-msg hook bluetooth 1
 
