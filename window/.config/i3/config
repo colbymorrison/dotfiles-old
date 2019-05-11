@@ -38,7 +38,7 @@ floating_modifier $MOD
 
 # start a terminal
 bindsym $MOD+Return exec i3-sensible-terminal
-bindsym $Mod+Shift+Return exec scripts/shell_cwd.sh
+bindsym $Mod+Shift+Return exec termite -d $(xcwd) 
 
 # kill focused window
 bindsym $MOD+q kill
@@ -199,8 +199,8 @@ bindsym $Mod+Shift+S exec spotify
 
 # Gaps
 for_window [class=".*"] border pixel 0
-gaps inner 10
-gaps outer 5
+gaps inner 5
+gaps outer 3
 smart_gaps on
 smart_borders on
 
