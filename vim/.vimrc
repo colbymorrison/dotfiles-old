@@ -4,7 +4,7 @@ syntax on
 
 " Vundle
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/dotfiles/vim/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -36,7 +36,7 @@ let g:tex_no_error=1
 
 " Settings
 set spelllang=en              
-set spellfile=$HOME/dotfiles/.vim/spell/en.utf-8.add
+set spellfile=$HOME/.vim/spell/en.utf-8.add
 set mouse=a
 set tabstop=4
 set shiftwidth=4
