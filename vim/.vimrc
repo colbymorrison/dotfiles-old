@@ -49,4 +49,5 @@ set grepprg=grep\ -nH\ $*
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
+inoremap jj <Esc>
 

@@ -5,7 +5,7 @@ export ZSH="/Users/colby/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="sunrise"
+ZSH_THEME="mysunrise"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -69,6 +69,10 @@ plugins=(git osx colorize)
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  fi
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
 
 #POWERLEVEL
 #POWERLEVEL9K_PROMPT_ON_NEWLINE=true
