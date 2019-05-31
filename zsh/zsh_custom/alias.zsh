@@ -7,4 +7,5 @@ alias ka='killall'
 alias poly=''
 alias bt=bluetoothctl
 alias zth='zathura'
+alias ztf='zathura --fork'
 alias jnl='journalctl'

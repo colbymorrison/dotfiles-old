@@ -1,6 +1,7 @@
 acpid
 acpilight
 alsa-utils
+appstream-glib
 auracle-git
 autoconf
 automake
@@ -11,6 +12,7 @@ bison
 bluez
 bluez-utils
 bzip2
+check
 cmake
 code
 compton
@@ -34,6 +36,7 @@ file
 filesystem
 findutils
 firefox
+flashplugin
 flex
 gawk
 gcc
@@ -77,6 +80,7 @@ man-pages
 maven
 mdadm
 mesa
+meson
 nano
 ncurses5-compat-libs
 neofetch
@@ -87,6 +91,7 @@ nm-connection-editor
 nss-mdns
 numlockx
 oh-my-zsh-git
+okular
 openssh
 pacaur
 pacman
@@ -94,6 +99,7 @@ pacman-contrib
 patch
 pavucontrol
 pciutils
+pdfsam
 perl
 pixman
 pkgconf
@@ -106,6 +112,7 @@ psmisc
 pulseaudio
 pulseaudio-bluetooth
 python-pywal
+python-sphinx
 ranger
 redshift
 reiserfsprogs
@@ -114,6 +121,7 @@ s-nail
 sed
 shadow
 siji-git
+skypeforlinux-stable-bin
 spotify
 stow
 sudo
@@ -138,6 +146,7 @@ texlive-pstricks
 texlive-publishers
 texlive-science
 timew
+ttf-croscore
 ttf-font-awesome-4
 ttf-material-icons
 ttf-unifont
