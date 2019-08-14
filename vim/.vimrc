@@ -14,6 +14,7 @@ let g:tex_no_error=1
 "let g:syntastic_check_on_wq = 0
 
 " Settings
+set number
 set path+=**
 set spelllang=en              
 set spellfile=$HOME/.vim/spell/en.utf-8.add

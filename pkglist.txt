@@ -107,10 +107,10 @@ playerctl
 powerline
 powerline-fonts-git
 procps-ng
-projectm-pulseaudio
 psmisc
 pulseaudio
 pulseaudio-bluetooth
+python-pipenv
 python-pywal
 python-sphinx
 ranger

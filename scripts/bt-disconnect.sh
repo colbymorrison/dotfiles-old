@@ -15,13 +15,13 @@ if [ "$(systemctl is-active bluetooth.service)" = "active" ]; then
   if [ "$(bluetoothctl -- info $deviceId | grep Connected: | sed 's/Connected://g'|sed 's/^[ \t]*//')" != "no" ]; then
     echo "Failed to disconnect $deviceName"
     exit 1
+  else
+    echo "$deviceName disconnected"
+    echo   > /tmp/bt-info
+    echo > /tmp/bt-name
   fi
 
-  echo "$deviceName disconnected"
-  echo   > /tmp/bt-info
-  echo > /tmp/bt-name
-
-  polybar-masg hook bluetooth 1
+  polybar-msg hook bluetooth 1
 else
     echo "Bluetooth service is not on. Try \"systemctl start bluetooth\"\?"
 fi
