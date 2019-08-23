@@ -1,4 +1,3 @@
-#
 # ~/.bashrc
 # Run by interactive shells (after /etc/bash.bashrc)
 
@@ -6,7 +5,7 @@
 [[ $- != *i* ]] && return
 
 # Alias
-alias ls='ls -A --color=auto'
+alias ls='ls -A'
 PS1='[\u@\h \W]\$ '
 # Environment variables
 export CLICOLOR=1

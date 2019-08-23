@@ -3,9 +3,7 @@ export ZSH="/Users/colby/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#POWERLEVEL9K_MODE='awesome-fontconfig'
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="mysunrise"
+ZSH_THEME="fishy"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -74,21 +72,9 @@ plugins=(git osx colorize)
 bindkey -v
 export KEYTIMEOUT=1
 
-#POWERLEVEL
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#POWERLEVEL9k_COLOR_SCHEME='light'
-#POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir vcs)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
-#POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
-#POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-#export DEFAULT_USER="$USER"
-
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

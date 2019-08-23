@@ -13,6 +13,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/YouCompleteMe'
 Plugin 'vim-latex/vim-latex'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'wincent/command-t'
+Plugin 'dense-analysis/ale'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +48,8 @@ set shellslash
 set iskeyword+=:
 set sw=2
 set grepprg=grep\ -nH\ $*
+set ruler
+set number
 
 " mappings
 nmap <S-ENTER> O<Esc>
