@@ -35,7 +35,7 @@ connect () {
       echo > /tmp/bt-name
     fi
     fi
-  lse
+  else
     echo "Bluetooth service is not on. Try \"systemctl start bluetooth\"\?"
     fi
 
