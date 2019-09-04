@@ -1,3 +1,22 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+
 [bar/top]
 monitor = ${env:AUTORANDR_MONITORS:eDP1} 
 width = 100%
@@ -72,10 +91,10 @@ bar-width = 10
 bar-indicator = |
 bar-indicator-font = 3
 bar-indicator-foreground = #ff
-bar-fill = ─
+bar-fill = —
 bar-fill-font = 3
 bar-fill-foreground = #c9665e
-bar-empty = ─
+bar-empty = —
 bar-empty-font = 3
 bar-empty-foreground = #44
 
@@ -205,7 +224,7 @@ interface = wlan0
 interval = 3.0
 ping-interval = 3
 
-label-connected =   %local_ip%   %downspeed%   %upspeed%   %signal%% 
+label-connected =   %local_ip%  %signal%% 
 
 [module/network-stats-wired]
 type = internal/network
@@ -213,7 +232,7 @@ interface = eth0
 interval = 3.0
 ping-interval = 3
 
-label-connected =   %local_ip%   %downspeed%   %upspeed%   %linkspeed%  
+label-connected =   %local_ip%  %linkspeed%  
 
 [module/powermenu]
 type = custom/menu
@@ -314,9 +333,9 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = —
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = —
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = #555
 
@@ -347,9 +366,9 @@ warn-temperature = 60
 [module/bluetooth]
 type = custom/ipc
 
-hook-0 = cat /tmp/bt-info
+hook-0 = [ -f /tmp/bt-info ] && cat /tmp/bt-info
 hook-1 = echo   
-hook-2 = cat /tmp/bt-info /tmp/bt-name | tr '\n' ' '        
+hook-2 = [ -f /tmp/bt-info ] && cat /tmp/bt-info /tmp/bt-name | tr '\n' ' '        
 
 initial = 2
 

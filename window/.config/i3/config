@@ -52,7 +52,6 @@ bindsym $MOD+d exec dmenu_run
 
 # change focus
 bindsym $MOD+$left focus left
-
 bindsym $MOD+$down focus down
 bindsym $MOD+$up focus up
 bindsym $MOD+$right focus right
@@ -185,7 +184,6 @@ exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id termite 
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 41.4011:-73.5423 
-exec firefox
 
 # Workspace bindings
 # for_window [class="Firefox"] tiling enable, move container to workspace 1 ????? 
@@ -199,28 +197,15 @@ bindsym $Mod+Shift+S exec spotify
 
 # Gaps
 for_window [class=".*"] border pixel 0
-gaps inner 5
-gaps outer 3
-smart_gaps on
-smart_borders on
+#gaps inner 5
+#gaps outer 3
+#smart_gaps on
+#smart_borders on
 
-# Increase volume
-# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1000
 
-# Decrease volume
-# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1000
-
-# Mute volume
-# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-# Increase backlight
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-
-# Increase backlight
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
-# Increase keyboard backlight
-# bindsym XF86KbdBrightnessUp exec kdlt-up
-
-# Decrease keyboard backlight
-# bindsym XF86KbdBrightnessDown exec kdlt-down
+# i3-vim-integreation
+bindsym --release Control+h exec "i3-vim-focus left"
+bindsym --release Control+j exec "i3-vim-focus down"
+bindsym --release Control+k exec "i3-vim-focus up"
+bindsym --release Control+l exec "i3-vim-focus right"
 

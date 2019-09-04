@@ -7,5 +7,5 @@ CON_LINES=$(echo "$CON" | wc | awk '{print $1}')
 DISPLAY_LN=$(echo "$CON" | head -n $CON_LINES | tail -1)
 echo $DISPLAY_LN
 
-export DISPLAY_NM=$(echo $DISPLAY_LN | awk '{print $1}')
-export DISPLAY_SZ=$(echo $DISPLAY_LN | awk '{print $3}')
+export DISPLAY_NM=$(echo $DISPLAY_LN | cut -d ' ' -f 1)
+export DISPLAY_SZ=$(echo $DISPLAY_LN | cut -d ' ' -f 4)

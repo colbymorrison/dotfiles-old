@@ -86,6 +86,9 @@
 "deepin-screenshot"
     alt+shift+3
 
+# Paste
+# "xsel"
+#    control + v
 
 # Examples of commands:
 

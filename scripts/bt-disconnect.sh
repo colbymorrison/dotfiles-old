@@ -10,7 +10,7 @@ if [ "$(systemctl is-active bluetooth.service)" = "active" ]; then
 
   deviceId=$(bluetoothctl -- devices | grep $device | cut -d ' ' -f 2)
 
-  bluetoothctl -- disconnect $deviceId
+  bluetoothctl -- disconnect $deviceId > /dev/null
 
   if [ "$(bluetoothctl -- info $deviceId | grep Connected: | sed 's/Connected://g'|sed 's/^[ \t]*//')" != "no" ]; then
     echo "Failed to disconnect $deviceName"
