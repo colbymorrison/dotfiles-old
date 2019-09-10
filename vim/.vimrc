@@ -16,10 +16,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'valloric/YouCompleteMe'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'wincent/command-t'
+Plugin 'dense-analysis/ale'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'jwilm/i3-vim-focus'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -38,10 +40,6 @@ filetype plugin indent on    " required
 "let mapleader = "-"
 let g:tex_flavor='latex'
 let g:tex_no_error=1
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " Settings
 set number
@@ -57,16 +55,11 @@ set iskeyword+=:
 set sw=2
 set grepprg=grep\ -nH\ $*
 set laststatus=2
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set encoding=utf-8
+
+colo ron
 
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
 inoremap jj <Esc>
-"i3-vim-integration
-map gwl :call Focus('right', 'l')<CR>
-map gwh :call Focus('left', 'h')<CR>
-map gwk :call Focus('up', 'k')<CR>
-map gwj :call Focus('down', 'j')<CR>
