@@ -27,7 +27,6 @@ call IMAP('TIKZ', "\\begin{tikzpicture}[shorten >=1pt,node distance=3cm,on grid,
 call IMAP('NODES', "\<C-r>=Nodes()\<CR>", 'tex')
 call IMAP('INV', "^{-1}", 'tex')
 call IMAP('SEQ', "\\{<++>\\}_{n=1}^\\infty<++>", 'tex')
-map :w :w<cr><leader>ll
 
 function! Nodes()
     let numn = input("Enter number of nodes: ") 

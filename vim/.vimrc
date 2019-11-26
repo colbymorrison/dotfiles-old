@@ -16,6 +16,7 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'wincent/command-t'
 Plugin 'dense-analysis/ale'
+Plugin 'jalvesaq/Nvim-R'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,4 +56,11 @@ set number
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
 inoremap jj <Esc>
+tnoremap <C-x> <C-\><C-n>
+
+let R_assign = 0
+
+set background=dark
+let g:solarized_termcolors=16
+colorscheme solarized
 
