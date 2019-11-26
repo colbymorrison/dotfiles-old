@@ -87,6 +87,7 @@ plugins=(git)
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+export TERM=xterm
 
 # vi mode
 bindkey -v
@@ -107,6 +108,4 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source ~/.oh-my-zsh/oh-my-zsh.sh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
- 
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 

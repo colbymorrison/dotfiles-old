@@ -24,3 +24,7 @@ function gitch(){
     echo
     git push -u origin $(git branch | grep \* | sed 's/* //')
 }
+
+export SHELL=/bin/zsh
+exec /bin/zsh -l
+# tmux

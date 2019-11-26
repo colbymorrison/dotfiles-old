@@ -20,6 +20,8 @@ Plugin 'valloric/YouCompleteMe'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'wincent/command-t'
 Plugin 'dense-analysis/ale'
+Plugin 'jalvesaq/Nvim-R'
+Plugin 'vim-latex/vim-latex'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 call vundle#end()            " required
@@ -38,8 +40,10 @@ filetype plugin indent on    " required
 
 " Lets
 "let mapleader = "-"
+let g:Tex_DefaultTargetFormat='pdf'
 let g:tex_flavor='latex'
 let g:tex_no_error=1
+let g:ale_echo_cursor = 0
 
 " Settings
 set number
@@ -57,9 +61,10 @@ set grepprg=grep\ -nH\ $*
 set laststatus=2
 set encoding=utf-8
 
-colo ron
-
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
 inoremap jj <Esc>
+tnoremap <C-x> <C-\><C-n>
+
+colo desert
