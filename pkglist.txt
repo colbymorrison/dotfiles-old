@@ -6,6 +6,7 @@ auracle-git
 autoconf
 automake
 autorandr
+base
 bash
 binutils
 bison
@@ -45,6 +46,8 @@ gettext
 git
 glibc
 go
+google-chrome
+gptfdisk
 grep
 grub
 gtop
@@ -60,6 +63,7 @@ intel-ucode
 intellij-idea-ultimate-edition
 iproute2
 iputils
+jags
 jdk8-openjdk
 jfsutils
 laptop-mode-tools
@@ -92,12 +96,15 @@ nginx-mainline
 ngrok
 nm-connection-editor
 nss-mdns
+ntp
 numlockx
+nvim-r
 oh-my-zsh-git
 openssh
 pacaur
 pacman
 pacman-contrib
+pandoc
 patch
 pavucontrol
 pciutils
@@ -107,12 +114,15 @@ pixman
 pkgconf
 playerctl
 pm2
+polybar
 powerline
 powerline-fonts-git
 procps-ng
 psmisc
 pulseaudio
 pulseaudio-bluetooth
+pygtk
+python-dbus
 python-django
 python-google-api-python-client
 python-google-auth-oauthlib
@@ -153,6 +163,7 @@ texlive-pstricks
 texlive-publishers
 texlive-science
 timew
+tk
 ttf-croscore
 ttf-font-awesome-4
 ttf-material-icons
@@ -164,11 +175,8 @@ util-linux
 vi
 vim-ale
 vim-command-t
-vim-instant-markdown
 vim-latexsuite
-vim-markdown
 vim-syntastic
-vim-youcompleteme-git
 which
 wpa_supplicant
 xbindkeys

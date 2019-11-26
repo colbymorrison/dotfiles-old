@@ -186,13 +186,12 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 41.4011:-73.5423 
 
 # Workspace bindings
-# for_window [class="Firefox"] tiling enable, move container to workspace 1 ????? 
-assign [class="Firefox"] 2
-assign [class="jetbrains-idea"] 3
+
+assign [class="Google-chrome"] 3
 assign [class="Spotify"] 4
 
 # Program hotkeys
-bindsym $Mod+Shift+W exec firefox
+bindsym $Mod+Shift+W exec google-chrome-stable
 bindsym $Mod+Shift+S exec spotify
 
 # Gaps

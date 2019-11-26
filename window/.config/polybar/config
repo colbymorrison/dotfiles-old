@@ -37,7 +37,7 @@ font-1 = ${env:MATRT}
 font-2 = ${env:TERMST}
 font-3 = ${env:AWST}
 
-modules-left = powermenu mpd i3
+modules-left = i3 
 modules-right = pulseaudio backlight bluetooth wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext
@@ -168,23 +168,8 @@ date-alt = %%{F#fff}%A, %B %d %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
 type = internal/memory
-format = <label> <bar-used>
-label = RAM %gb_used%/%gb_free%
-
-bar-used-width = 30
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
-bar-used-foreground-2 = #fba922
-bar-used-foreground-3 = #ff5555
-bar-used-indicator = |
-bar-used-indicator-font = 6
-bar-used-indicator-foreground = #ff
-bar-used-fill = ─
-bar-used-fill-font = 6
-bar-used-empty = ─
-bar-used-empty-font = 6
-bar-used-empty-foreground = #444444
-
+format = <label>
+label = RAM %percentage_used% %
 
 [module/wireless-network]
 type = internal/network

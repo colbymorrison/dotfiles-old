@@ -38,10 +38,6 @@ filetype plugin indent on    " required
 "let mapleader = "-"
 let g:tex_flavor='latex'
 let g:tex_no_error=1
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " Settings
 set number
@@ -57,16 +53,17 @@ set iskeyword+=:
 set sw=2
 set grepprg=grep\ -nH\ $*
 set laststatus=2
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
 
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
+imap <C-g> <Plug>IMAP_JumpForward
+nmap <C-g> <Plug>IMAP_JumpForward
 inoremap jj <Esc>
 "i3-vim-integration
 map gwl :call Focus('right', 'l')<CR>
 map gwh :call Focus('left', 'h')<CR>
 map gwk :call Focus('up', 'k')<CR>
 map gwj :call Focus('down', 'j')<CR>
+
+let R_assign = 0
