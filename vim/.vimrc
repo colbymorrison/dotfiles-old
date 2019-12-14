@@ -51,6 +51,8 @@ set sw=2
 set grepprg=grep\ -nH\ $*
 set ruler
 set number
+set hlsearch
+set laststatus=2
 
 " mappings
 nmap <S-ENTER> O<Esc>
