@@ -1,4 +1,0 @@
-set showmode
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
-source ~/.vimrc

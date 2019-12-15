@@ -2,26 +2,25 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin on            " for vim-latex 
 filetype indent on            " for vim-latex 
-syntax on
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Only use Vundle for non-arch plugins
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'jwilm/i3-vim-focus'
-call vundle#end()            " required
-filetype plugin indent on    " required
+"Plugin 'jwilm/i3-vim-focus'
+"call vundle#end()            " required
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -40,6 +39,7 @@ let g:tex_flavor='latex'
 let g:tex_no_error=1
 
 " Settings
+syntax on
 set number
 set path+=**
 set spelllang=en              
@@ -67,3 +67,5 @@ map gwk :call Focus('up', 'k')<CR>
 map gwj :call Focus('down', 'j')<CR>
 
 let R_assign = 0
+
+colo desert
