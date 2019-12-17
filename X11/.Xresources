@@ -1,20 +1,15 @@
 xterm*background: black
 xterm*foreground: lightgray
-xterm*faceName: DejaVu Sans Mono for Powerline
-xterm*faceSize: 13 
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize: 8 
 xterm*selectToClipboard: true
 XTerm.VT100.color4: CornflowerBlue
-Xterm*VT100*Translations: #override \n\
-  Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
-  Ctrl Shift <Key>V: insert-selction(CLIPBOARD) 
+Xterm*vt100*Translations: #override \
+  Ctrl Shift <Key> C: copy-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key> V: insert-selction(CLIPBOARD) \n\
+  Ctrl Shift <Key> V: insert-selction(PRIMARY) \n\
 
-URxvt.depth: 32
-URxvt.background: [95]#000000
-URxvt.scrollBar: false
-URvxt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=12
-!URxvt*font: xft:monaco:size=12
-
-Xft.dpi: 221 
+Xft.dpi: 227 
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull

@@ -19,7 +19,7 @@ for file in "/etc/X11/xinit/.Xresources" "$HOME/.Xresources"; do
     fi
 done
 
-# Load keymaps
+# Load keymaps (NOT CURRENTLY USING)
 for file in "/etc/X11/Xkbmap" "$HOME/.Xkbmap"; do
     if [ -f "$file" ]; then
         echo "Loading keymap: $file"
@@ -52,15 +52,26 @@ if [ -d "$xinitdir" ]; then
     done
 fi
 
-# Run user xsession shell script
+# Run user xsession shell script (NOT CURRENTLY USING)
 script="$HOME/.xsession"
 if [ -x "$script" -a ! -d "$script" ]; then
     echo "Loading xsession script $script"
     . "$script"
 fi
 
+# Startup programs
+xbindkeys
+polybar
+# systemctl --user start dispad.service
+# feh --bg-scale --randomize ~/backgrounds/* &
+
 # Set numlock on
-numlockx &
-unclutter &
+# numlockx &
+#unclutter &
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.95
+#export QT_SCREEN_SCALE_FACTORS=0.9
+#export QT_AUTO_SCREEN_SCALE_FACTOR=2
+#export QT_SCALE_FACTOR=2
 
-
+exec i3

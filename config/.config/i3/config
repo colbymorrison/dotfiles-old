@@ -10,10 +10,11 @@
 #
 
 set $MOD Mod4
+set $TERM termite
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 11
+font pango:DejaVu Sans Mono 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -37,8 +38,8 @@ set $right semicolon
 floating_modifier $MOD
 
 # start a terminal
-bindsym $MOD+Return exec i3-sensible-terminal
-bindsym $Mod+Shift+Return exec termite -d $(xcwd) 
+bindsym $MOD+Return exec $TERM
+bindsym $Mod+Shift+Return exec $TERM -d $(xcwd) 
 
 # kill focused window
 bindsym $MOD+q kill
@@ -61,6 +62,12 @@ bindsym $MOD+Left focus left
 bindsym $MOD+Down focus down
 bindsym $MOD+Up focus up
 bindsym $MOD+Right focus right
+
+# or control + vimkeys
+bindsym Control+h focus left
+bindsym Control+j focus down
+bindsym Control+k focus up
+bindsym Control+l focus right
 
 # move focused window
 bindsym $MOD+Shift+$left move left
@@ -181,21 +188,19 @@ bindsym $MOD+r mode "resize"
 
 # Startup programs
 exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id termite 
+exec --no-startup-id $TERM
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 41.4011:-73.5423 
 
 # Workspace bindings
 
-assign [class="Google-chrome"] 3
 assign [class="Spotify"] 4
 
 # Program hotkeys
-bindsym $Mod+Shift+W exec google-chrome-stable
 bindsym $Mod+Shift+S exec spotify
 
 # Gaps
-for_window [class=".*"] border pixel 0
+# for_window [class=".*"] border pixel 0
 #gaps inner 5
 #gaps outer 3
 #smart_gaps on
@@ -203,8 +208,8 @@ for_window [class=".*"] border pixel 0
 
 
 # i3-vim-integreation
-bindsym --release Control+h exec "i3-vim-focus left"
-bindsym --release Control+j exec "i3-vim-focus down"
-bindsym --release Control+k exec "i3-vim-focus up"
-bindsym --release Control+l exec "i3-vim-focus right"
+# bindsym --release Control+h exec "i3-vim-focus left"
+# bindsym --release Control+j exec "i3-vim-focus down"
+# bindsym --release Control+k exec "i3-vim-focus up"
+# bindsym --release Control+l exec "i3-vim-focus right"
 

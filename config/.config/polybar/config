@@ -32,10 +32,10 @@ spacing = 2
 padding-right = 5
 module-margin = 4
 
-font-0 = ${env:NOTOT}
-font-1 = ${env:MATRT}
-font-2 = ${env:TERMST}
-font-3 = ${env:AWST}
+font-0 = fixed:pixelsize=10;1
+font-1 = fixed:pixelsize=10;1
+font-2 = fixed:pixelsize=10;1
+font-3 = fixed:pixelsize=10;1
 
 modules-left = i3 
 modules-right = pulseaudio backlight bluetooth wireless-network wired-network battery date
@@ -63,12 +63,12 @@ padding-left = 4
 module-margin-left = 4 
 module-margin-right = 6
 
-font-0 = ${env:NOTOB} 
-font-1 = ${env:UNIB}
-font-2 = ${env:AWSB}
-font-3 = ${env:NOTOT}
-font-4 = ${env:MATRB}
-font-5 = ${env:TERMSB}
+font-0 = fixed:pixelsize=10;1
+font-1 = fixed:pixelsize=10;1
+font-2 = fixed:pixelsize=10;1
+font-3 = fixed:pixelsize=10;1
+font-4 = fixed:pixelsize=10;1
+font-5 = fixed:pixelsize=10;1
 
 modules-left = network-stats-wireless network-stats-wired temperature
 

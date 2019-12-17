@@ -4,7 +4,7 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
-font = DejaVu Sans Mono for Powerline, 8 
+font = DejaVu Sans Mono, 8 
 
 #fullscreen = true
 #icon_name = terminal
@@ -38,50 +38,35 @@ scrollback_lines = 10000
 
 # "off", "left" or "right"
 #scrollbar = off
-
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
+# https://github.com/chriskempson/base16-xresources/blob/master/base16-3024.dark.256.xresources
+# Base16 3024
+# Scheme: Jan T. Sott (http://github.com/idleberg)
+foreground=#ffffff
+background=#000000
+cursor=#a5a2a2
 
-# 20% background transparency (requires a compositor)
-background = rgba(30, 30, 30, 0.75)
+color0=#090300
+color1=#db2d20
+color2=#01a252
+color3=#fded02
+color4=#5f87ff
+color5=#a16a94
+color6=#b5e4f4
+color7=#a5a2a2
+color8=#5c5855
+color9=#db2d20
+color10=#01a252
+color11=#fded02
+color12=#01a0e4
+color13=#a16a94
+color14=#b5e4f4
+color15=#f7f7f7
 
-# If unset, will reverse foreground and background
-highlight = #2f2f2f
-
-# Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-
-# vim: ft=dosini cms=#%s
+color16=#e8bbd0
+color17=#cdab53
+color18=#3a3432
+color19=#4a4543
+color20=#807d7c
+color21=#d6d5d4

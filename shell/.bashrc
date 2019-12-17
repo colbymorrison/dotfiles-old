@@ -24,3 +24,11 @@ function gitch(){
     echo
     git push -u origin $(git branch | grep \* | sed 's/* //')
 }
+
+function ec(){
+  cfg_path=".config/$1/config"
+  [[ -f $cfg_path ]] && vim $cfg_path; return
+  echo  "No directory in ~/.config with name $1"
+}
+
+

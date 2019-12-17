@@ -1,3 +1,2 @@
-systemctl --user start dispad.service
-feh --bg-scale --randomize ~/backgrounds/* &
-xbindkeys
+# systemctl --user start dispad.service
+# feh --bg-scale --randomize ~/backgrounds/* &
