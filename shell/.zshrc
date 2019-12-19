@@ -88,20 +88,25 @@ plugins=(git history-substring-search)
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# vi mode
-export KEYTIMEOUT=1
-
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+# Move zcompdump to cachej
 ZSH_COMPDUMP=$HOME/$ZSH_CACHE_DIR
+
+# History substring edits
+export DISABLE_COLOR=true
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M viins 'jj' vi-cmd-mode
+
+# Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# vim keybindings (after oh-my-zsh!)
 bindkey -v
  

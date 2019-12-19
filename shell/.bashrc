@@ -8,9 +8,8 @@
 # Alias
 alias ls='ls -A --color=auto'
 PS1='[\u@\h \W]\$ '
+
 # Environment variables
-export CLICOLOR=1
-export VISUAL=vim
 export EDITOR=$VISUAL
 
 # Custom functions

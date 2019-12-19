@@ -8,4 +8,4 @@ if [ "${VAL}" -lt 255 ]; then
     else
         echo $(($VAL+10)) > $FILE
     fi 
-    fi
+fi

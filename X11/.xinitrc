@@ -59,19 +59,24 @@ if [ -x "$script" -a ! -d "$script" ]; then
     . "$script"
 fi
 
-# Startup programs
-xbindkeys
-polybar
-# systemctl --user start dispad.service
-# feh --bg-scale --randomize ~/backgrounds/* &
-
 # Set numlock on
-# numlockx &
-#unclutter &
-#export GDK_SCALE=2
-#export GDK_DPI_SCALE=0.95
+numlockx &
+unclutter &
+
+# Hidpi -- for MacBookPro
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
 #export QT_SCREEN_SCALE_FACTORS=0.9
-#export QT_AUTO_SCREEN_SCALE_FACTOR=2
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 #export QT_SCALE_FACTOR=2
+
+
+# Startup commands
+xbindkeys
+~/.config/polybar/launch.sh
+# systemctl --user start dispad.service
+feh --bg-scale --randomize ~/backgrounds/* &
+chmod a+w /sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness
+
 
 exec i3

@@ -26,6 +26,13 @@ function polyrs(){
 }
 
 # What directory am I in?
-precmd(){
-  pwd > /tmp/whereami
+#precmd(){
+#  pwd > /tmp/whereami
+#}
+
+
+function ec(){
+  cfg_path=".config/$1/config"
+  [[ -f $cfg_path ]] && vim $cfg_path; return
+  echo  "No directory in ~/.config with name $1"
 }
