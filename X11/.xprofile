@@ -1,2 +1,0 @@
-# systemctl --user start dispad.service
-# feh --bg-scale --randomize ~/backgrounds/* &

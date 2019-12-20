@@ -5,5 +5,5 @@ export GOPATH=$(go env GOPATH)
 export GOROOT=$(go env GOROOT)
 export VISUAL=vim
 export EDITOR=$visual
-source ~/scripts/monitor.sh
+export CLICOLOR=1
 compton &

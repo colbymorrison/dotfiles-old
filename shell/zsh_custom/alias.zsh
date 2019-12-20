@@ -16,5 +16,6 @@ alias e='exit'
 alias m='man'
 alias pm='sudo pacman'
 alias stl='sudo systemctl'
+alias -g not='~/notes/notes.md'
 
 

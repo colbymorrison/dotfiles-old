@@ -1,4 +1,4 @@
 #! /bin/bash
 
-. /home/colby/scripts/monitor.sh
+export FONT_SZ=14
 . /home/colby/.config/polybar/launch.sh

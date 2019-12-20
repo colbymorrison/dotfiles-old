@@ -2,7 +2,7 @@
 
 # Stolen from fishy theme
 collapsed_wd() {
-    collapsedir.py $(pwd) 4
+    /home/colby/scripts/collapsedir.py $(pwd) 4
 }
 
 local user='%{$fg[red]%}%n@%{$fg[red]%}%m%{$reset_color%}'

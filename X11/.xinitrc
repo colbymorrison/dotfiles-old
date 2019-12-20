@@ -59,9 +59,6 @@ if [ -x "$script" -a ! -d "$script" ]; then
     . "$script"
 fi
 
-# Set numlock on
-numlockx &
-unclutter &
 
 # Hidpi -- for MacBookPro
 export GDK_SCALE=2
@@ -71,12 +68,14 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 #export QT_SCALE_FACTOR=2
 
 
-# Startup commands
+# Startup programs
 xbindkeys
-~/.config/polybar/launch.sh
-# systemctl --user start dispad.service
+numlockx &
+unclutter &
+redshift &
+$HOME/.config/polybar/launch.sh
+nm-applet 
 feh --bg-scale --randomize ~/backgrounds/* &
 chmod a+w /sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness
-
 
 exec i3

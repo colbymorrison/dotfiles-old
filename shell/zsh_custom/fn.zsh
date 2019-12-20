@@ -25,14 +25,10 @@ function polyrs(){
     ~/.config/polybar/launch.sh enp0s20u1 
 }
 
-# What directory am I in?
-#precmd(){
-#  pwd > /tmp/whereami
-#}
-
 
 function ec(){
   cfg_path=".config/$1/config"
   [[ -f $cfg_path ]] && vim $cfg_path; return
   echo  "No directory in ~/.config with name $1"
 }
+

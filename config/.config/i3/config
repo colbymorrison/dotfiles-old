@@ -9,7 +9,7 @@
 # layout, use the i3-config-wizard
 #
 
-set $MOD Mod4
+set $MOD Mod1
 set $TERM termite
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -188,9 +188,6 @@ bindsym $MOD+r mode "resize"
 
 # Startup programs
 exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id $TERM
-exec --no-startup-id nm-applet
-exec --no-startup-id redshift -l 41.4011:-73.5423 
 
 # Workspace bindings
 
