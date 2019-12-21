@@ -62,10 +62,10 @@ fi
 
 # Hidpi -- for MacBookPro
 export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
-#export QT_SCREEN_SCALE_FACTORS=0.9
+export GDK_DPI_SCALE=0.4
+# export QT_SCREEN_SCALE_FACTORS=0.5
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-#export QT_SCALE_FACTOR=2
+# export QT_SCALE_FACTOR=1
 
 
 # Startup programs
@@ -73,9 +73,7 @@ xbindkeys
 numlockx &
 unclutter &
 redshift &
-$HOME/.config/polybar/launch.sh
-nm-applet 
 feh --bg-scale --randomize ~/backgrounds/* &
-chmod a+w /sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness
+#sudo chmod a+w /sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness
 
 exec i3

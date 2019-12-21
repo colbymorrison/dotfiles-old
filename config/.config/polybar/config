@@ -32,12 +32,12 @@ spacing = 2
 padding-right = 5
 module-margin = 4
 
-font-0 = fixed:pixelsize=14;1
-font-1 = fixed:pixelsize=14;1
-font-2 = fixed:pixelsize=14;1
-font-3 = fixed:pixelsize=14;1
+font-0 = ${env:NOTOT}
+font-1 = ${env:MATRT}
+font-2 = ${env:TERMST}
+font-3 = ${env:AWST}
 
-modules-left = i3 
+modules-left = i3 cpu memory
 modules-right = pulseaudio backlight bluetooth wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext
@@ -63,12 +63,12 @@ padding-left = 4
 module-margin-left = 4 
 module-margin-right = 6
 
-font-0 = fixed:pixelsize=14;1
-font-1 = fixed:pixelsize=14;1
-font-2 = fixed:pixelsize=14;1
-font-3 = fixed:pixelsize=14;1
-font-4 = fixed:pixelsize=14;1
-font-5 = fixed:pixelsize=14;1
+font-0 = ${env:NOTOB} 
+font-1 = ${env:UNIB}
+font-2 = ${env:AWSB}
+font-3 = ${env:NOTOT}
+font-4 = ${env:MATRB}
+font-5 = ${env:TERMSB}
 
 modules-left = network-stats-wireless network-stats-wired temperature
 
@@ -81,7 +81,9 @@ tray-background = ${bar/top.background}
 
 [module/backlight]
 type = internal/xbacklight
-format = <ramp> <bar>
+format = <ramp> <label>
+
+label = %percentage%%
 
 ramp-0 = 
 ramp-1 = 
@@ -105,6 +107,10 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
+
+#format-charging =  <label-charging>
+#format-discharging = <label-discharging>
+#format-full =  <label-full>
 
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = #f53c3c
@@ -134,7 +140,7 @@ animation-charging-framerate = 750
 type = internal/cpu
 interval = 0.5
 format = <label> <ramp-coreload>
-label = %{A1:gtop:} CPU %percentage-sum% %{A}
+label = %{A1:gtop:} CPU %percentage-sum%% %{A}
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
@@ -163,7 +169,7 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date =    %%{F#99}%m-%d-%Y%%{F-}  %%{F#fff}%H:%M%%{F-}
+date = %%{F#99}%m-%d-%Y%%{F-}  %%{F#fff}%H:%M%%{F-}
 date-alt = %%{F#fff}%A, %B %d %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
@@ -173,11 +179,11 @@ label = RAM %percentage_used% %
 
 [module/wireless-network]
 type = internal/network
-interface = wlan0
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %{A1:%local_ip%  %downspeed%  %linkspeed%:}%essid%%{A} 
+label-connected = %essid%
 label-disconnected =    
 label-disconnected-foreground = #66
 
@@ -300,12 +306,16 @@ label-urgent-padding = ${self.pad}
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+format-volume = <ramp-volume> <label-volume>
+label-volume = %{A3:pavucontrol &:}%percentage%%%{A}
 label-volume-foreground = ${root.foreground}
 
 label-muted =   muted
 label-muted-foreground = #666
+
+ramp-volume-0 =   
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55

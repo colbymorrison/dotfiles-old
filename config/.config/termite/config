@@ -4,7 +4,7 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
-font = DejaVu Sans Mono, 8 
+font = DejaVu Sans Mono, 9 
 
 #fullscreen = true
 #icon_name = terminal

@@ -2,3 +2,5 @@
 
 export FONT_SZ=14
 . /home/colby/.config/polybar/launch.sh
+killall feh
+feh --bg-scale --randomize ~/backgrounds/* &

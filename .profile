@@ -6,4 +6,3 @@ export GOROOT=$(go env GOROOT)
 export VISUAL=vim
 export EDITOR=$visual
 export CLICOLOR=1
-compton &
