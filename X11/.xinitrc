@@ -71,8 +71,9 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # Startup programs
 xbindkeys
 numlockx &
-unclutter &
+#unclutter &
 redshift &
+picom &
 feh --bg-scale --randomize ~/backgrounds/* &
 #sudo chmod a+w /sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness
 

@@ -37,7 +37,7 @@ font-1 = ${env:MATRT}
 font-2 = ${env:TERMST}
 font-3 = ${env:AWST}
 
-modules-left = i3 cpu memory
+modules-left = i3 memory cpu 
 modules-right = pulseaudio backlight bluetooth wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext
@@ -140,7 +140,7 @@ animation-charging-framerate = 750
 type = internal/cpu
 interval = 0.5
 format = <label> <ramp-coreload>
-label = %{A1:gtop:} CPU %percentage-sum%% %{A}
+label =  
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
@@ -175,7 +175,7 @@ date-alt = %%{F#fff}%A, %B %d %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 [module/memory]
 type = internal/memory
 format = <label>
-label = RAM %percentage_used% %
+label = l   %percentage_used% %
 
 [module/wireless-network]
 type = internal/network
@@ -183,8 +183,8 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
-label-disconnected =    
+label-connected = %{A1:nm-connection-editor:}%essid%%{A}
+label-disconnected = %{A1:nm-connection-editor:}%{A}   
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 
