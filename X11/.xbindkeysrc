@@ -65,11 +65,11 @@
     XF86MonBrightnessDown  
 
 # Increase keyboard backlight
-"kdlt-up"
+"kbdlight up"
     XF86KbdBrightnessUp  
 
 # Decrease keyboard backlight
-"kdlt-down"
+"kbdlight down"
     XF86KbdBrightnessDown  
 
 # Audio player

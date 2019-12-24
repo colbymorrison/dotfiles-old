@@ -27,6 +27,9 @@ i3lock
 intel-ucode
 kbdlight
 libtool
+lightdm
+lightdm-webkit-theme-aether
+lightdm-webkit2-greeter
 linux
 linux-firmware
 m4
@@ -67,10 +70,12 @@ unclutter
 vim
 vim-youcompleteme-git
 vlc
+wget
 which
 xbindkeys
 xcalib
 xclip
+xdg-user-dirs
 xdotool
 xf86-input-mtrack-git
 xf86-video-intel

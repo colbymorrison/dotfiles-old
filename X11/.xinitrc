@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Run directly when X is started from a shell with `startx` 
-# Also run from lightdm init script
 
 # Load profile
 for file in "/etc/profile" "$HOME/.profile" "/etc/xprofile" "$HOME/.xprofile"; do
@@ -59,22 +58,5 @@ if [ -x "$script" -a ! -d "$script" ]; then
     . "$script"
 fi
 
-
-# Hidpi -- for MacBookPro
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.4
-# export QT_SCREEN_SCALE_FACTORS=0.5
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-# export QT_SCALE_FACTOR=1
-
-
-# Startup programs
-xbindkeys
-numlockx &
-#unclutter &
-redshift &
-picom &
-feh --bg-scale --randomize ~/backgrounds/* &
-#sudo chmod a+w /sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness
 
 exec i3

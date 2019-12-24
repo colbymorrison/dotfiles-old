@@ -25,6 +25,8 @@ set shellslash
 set iskeyword+=:
 set sw=2
 set grepprg=grep\ -nH\ $*
+set incsearch
+set statusline+=%F
 set laststatus=2
 
 " mappings

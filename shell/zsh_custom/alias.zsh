@@ -4,7 +4,6 @@ alias ls='ls --color=auto -A'
 alias ei3='ec i3'
 alias etm='ec termite'
 alias epb='vim "+set syntax=dosini" ~/.config/polybar/config'
-alias exg='vim /etc/X11/xorg.conf.d/xorg.conf'
 
 
 
@@ -17,7 +16,7 @@ alias free='free -h'
 alias c='clear'
 alias e='exit'
 alias m='man'
-alias pm='sudo pacman'
+alias pmin='sudo pacman -S'
 alias bt=bluetoothctl
 alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
@@ -33,6 +32,7 @@ alias ztf='zathura --fork'
 
 # Global Aliases
 alias -g not='~/notes/notes.md'
+alias -g pm='pacman'
 
 
 

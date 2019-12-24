@@ -9,9 +9,6 @@
 alias ls='ls -A --color=auto'
 PS1='[\u@\h \W]\$ '
 
-# Environment variables
-export EDITOR=$VISUAL
-
 # Custom functions
 
 # Commits git changed files
