@@ -44,7 +44,6 @@ network-manager-applet
 networkmanager
 noto-fonts
 numlockx
-oh-my-zsh-git
 openssh
 pacaur
 pacman-contrib
@@ -56,6 +55,7 @@ playerctl
 polybar
 pulseaudio
 python-pipenv
+qemu
 redshift
 spotify
 stow
@@ -93,4 +93,4 @@ xorg-xinit
 xorg-xprop
 xorg-xrandr
 xterm
-zsh
+zathura
