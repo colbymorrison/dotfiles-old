@@ -135,4 +135,7 @@ function ec(){
   echo  "No directory in ~/.config with name $1"
 }
 
+# ---Bind--- #
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
 
