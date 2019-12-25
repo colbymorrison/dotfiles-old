@@ -1,7 +1,7 @@
 # Edited theme based on /usr/share/oh-my-zsh/themes/alanpeabody.zsh-theme
 
 local user='%{$fg[red]%}%n@%{$fg[red]%}%m%{$reset_color%}'
-local pwd='%{$fg[blue]%}$(/home/colby/scripts/collapsedir.py $(pwd) 4)%{$reset_color%}'
+local pwd='%{$fg[cyan]%}$(/home/colby/scripts/collapsedir.py $(pwd) 4)%{$reset_color%}'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_branch='$(git_prompt_status)%{$reset_color%} $(git_prompt_info)%{$reset_color%}'
 

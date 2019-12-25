@@ -188,20 +188,23 @@ bindsym $MOD+r mode "resize"
 
 # Startup programs
 exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id nm-applet
 
 # Workspace bindings
-
 assign [class="Spotify"] 4
+assign [class="brave-browser"] 2
 
 # Program hotkeys
 bindsym $Mod+Shift+S exec spotify
 
+# Hide window border
+for_window [class=".*"] border pixel 0
+
 # Gaps
-# for_window [class=".*"] border pixel 0
-#gaps inner 5
-#gaps outer 3
-#smart_gaps on
-#smart_borders on
+gaps inner 2
+gaps outer 0
+smart_gaps on
+smart_borders on
+#
+
 
 

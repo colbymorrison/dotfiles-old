@@ -1,3 +1,4 @@
+adwaita-qt
 alsa-utils
 apfs-fuse-git
 auracle-git
@@ -11,6 +12,7 @@ brave-bin
 chrony
 cpio
 cronie
+deepin-screenshot
 dhcpcd
 dmenu
 fakeroot
@@ -37,6 +39,7 @@ make
 man-db
 man-pages
 mbpfan-git
+neofetch
 network-manager-applet
 networkmanager
 noto-fonts
@@ -49,9 +52,12 @@ patch
 pavucontrol
 picom
 pkgconf
+playerctl
 polybar
 pulseaudio
+python-pipenv
 redshift
+spotify
 stow
 sudo
 terminal_markdown_viewer
