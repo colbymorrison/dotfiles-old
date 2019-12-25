@@ -8,19 +8,6 @@
 # ---Prompt--- #
 export PS1="\e[31m\u@\h\e[m \e[36m\W\e[m \$ "
 
-# ---Env Vars--- #
-export PATH="$PATH:/home/colby/scripts"
-export TERMINAL=xterm-termite
-export GOPATH=$(go env GOPATH)
-export GOROOT=$(go env GOROOT)
-export VISUAL=vim
-export EDITOR=$VISUAL
-export CLICOLOR=1
-export QT_STYLE_OVERRIDE=adwaita
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-
 # ---Alias--- #
 ## ~/.config files ##
 alias ei3='ec i3'
@@ -138,4 +125,5 @@ function ec(){
 # ---Bind--- #
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+set -o vi
 
