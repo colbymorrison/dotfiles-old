@@ -18,10 +18,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/YouCompleteMe'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'wincent/command-t'
 Plugin 'dense-analysis/ale'
-Plugin 'jalvesaq/Nvim-R'
-Plugin 'vim-latex/vim-latex'
+" Plugin 'wincent/command-t'
+" Plugin 'jalvesaq/Nvim-R'
+" Plugin 'vim-latex/vim-latex'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 call vundle#end()            " required
