@@ -6,7 +6,8 @@
 [[ $- != *i* ]] && return
 
 # ---Prompt--- #
-export PS1="\e[31m\u@\h\e[m \e[36m\W\e[m \$ "
+export PS1="\e[31m\u@\h\e[m \e[36m\W\e[m # "
+export TERM=xterm
 
 # ---Alias--- #
 ## Common Commands ## 
@@ -28,6 +29,7 @@ alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias bt=bluetoothctl
 alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
+alias cdexp='cd /usr/share/exploitdb/exploits'
 
 ## Systemctl ##
 alias stl='systemctl'
@@ -110,6 +112,14 @@ function ec(){
   [[ -f $cfg_path ]] && vim $cfg_path; return
   echo  "No directory in ~/.config with name $1"
 }
+
+# ---Share History--- #
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 
 # ---Bind--- #
 bind 'set show-all-if-ambiguous on'
