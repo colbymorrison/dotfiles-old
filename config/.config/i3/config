@@ -16,10 +16,6 @@ set $TERM termite
 # is used in the bar {} block below.
 font pango:DejaVu Sans Mono 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -152,6 +148,9 @@ bindsym $MOD+Shift+8 move container to workspace $ws8
 bindsym $MOD+Shift+9 move container to workspace $ws9
 bindsym $MOD+Shift+0 move container to workspace $ws10
 
+# move workspaces between displays
+bindsym $MOD+p move workspace to output right
+
 # reload the configuration file
 bindsym $MOD+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -190,8 +189,8 @@ bindsym $MOD+r mode "resize"
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Workspace bindings
-assign [class="Spotify"] 4
-assign [class="brave-browser"] 2
+for_window [class="Spotify"] move container to workspace 4
+for_window [class="Brave-browser"] move container to workspace 2
 
 # Program hotkeys
 bindsym $Mod+Shift+S exec spotify

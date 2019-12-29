@@ -6,15 +6,18 @@ autoconf
 automake
 autorandr
 base
+bash-completion
 binutils
 bison
 brave-bin
 chrony
+cowsay
 cpio
 cronie
 deepin-screenshot
 dhcpcd
 dmenu
+etckeeper
 fakeroot
 feh
 firefox
@@ -39,6 +42,7 @@ make
 man-db
 man-pages
 mbpfan-git
+mlocate
 neofetch
 network-manager-applet
 networkmanager
@@ -72,7 +76,9 @@ tree
 ttf-dejavu
 ttf-font-awesome
 ttf-material-design-icons
+udisks2
 unclutter
+unzip
 vim
 vim-youcompleteme-git
 vlc
@@ -94,3 +100,4 @@ xorg-xprop
 xorg-xrandr
 xterm
 zathura
+zathura-pdf-mupdf

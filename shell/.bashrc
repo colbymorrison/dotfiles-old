@@ -10,6 +10,7 @@ export PS1="\e[31m\u@\h\e[m \e[36m\W\e[m \$ "
 
 # ---Alias--- #
 ## ~/.config files ##
+alias not='vim ~/Notes/notes.md'
 alias ei3='ec i3'
 alias etm='ec termite'
 alias epb='vim "+set syntax=dosini" ~/.config/polybar/config'
@@ -33,10 +34,12 @@ alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias bt=bluetoothctl
 alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
+alias psg='ps aux | grep'
 
 ## Pacman ##
 alias pmin='sudo pacman -S'
 alias pmup='sudo pacman -Syu'
+alias pmrm='sudo pacman -R'
 alias spm='sudo pacman'
 alias pm='pacman'
 
@@ -112,7 +115,6 @@ alias gup='git pull --rebase'
 alias gupv='git pull --rebase -v'
 
 
-
 # ---Functions--- #
 
 # Edit config files
@@ -122,8 +124,22 @@ function ec(){
   echo  "No directory in ~/.config with name $1"
 }
 
-# ---Bind--- #
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
-set -o vi
+# Restarts polybar
+function polyrs(){
+    killall polybar
+    ~/.config/polybar/launch.sh enp0s20u1
+}
 
+# ---Share History--- #
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # Save and reload the history after each command finishes
+
+# --Use bash-completion package-- #
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion

@@ -269,7 +269,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-primary = #ffb52a
+primary = #706E6B
 pad = 5
 
 ; Only show workspaces on the same output as the bar
@@ -281,12 +281,14 @@ label-mode-background = ${self.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = #444
-label-focused-underline = ${self.primary}
+label-focused-foreground = #ff8300
+label-focused-background = #00
+label-focused-underline = #00
 label-focused-padding = ${self.pad}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-foreground = #ffffff
 label-unfocused-padding = ${self.pad}
 
 ; visible = Active workspace on unfocused monitor
@@ -311,7 +313,7 @@ label-volume = %{A3:pavucontrol &:}%percentage%%%{A}
 label-volume-foreground = ${root.foreground}
 
 label-muted =   muted
-label-muted-foreground = #666
+label-muted-foreground = #5F5F5F
 
 ramp-volume-0 =   
 ramp-volume-1 = 
