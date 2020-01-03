@@ -15,5 +15,6 @@ xbindkeys
 numlockx &
 unclutter &
 redshift &
-picom &
+picom --xrender-sync-fence &
 /home/colby/.fehbg &
+xss-lock -- /usr/bin/slock &

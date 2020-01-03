@@ -35,6 +35,8 @@ alias bt=bluetoothctl
 alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
 alias psg='ps aux | grep'
+alias open='xdg-open'
+alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
 
 ## Pacman ##
 alias pmin='sudo pacman -S'
@@ -130,6 +132,17 @@ function polyrs(){
     ~/.config/polybar/launch.sh enp0s20u1
 }
 
+function mdview(){
+  full_path=$(realpath $1) 
+  html_path=$(echo $full_path | sed s/md/html/g)
+
+  markdown $full_path > $html_path
+
+  brave $html_path
+
+  rm $html_path
+}
+
 # ---Share History--- #
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
@@ -137,8 +150,6 @@ export HISTFILESIZE=100000               # big big history
 shopt -s histappend                      # append to history, don't overwrite it
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # Save and reload the history after each command finishes
 
 # --Use bash-completion package-- #
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \

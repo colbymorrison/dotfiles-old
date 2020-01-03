@@ -38,7 +38,8 @@ bindsym $MOD+Return exec $TERM
 bindsym $Mod+Shift+Return exec $TERM -d $(xcwd) 
 
 # kill focused window
-bindsym $MOD+q kill
+bindsym $MOD+q exec /home/colby/scripts/qemu-protecc.py
+bindsym $MOD+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $MOD+d exec dmenu_run
@@ -191,6 +192,7 @@ exec --no-startup-id $HOME/.config/polybar/launch.sh
 # Workspace bindings
 for_window [class="Spotify"] move container to workspace 4
 for_window [class="Brave-browser"] move container to workspace 2
+for_window [class="Qemu-system-x86_64"] move container to workspace 3
 
 # Program hotkeys
 bindsym $Mod+Shift+S exec spotify

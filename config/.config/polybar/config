@@ -315,7 +315,7 @@ label-volume-foreground = ${root.foreground}
 label-muted =   muted
 label-muted-foreground = #5F5F5F
 
-ramp-volume-0 =   
+ramp-volume-0 =   
 ramp-volume-1 = 
 ramp-volume-2 = 
 
