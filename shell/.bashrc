@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # ---Prompt--- #
-export PS1="\e[31m\u@\h\e[m \e[36m\W\e[m \$ "
+export PS1="\[\033[1;31m\]\u@\h\[\033[1;34m\] \W \[\033[0m\]\$ "
 
 # ---Alias--- #
 ## ~/.config files ##
