@@ -18,7 +18,7 @@
 
 
 [bar/top]
-monitor = ${env:AUTORANDR_MONITORS:eDP1} 
+monitor = ${env:MONITOR:eDP1} 
 width = 100%
 height = 3% 
 
@@ -37,47 +37,13 @@ font-1 = ${env:MATRT}
 font-2 = ${env:TERMST}
 font-3 = ${env:AWST}
 
-modules-left = i3 memory cpu 
-modules-right = pulseaudio backlight bluetooth wireless-network wired-network battery date
+modules-left = i3 memory cpu temperature
+modules-right = pulseaudio backlight wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 enable-ipc = true
-
-[bar/bottom]
-monitor = ${env:AUTORANDR_MONITORS:eDP1}
-bottom = true
-width = 100%
-height = 3% 
-
-background = ${bar/top.background}
-foreground = ${bar/top.foreground}
-
-line-color = ${bar/top.background}
-line-size = 2
-
-spacing = 3
-padding-right = 4
-padding-left = 4
-module-margin-left = 4 
-module-margin-right = 6
-
-font-0 = ${env:NOTOB} 
-font-1 = ${env:UNIB}
-font-2 = ${env:AWSB}
-font-3 = ${env:NOTOT}
-font-4 = ${env:MATRB}
-font-5 = ${env:TERMSB}
-
-modules-left = network-stats-wireless network-stats-wired temperature
-
-modules-right = cpu memory
-
-enable-ipc = true
-
-tray-position = left
-tray-background = ${bar/top.background}
 
 [module/backlight]
 type = internal/xbacklight
@@ -341,24 +307,34 @@ type = internal/temperature
 
 ; Seconds to sleep between updates
 ; Default: 1
-interval = 0.5
+interval = 1
 
 ; Thermal zone to use
 ; To list all the zone types, run 
 ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
 ; Default: 0
-thermal-zone = 0
+thermal-zone = 1
 
 ; Full path of temperature sysfs path
 ; Use `sensors` to find preferred temperature source, then run
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input
 
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80
-warn-temperature = 60
+base-temperature = 40
+warn-temperature = 80
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #f00
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
 [module/bluetooth]
 type = custom/ipc

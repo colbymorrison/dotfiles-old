@@ -1,4 +1,5 @@
 #
+
 # ~/.bashrc
 # Run by interactive shells (after /etc/bash.bashrc)
 
@@ -6,7 +7,7 @@
 [[ $- != *i* ]] && return
 
 # ---Prompt--- #
-export PS1="\[\033[1;31m\]\u@\h\[\033[1;34m\] \W \[\033[0m\]\$ "
+export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[00m\]\$ "
 
 # ---Alias--- #
 ## ~/.config files ##
@@ -41,7 +42,7 @@ alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -
 ## Pacman ##
 alias pmin='sudo pacman -S'
 alias pmup='sudo pacman -Syu'
-alias pmrm='sudo pacman -R'
+alias pmrm='sudo pacman -Rns'
 alias spm='sudo pacman'
 alias pm='pacman'
 
@@ -129,7 +130,7 @@ function ec(){
 # Restarts polybar
 function polyrs(){
     killall polybar
-    ~/.config/polybar/launch.sh enp0s20u1
+    ~/.config/polybar/launch.sh $1
 }
 
 function mdview(){

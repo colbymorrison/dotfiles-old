@@ -49,22 +49,16 @@ bindsym $MOD+d exec dmenu_run
 # bindsym $MOD+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $MOD+$left focus left
-bindsym $MOD+$down focus down
-bindsym $MOD+$up focus up
-bindsym $MOD+$right focus right
+#bindsym $MOD+$left focus left
+#bindsym $MOD+$down focus down
+#bindsym $MOD+$up focus up
+#bindsym $MOD+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $MOD+Left focus left
-bindsym $MOD+Down focus down
-bindsym $MOD+Up focus up
-bindsym $MOD+Right focus right
-
-# or control + vimkeys
-bindsym Control+h focus left
-bindsym Control+j focus down
-bindsym Control+k focus up
-bindsym Control+l focus right
+bindsym $MOD+h focus left
+bindsym $MOD+j focus down
+bindsym $MOD+k focus up
+bindsym $MOD+l focus right
 
 # move focused window
 bindsym $MOD+Shift+$left move left
@@ -79,7 +73,7 @@ bindsym $MOD+Shift+Up move up
 bindsym $MOD+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $MOD+h split h
+bindsym $MOD+c split h
 
 # split in vertical orientation
 bindsym $MOD+v split v

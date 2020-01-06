@@ -55,7 +55,6 @@ networkmanager
 noto-fonts
 numlockx
 openssh
-pacaur
 pacman-contrib
 patch
 pavucontrol
@@ -78,7 +77,6 @@ termsyn-font
 texinfo
 thermald
 tlp
-tlp-rdw
 tmux
 tree
 ttf-dejavu
@@ -88,6 +86,7 @@ udisks2
 unclutter
 unzip
 vim
+vim-tmux-navigator-git
 vim-youcompleteme-git
 vlc
 wget
@@ -108,5 +107,6 @@ xorg-xprop
 xorg-xrandr
 xss-lock
 xterm
+yay
 zathura
 zathura-pdf-mupdf

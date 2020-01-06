@@ -84,7 +84,7 @@
 
 # Screenshot
 "deepin-screenshot"
-    alt+shift+3
+    alt+shift+f3
 
 # Paste
 #"xsel"
