@@ -167,7 +167,7 @@ animation-packetloss-framerate = 500
 
 [module/wired-network]
 type = internal/network
-interface = eth0
+interface = enp0s20u1u1
 interval = 3.0
 
 label-connected =     

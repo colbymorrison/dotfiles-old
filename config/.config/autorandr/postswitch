@@ -1,3 +1,18 @@
 #! /bin/bash
 
-. /home/colby/.config/polybar/launch.sh $AUTORANDR_MONITORS
+if [ $AUTORANDR_CURRENT_PROFILE == "native" ]; then
+    modkey=4
+    termsz=10
+else
+    modkey=1  
+    termsz=12
+fi
+
+sed -i s/Mod[1-9]/Mod$modkey/g /home/colby/.config/i3/config
+i3-msg restart
+
+sed -i s/Mono,[1-9]*/Mono,$termsz/g /home/colby/.config/termite/config
+
+/home/colby/.fehbg &
+
+# /home/colby/.config/polybar/launch.sh $AUTORANDR_MONITORS

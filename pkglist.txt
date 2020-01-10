@@ -10,7 +10,6 @@ bash-completion
 bind-tools
 binutils
 bison
-brave-bin
 chrony
 clipster
 cowsay
@@ -40,8 +39,8 @@ libtool
 lightdm
 lightdm-webkit-theme-aether
 lightdm-webkit2-greeter
-linux
 linux-firmware
+linux-lts
 lostfiles
 m4
 make
@@ -79,13 +78,16 @@ thermald
 tlp
 tmux
 tree
+ttf-croscore
 ttf-dejavu
 ttf-font-awesome
 ttf-material-design-icons
 udisks2
+ufw
 unclutter
 unzip
 vim
+vim-command-t
 vim-tmux-navigator-git
 vim-youcompleteme-git
 vlc

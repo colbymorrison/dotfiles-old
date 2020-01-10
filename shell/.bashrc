@@ -117,20 +117,15 @@ alias gsu='git submodule update'
 alias gup='git pull --rebase'
 alias gupv='git pull --rebase -v'
 
+alias polyrs='~/.config/polybar/launch.sh'
 
 # ---Functions--- #
 
 # Edit config files
 function ec(){
-  cfg_path=".config/$1/config"
+  cfg_path="/home/colby/.config/$1/config"
   [[ -f $cfg_path ]] && vim $cfg_path; return
   echo  "No directory in ~/.config with name $1"
-}
-
-# Restarts polybar
-function polyrs(){
-    killall polybar
-    ~/.config/polybar/launch.sh $1
 }
 
 function mdview(){

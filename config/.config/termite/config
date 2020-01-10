@@ -4,7 +4,7 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
-font = DejaVu Sans Mono,9 
+font = DejaVu Sans Mono,10
 
 #fullscreen = true
 #icon_name = terminal
@@ -39,34 +39,71 @@ scrollback_lines = 10000
 # "off", "left" or "right"
 #scrollbar = off
 [colors]
+# Base16 Default
+# # Scheme: Chris Kempson (http://chriskempson.com)
+#
+foreground      = #d0d0d0
+foreground_bold = #d0d0d0
+cursor          = #d0d0d0
+background      = #151515
+#
+# # 16 color space
+color0  = #151515
+color1  = #ac4142
+color2  = #90a959
+color3  = #f4bf75
+color4  = #6a9fb5
+color5  = #aa759f
+color6  = #75b5aa
+color7  = #d0d0d0
+color8  = #505050
+color9  = #ac4142
+color10 = #90a959
+color11 = #f4bf75
+color12 = #6a9fb5
+color13 = #aa759f
+color14 = #75b5aa
+color15 = #f5f5f5
+#
+# # 256 color space
+color16 = #d28445
+color17 = #8f5536
+color18 = #202020
+color19 = #303030
+color20 = #b0b0b0
+color21 = #e0e0e0
+
+#[colors]
 
 # https://github.com/chriskempson/base16-xresources/blob/master/base16-3024.dark.256.xresources
 # Base16 3024
 # Scheme: Jan T. Sott (http://github.com/idleberg)
-foreground=#ffffff
-background=rgba(0,0,0,0.8)
-cursor=#a5a2a2
-
-color0=#090300
-color1=#db2d20
-color2=#01a252
-color3=#fded02
-color4=#5f87ff
-color5=#a16a94
-color6=#b5e4f4
-color7=#a5a2a2
-color8=#5c5855
-color9=#db2d20
-color10=#01a252
-color11=#fded02
-color12=#01a0e4
-color13=#a16a94
-color14=#b5e4f4
-color15=#f7f7f7
-
-color16=#e8bbd0
-color17=#cdab53
-color18=#3a3432
-color19=#4a4543
-color20=#807d7c
-color21=#d6d5d4
+#foreground=#ffffff
+#background=rgba(0,0,0,0.8)
+#cursor=#a5a2a2
+#
+#color0=#090300
+#color1=#db2d20
+#color2=#01a252
+#color3=#fded02
+#color4=#5f87ff
+#color5=#a16a94
+#color6=#b5e4f4
+#color7=#a5a2a2
+#color8=#5c5855
+#color9=#db2d20
+#color10=#01a252
+#color11=#fded02
+#color12=#01a0e4
+#color13=#a16a94
+#color14=#b5e4f4
+#color15=#f7f7f7
+#
+#color16=#e8bbd0
+#color17=#cdab53
+#color18=#3a3432
+#color19=#4a4543
+#color20=#807d7c
+#color21=#d6d5d4
+#
+#
