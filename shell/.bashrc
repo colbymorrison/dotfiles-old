@@ -5,9 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# ---Prompt--- #
-export PS1="\e[31m\u@\h\e[m \e[36m\W\e[m # "
+# ---Env vars--- #
+export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[00m\]\$ "
 export TERM=xterm
+export VISUAL=vim
+export EDITOR=$VISUAL
+export CLICOLOR=1
 
 # ---Alias--- #
 ## Common Commands ## 
