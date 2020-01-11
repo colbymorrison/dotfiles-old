@@ -185,7 +185,7 @@ exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Workspace bindings
 for_window [class="Spotify"] move container to workspace 4
-for_window [class="Brave-browser"] move container to workspace 2
+for_window [class="firefox"] move container to workspace 2
 for_window [class="Qemu-system-x86_64"] move container to workspace 3
 
 # Program hotkeys

@@ -17,7 +17,7 @@
 ;==========================================================
 
 
-[bar/top]
+[bar/laptop]
 monitor = ${env:MONITOR:eDP1} 
 width = 100%
 height = 3% 
@@ -149,8 +149,8 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %{A1:nm-connection-editor:}%essid%%{A}
-label-disconnected = %{A1:nm-connection-editor:}%{A}   
+label-connected = %{A1:/home/colby/scripts/nmgui.sh:}%essid%%{A}
+label-disconnected = %{A1:/home/colby/scripts/nmgui.sh:}%{A}   
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 

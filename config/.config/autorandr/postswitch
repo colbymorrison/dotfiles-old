@@ -1,18 +1,16 @@
 #! /bin/bash
 
-if [ $AUTORANDR_CURRENT_PROFILE == "native" ]; then
-    modkey=4
+if [[ $AUTORANDR_CURRENT_PROFILE == "native" ]]; then
     termsz=10
 else
-    modkey=1  
     termsz=12
 fi
 
-sed -i s/Mod[1-9]/Mod$modkey/g /home/colby/.config/i3/config
-i3-msg restart
-
 sed -i s/Mono,[1-9]*/Mono,$termsz/g /home/colby/.config/termite/config
+
+killall picom
+picom --xrender-sync-fence &
 
 /home/colby/.fehbg &
 
-# /home/colby/.config/polybar/launch.sh $AUTORANDR_MONITORS
+/home/colby/.config/polybar/launch.sh $AUTORANDR_MONITORS

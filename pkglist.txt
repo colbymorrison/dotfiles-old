@@ -33,7 +33,6 @@ i3-gaps
 i3blocks
 i3lock
 intel-ucode
-john
 kbdlight
 libtool
 lightdm
@@ -58,6 +57,7 @@ pacman-contrib
 patch
 pavucontrol
 picom
+pipes.sh
 pkgconf
 playerctl
 polybar
@@ -69,12 +69,14 @@ ranger
 redshift
 slock
 spotify
+stalonetray
 stow
 sudo
 termite
 termsyn-font
 texinfo
 thermald
+timeshift
 tlp
 tmux
 tree
@@ -87,7 +89,8 @@ ufw
 unclutter
 unzip
 vim
-vim-command-t
+vim-latexsuite
+vim-markdown
 vim-tmux-navigator-git
 vim-youcompleteme-git
 vlc

@@ -4,7 +4,7 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
-font = DejaVu Sans Mono,10
+font = DejaVu Sans Mono,120
 
 #fullscreen = true
 #icon_name = terminal
@@ -45,7 +45,7 @@ scrollback_lines = 10000
 foreground      = #d0d0d0
 foreground_bold = #d0d0d0
 cursor          = #d0d0d0
-background      = #151515
+background      = rgba(21, 21, 21,0.8)
 #
 # # 16 color space
 color0  = #151515
