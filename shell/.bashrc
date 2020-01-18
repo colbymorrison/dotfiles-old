@@ -113,6 +113,18 @@ function ec(){
   echo  "No directory in ~/.config with name $1"
 }
 
+function mdview(){
+  full_path=$(realpath $1)
+  html_path=$(echo $full_path | sed s/md/html/g)
+
+  markdown $full_path > $html_path
+
+  brave $html_path
+
+  rm $html_path
+}
+
+
 # ---Share History--- #
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
