@@ -42,6 +42,8 @@ modules-right = pulseaudio backlight wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+# tray-position = right
+
 
 enable-ipc = true
 
@@ -149,8 +151,8 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %{A1:/home/colby/scripts/nmgui.sh:}%essid%%{A}
-label-disconnected = %{A1:/home/colby/scripts/nmgui.sh:}%{A}   
+label-connected = %essid%
+label-disconnected =    
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 

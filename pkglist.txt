@@ -10,12 +10,15 @@ bash-completion
 bind-tools
 binutils
 bison
+blueman
+bluez-utils
 chrony
 clipster
 cowsay
 cpio
 cronie
 deepin-screenshot
+dhclient
 dhcpcd
 discount
 dmenu

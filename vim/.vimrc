@@ -33,8 +33,6 @@ set hlsearch
 " Status line
 set statusline=%F
 set laststatus=2
-hi StatusLine ctermbg=3 ctermfg=8
-hi StatusLineNc ctermbg=3 ctermfg=8
 
 "" Indents
 set softtabstop=4
@@ -60,15 +58,15 @@ nmap <C-t>j :tabn<cr>
 nmap <C-t>k :tabp<cr>
 nmap <C-t>t :tabnew<cr>
 nmap <C-t>d :tabc<cr>
-hi TabLine term='NONE' cterm='NONE' ctermbg=8 ctermfg=3 
-hi TabLineSel term='bold,underline' cterm='bold,underline' ctermbg=8 ctermfg=3
-hi TabLineFill ctermbg=3 ctermfg=8
 
-"i3-vim-integration
+" i3-vim-integration
 nnoremap <silent> <c-l> :call Focus('right', 'l')<CR>
 nnoremap <silent> <c-h> :call Focus('left', 'h')<CR>
 nnoremap <silent> <c-k> :call Focus('up', 'k')<CR>
 nnoremap <silent> <c-j> :call Focus('down', 'j')<CR>
 
-let R_assign = 0
-
+" Colors
+let base16colorspace=256
+if filereadable(expand("~/.vimrc_background"))
+      source ~/.vimrc_background
+endif
