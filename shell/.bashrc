@@ -129,11 +129,11 @@ function mdview(){
 
 
 # ---Share History--- #
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-export HISTSIZE=100000                   # big big history
-export HISTFILESIZE=100000               # big big history
-shopt -s histappend                      # append to history, don't overwrite it
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+#export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+#export HISTSIZE=100000                   # big big history
+#export HISTFILESIZE=100000               # big big history
+#shopt -s histappend                      # append to history, don't overwrite it
+#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 # ---Bind--- #
@@ -141,3 +141,8 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 set -o vi
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
