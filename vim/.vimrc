@@ -3,10 +3,6 @@ filetype off                  " required
 filetype plugin on            " for vim-latex 
 filetype indent on            " for vim-latex 
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-
 " general
 syntax on
 let mapleader = "\\"
@@ -43,8 +39,6 @@ set expandtab
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
-imap <C-g> <Plug>IMAP_JumpForward
-nmap <C-g> <Plug>IMAP_JumpForward
 inoremap jj <Esc>
 
 " File selection
@@ -58,12 +52,6 @@ nmap <C-t>j :tabn<cr>
 nmap <C-t>k :tabp<cr>
 nmap <C-t>t :tabnew<cr>
 nmap <C-t>d :tabc<cr>
-
-" i3-vim-integration
-nnoremap <silent> <c-l> :call Focus('right', 'l')<CR>
-nnoremap <silent> <c-h> :call Focus('left', 'h')<CR>
-nnoremap <silent> <c-k> :call Focus('up', 'k')<CR>
-nnoremap <silent> <c-j> :call Focus('down', 'j')<CR>
 
 " Colors
 let base16colorspace=256
