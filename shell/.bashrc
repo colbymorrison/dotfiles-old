@@ -7,7 +7,7 @@
 
 # ---Env vars--- #
 export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[00m\]\$ "
-export TERM=xterm
+export TERM=xterm-256color
 export VISUAL=vim
 export EDITOR=$VISUAL
 export CLICOLOR=1
