@@ -31,37 +31,58 @@ call vundle#end()            " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Lets
-"let mapleader = "-"
-let g:Tex_DefaultTargetFormat='pdf'
-let g:tex_flavor='latex'
-let g:tex_no_error=1
-let g:ale_echo_cursor = 0
-
-" Settings
+" general
+syntax on
+let mapleader = "\\"
 set number
 set path+=**
 set spelllang=en              
 set spellfile=$HOME/.vim/spell/en.utf-8.add
+set shellslash
 set mouse=a
+set iskeyword+=:
+set sw=2
+set autoindent
+hi Search ctermbg=2
+
+" vim-latex-suite
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+let g:tex_no_error=1
+
+" Incemental search
+set incsearch
+set hlsearch
+
+" Status line
+set statusline=%F
+set laststatus=2
+
+"" Indents
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set shellslash
-set iskeyword+=:
-set sw=2
-set grepprg=grep\ -nH\ $*
-set laststatus=2
-set encoding=utf-8
 
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
 inoremap jj <Esc>
-tnoremap <C-x> <C-\><C-n>
 
-" Base16
+" File selection
+nnoremap <leader>e :Lexplore<cr>
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+
+" Tabs
+nmap <C-t>j :tabn<cr>
+nmap <C-t>k :tabp<cr>
+nmap <C-t>t :tabnew<cr>
+nmap <C-t>d :tabc<cr>
+
+" Colors
 let base16colorspace=256
 if filereadable(expand("~/.vimrc_background"))
-  source ~/.vimrc_background
+      source ~/.vimrc_background
 endif
