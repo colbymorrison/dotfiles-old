@@ -42,7 +42,7 @@ bindsym $MOD+q exec /home/colby/scripts/qemu-protecc.py
 bindsym $MOD+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $MOD+d exec dmenu_run
+bindsym $MOD+d exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -190,6 +190,7 @@ for_window [class="Qemu-system-x86_64"] move container to workspace 3
 
 # Program hotkeys
 bindsym $Mod+Shift+S exec spotify
+bindsym $Mod+Shift+F exec firefox
 
 # Hide window border
 for_window [class=".*"] border pixel 0

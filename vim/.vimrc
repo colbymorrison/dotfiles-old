@@ -21,6 +21,7 @@ hi Search ctermbg=2
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:tex_no_error=1
+let g:Tex_DefaultTargetFormat='pdf'
 
 " Incemental search
 set incsearch

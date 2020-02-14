@@ -86,10 +86,6 @@
 "deepin-screenshot"
     alt+shift+f3
 
-# Paste
-#"xsel"
-#    control+v
-
 # Examples of commands:
 
 #"xbindkeys_show" 

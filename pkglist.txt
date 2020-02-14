@@ -44,6 +44,7 @@ lightdm-webkit2-greeter
 linux-firmware
 linux-lts
 lostfiles
+lsof
 m4
 make
 man-db
@@ -68,8 +69,11 @@ pulseaudio
 python-i3ipc
 python-pipenv
 qemu
+qemu-arch-extra
 ranger
 redshift
+riscv64-linux-gnu-glibc
+rofi
 slock
 spotify
 stalonetray
@@ -78,6 +82,11 @@ sudo
 termite
 termsyn-font
 texinfo
+texlive-bibtexextra
+texlive-core
+texlive-fontsextra
+texlive-formatsextra
+texlive-latexextra
 thermald
 timeshift
 tlp
@@ -99,6 +108,7 @@ vim-youcompleteme-git
 vlc
 wget
 which
+wireshark-qt
 xbindkeys
 xcalib
 xclip

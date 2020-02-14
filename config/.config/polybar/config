@@ -37,7 +37,7 @@ font-1 = ${env:MATRT}
 font-2 = ${env:TERMST}
 font-3 = ${env:AWST}
 
-modules-left = i3 memory cpu temperature
+modules-left = i3 temperature
 modules-right = pulseaudio backlight wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext

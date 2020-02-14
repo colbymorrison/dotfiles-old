@@ -22,6 +22,7 @@ alias ...='cd../..'
 alias ....='cd../../..'
 alias .....='cd../../../..'
 alias ......='cd../../../../..'
+alias v='vim'
 alias l='ls -lah'
 alias ls='ls -A --color=auto'
 alias ka='killall'
@@ -38,6 +39,7 @@ alias wicon='nmcli d wifi connect'
 alias psg='ps aux | grep'
 alias open='xdg-open'
 alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
+alias tma='tmux a -t'
 
 ## Pacman ##
 alias pmin='sudo pacman -S'
@@ -123,20 +125,20 @@ alias polyrs='~/.config/polybar/launch.sh'
 
 # Edit config files
 function ec(){
-  cfg_path="/home/colby/.config/$1/config"
-  [[ -f $cfg_path ]] && vim $cfg_path; return
-  echo  "No directory in ~/.config with name $1"
+    cfg_path="/home/colby/.config/$1/config"
+    [[ -f $cfg_path ]] && vim $cfg_path; return
+    echo  "No directory in ~/.config with name $1"
 }
 
-function mdview(){
-  full_path=$(realpath $1) 
-  html_path=$(echo $full_path | sed s/md/html/g)
+function mdv(){
+    full_path=$(realpath $1) 
+    html_path=$(echo $full_path | sed s/md/html/g)
 
-  markdown $full_path > $html_path
+    markdown $full_path > $html_path
 
-  brave $html_path
+    firefox $html_path
 
-  rm $html_path
+    rm $html_path
 }
 
 # ---Share History--- #
@@ -152,7 +154,9 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
     . /usr/share/bash-completion/bash_completion
 
 # --Base16 Shell--
-BASE16_SHELL="$HOME/.config/base16-shell/"
+BASE16_SHELL="$HOME/.config/base16-shell"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
     eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+export BASE16_SHELL_HOOKS=$BASE16_SHELL/hooks
