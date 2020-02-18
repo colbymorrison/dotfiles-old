@@ -1,8 +1,35 @@
 rofi.font: Noto Sans 25
 
-! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
+! Base16 Material Darker
+! Author: Nate Peterson
+
+! base00: #212121
+! base01: #303030
+! base02: #353535
+! base03: #4a4a4a
+! base04: #b2ccd6
+! base05: #eeffff
+! base06: #eeffff
+! base07: #ffffff
+! base08: #f07178
+! base09: #f78c6c
+! base0A: #ffcb6b
+! base0B: #c3e88d
+! base0C: #89ddff
+! base0D: #82aaff
+! base0E: #c792ea
+! base0F: #ff5370
+
+! Enable the extended coloring options
 rofi.color-enabled: true
-rofi.color-window: argb:e12f343f, argb:cc2f343f, argb:cc2f343f
-rofi.color-normal: argb:002f343f, #d8dee8, argb:002f343f, argb:002f343f, #bf616a
-rofi.color-active: #2f343f, #b48ead, #2f343f, #2f343f, #93e5cc
-rofi.color-urgent: #2f343f, #ebcb8b, #2f343f, #2f343f, #ebcb8b
+
+! Property Name     BG       Border   Separator
+rofi.color-window:  #303030, #303030, #212121
+
+! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
+rofi.color-normal:  #303030, #eeffff, #303030, #303030, #ffffff
+rofi.color-active:  #303030, #82aaff, #303030, #303030, #82aaff
+rofi.color-urgent:  #303030, #f07178, #303030, #303030, #f07178
+
+! Set the desired separator style
+rofi.separator-style: solid

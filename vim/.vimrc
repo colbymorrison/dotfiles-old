@@ -15,7 +15,7 @@ set mouse=a
 set iskeyword+=:
 set sw=2
 set autoindent
-hi Search ctermbg=2
+nmap <leader>c noh
 
 " vim-latex-suite
 set grepprg=grep\ -nH\ $*

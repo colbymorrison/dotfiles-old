@@ -6,6 +6,7 @@ autoconf
 automake
 autorandr
 base
+base16-manager
 bash-completion
 bind-tools
 binutils
