@@ -43,12 +43,14 @@ set mouse=a
 set iskeyword+=:
 set sw=2
 set autoindent
+set encoding=utf-8 "for ycm
 hi Search ctermbg=2
 
 " vim-latex-suite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:tex_no_error=1
+let g:Tex_DefaultTargetFormat='pdf'
 
 " Incemental search
 set incsearch
