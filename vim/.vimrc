@@ -56,6 +56,4 @@ nmap <C-t>d :tabc<cr>
 
 " Colors
 let base16colorspace=256
-if filereadable(expand("~/.vimrc_background"))
-      source ~/.vimrc_background
-endif
+source ~/.vim/colorscheme.vim "created by base16-manager
