@@ -15,7 +15,8 @@ set mouse=a
 set iskeyword+=:
 set sw=2
 set autoindent
-nmap <leader>c noh
+nmap <leader>c :noh<cr>
+nmap <leader>f :FZF<cr>
 
 " vim-latex-suite
 set grepprg=grep\ -nH\ $*
@@ -28,7 +29,7 @@ set incsearch
 set hlsearch
 
 " Status line
-set statusline=%F
+" set statusline=%F
 set laststatus=2
 
 "" Indents
@@ -57,3 +58,6 @@ nmap <C-t>d :tabc<cr>
 " Colors
 let base16colorspace=256
 source ~/.vim/colorscheme.vim "created by base16-manager
+" disables opaque background
+hi Normal ctermbg=none
+hi NonText ctermbg=none

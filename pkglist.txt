@@ -1,6 +1,7 @@
 adwaita-qt
 alsa-utils
 apfs-fuse-git
+arch-audit
 auracle-git
 autoconf
 automake
@@ -14,10 +15,11 @@ bison
 blueman
 bluez-utils
 chrony
-clipster
+cmake
 cowsay
 cpio
 cronie
+dconf-editor
 deepin-screenshot
 dhclient
 dhcpcd
@@ -28,6 +30,7 @@ fakeroot
 feh
 firefox
 flex
+fzf
 gcc
 git
 gnu-netcat
@@ -38,6 +41,9 @@ i3blocks
 i3lock
 intel-ucode
 kbdlight
+libdvdcss
+libdvdnav
+libdvdread
 libtool
 lightdm
 lightdm-webkit-theme-aether
@@ -67,6 +73,7 @@ pkgconf
 playerctl
 polybar
 pulseaudio
+pulseaudio-bluetooth
 python-i3ipc
 python-pipenv
 qemu
@@ -75,6 +82,7 @@ ranger
 redshift
 riscv64-linux-gnu-glibc
 rofi
+rxvt-unicode
 slock
 spotify
 stalonetray
@@ -102,6 +110,7 @@ ufw
 unclutter
 unzip
 vim
+vim-fugitive
 vim-latexsuite
 vim-markdown
 vim-tmux-navigator-git
@@ -117,6 +126,7 @@ xdg-user-dirs
 xdotool
 xf86-input-mtrack-git
 xf86-video-intel
+xgetres
 xorg-server
 xorg-xbacklight
 xorg-xdpyinfo

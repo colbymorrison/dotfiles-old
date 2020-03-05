@@ -2,6 +2,7 @@
 
 # Terminate already running bar instances
 killall polybar
+killall polybar
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 3; done
@@ -15,8 +16,6 @@ fi
 FONT_SZ=14
 
 [[ $MONITOR != "eDP1" ]]  && FONT_SZ=18
-
-echo FONT_SZ
 
 # TODO: change to multiple bars started in if above w/ no env vars? 
 export NOTOT="NotoSans-Regular:size=$FONT_SZ;-1"

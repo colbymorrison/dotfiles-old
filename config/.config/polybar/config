@@ -38,12 +38,15 @@ font-2 = ${env:TERMST}
 font-3 = ${env:AWST}
 
 modules-left = i3 temperature
-modules-right = pulseaudio backlight wireless-network wired-network battery date
+modules-right = pulseaudio backlight system-bluetooth-bluetoothctl wireless-network wired-network battery date
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-# tray-position = right
 
+;tray-position = right 
+;ray-padding = 2 
+;ray-transparent = true
+;rue tray-background = #0063ff
 
 enable-ipc = true
 
@@ -151,7 +154,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
+label-connected = %{A1:nm-connection-editor:}%essid%%{A}
 label-disconnected =    
 label-disconnected-foreground = #66
 
@@ -338,14 +341,8 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 
-[module/bluetooth]
-type = custom/ipc
-
-hook-0 = [ -f /tmp/bt-info ] && cat /tmp/bt-info
-hook-1 = echo   
-hook-2 = [ -f /tmp/bt-info ] && cat /tmp/bt-info /tmp/bt-name | tr '\n' ' '        
-
-initial = 2
-
-click-left = polybar-msg -p %pid% hook bluetooth 3
-click-right = polybar-msg -p %pid% hook bluetooth 1
+[module/system-bluetooth-bluetoothctl]
+type = custom/script
+exec = ~/scripts/polybar-scripts/system-bluetooth-bluetoothctl.sh
+tail = true
+click-left = blueman-manager &

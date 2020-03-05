@@ -1,14 +1,29 @@
-xterm*background: black
-xterm*foreground: lightgray
-xterm*faceName: DejaVu Sans Mono
-xterm*faceSize: 8 
-xterm*selectToClipboard: true
-XTerm.VT100.color4: CornflowerBlue
-Xterm*vt100*Translations: #override \
-  Ctrl Shift <Key> C: copy-selection(CLIPBOARD) \n\
-  Ctrl Shift <Key> V: insert-selction(CLIPBOARD) \n\
-  Ctrl Shift <Key> V: insert-selction(PRIMARY) \n\
+!! urxvt
+URxvt.font: xft:Source Code Pro:size=8
+URxvt*scrollBar: false
 
+! remap copy and paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
+! launch URLs
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.depth: 32
+URxvt.background: rgba:3000/2300/5100/ee00
+
+!! rofi
+rofi.font: Noto Sans 25
+
+
+!! hiDPI
 Xft.dpi: 227 
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
@@ -17,4 +32,9 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-rofi.font: Noto Sans 25
+!! xterm (just in case)
+xterm*background: black
+xterm*foreground: lightgray
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize: 8 
+XTerm.VT100.color4: CornflowerBlue

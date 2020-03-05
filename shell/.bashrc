@@ -11,17 +11,17 @@ export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[00m\]\$ "
 
 # ---Alias--- #
 ## ~/.config files ##
-alias not='vim ~/Notes/notes.md'
+alias not="$EDITOR ~/Notes/notes.md"
 alias ei3='ec i3'
-alias etm='ec termite'
-alias epb='vim "+set syntax=dosini" ~/.config/polybar/config'
+alias epb="$EDITOR '+set syntax=dosini' ~/.config/polybar/config"
+alias exr="$EDITOR ~/.Xresources"
 
 ## Common Commands ## 
 alias ..='cd ..'
-alias ...='cd../..'
-alias ....='cd../../..'
-alias .....='cd../../../..'
-alias ......='cd../../../../..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 alias v='vim'
 alias l='ls -lah'
 alias ls='ls -A --color=auto'
@@ -40,6 +40,7 @@ alias psg='ps aux | grep'
 alias open='xdg-open'
 alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
 alias tma='tmux a -t'
+alias base16-manager='~/Repos/base16-manager/base16-manager'
 
 ## Pacman ##
 alias pmin='sudo pacman -S'
@@ -154,9 +155,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
     . /usr/share/bash-completion/bash_completion
 
 # --Base16 Shell--
-BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell"
+BASE16_SHELL="$XDG_DATA_HOME/base16-manager/chriskempson/base16-shell"
+BASE16_SHELL_SET_BACKGROUND=false
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
     eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-export BASE16_SHELL_HOOKS=$BASE16_SHELL/hooks
