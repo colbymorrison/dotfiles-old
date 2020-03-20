@@ -45,15 +45,15 @@
 
 
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+"~/scripts/set-running-sink.sh up"
     XF86AudioRaiseVolume 
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+"~/scripts/set-running-sink.sh down"
     XF86AudioLowerVolume  
 
 # Mute volume
-"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+"~/scripts/set-running-sink.sh mute"
     XF86AudioMute  
 
 # Increase backlight
@@ -85,6 +85,7 @@
 # Screenshot
 "deepin-screenshot"
     alt+shift+f3
+
 
 # Examples of commands:
 

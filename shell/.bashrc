@@ -16,16 +16,17 @@ alias ei3='ec i3'
 alias epb="$EDITOR '+set syntax=dosini' ~/.config/polybar/config"
 alias exr="$EDITOR ~/.Xresources"
 
-## Common Commands ## 
+## Directories ## 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
+
+## Common Commands ## 
 alias v='vim'
 alias l='ls -lah'
 alias ls='ls -A --color=auto'
-alias ka='killall'
 alias df='df -h'
 alias du='du -h'
 alias free='free -h'
@@ -33,14 +34,13 @@ alias c='clear'
 alias e='exit'
 alias m='man'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias bt=bluetoothctl
-alias wils='nmcli d wifi list'
-alias wicon='nmcli d wifi connect'
-alias psg='ps aux | grep'
+alias g='grep'
+alias pag='ps aux | grep'
 alias open='xdg-open'
-alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
-alias tma='tmux a -t'
-alias base16-manager='~/Repos/base16-manager/base16-manager'
+
+## Tmux ##
+alias tmat='tmux a -t'
+alias tmls='tmux ls'
 
 ## Pacman ##
 alias pmin='sudo pacman -S'
@@ -58,7 +58,11 @@ alias jnl='journalctl'
 alias zth='zathura'
 alias ztf='zathura --fork'
 
-## Lots of Git (stolen) ##
+## Network Manager ##
+alias wils='nmcli d wifi list'
+alias wicon='nmcli d wifi connect'
+
+## Git (stolen) ##
 alias ga='git add'
 alias gaa='git add --all'
 alias gap='git apply'
@@ -120,7 +124,11 @@ alias gsu='git submodule update'
 alias gup='git pull --rebase'
 alias gupv='git pull --rebase -v'
 
+## Custom ##
+alias base16-manager='~/Repos/base16-manager/base16-manager'
 alias polyrs='~/.config/polybar/launch.sh'
+alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
+
 
 # ---Functions--- #
 

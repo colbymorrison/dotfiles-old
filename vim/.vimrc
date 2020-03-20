@@ -15,14 +15,14 @@ set mouse=a
 set iskeyword+=:
 set sw=2
 set autoindent
-nmap <leader>c :noh<cr>
-nmap <leader>f :FZF<cr>
 
 " vim-latex-suite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:tex_no_error=1
 let g:Tex_DefaultTargetFormat='pdf'
+imap <C-j> <Plug>IMAP_JumpForward
+let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemize,figure,table,theorem,lemma,tikzpicture'
 
 " Incemental search
 set incsearch
@@ -41,7 +41,10 @@ set expandtab
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
+nmap <leader>c :noh<cr>
+nmap <leader>f :FZF<cr>
 inoremap jj <Esc>
+
 
 " File selection
 nnoremap <leader>e :Lexplore<cr>
@@ -50,8 +53,8 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
 " Tabs
-nmap <C-t>j :tabn<cr>
-nmap <C-t>k :tabp<cr>
+nmap <C-t>j :tabp<cr>
+nmap <C-t>k :tabn<cr>
 nmap <C-t>t :tabnew<cr>
 nmap <C-t>d :tabc<cr>
 

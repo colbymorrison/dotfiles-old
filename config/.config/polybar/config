@@ -43,17 +43,15 @@ modules-right = pulseaudio backlight system-bluetooth-bluetoothctl wireless-netw
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-;tray-position = right 
-;ray-padding = 2 
-;ray-transparent = true
-;rue tray-background = #0063ff
+tray-position = right 
+tray-padding = 2 
+tray-transparent = true
 
 enable-ipc = true
 
 [module/backlight]
 type = internal/xbacklight
 format = <ramp> <label>
-
 label = %percentage%%
 
 ramp-0 = 
@@ -154,9 +152,10 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %{A1:nm-connection-editor:}%essid%%{A}
-label-disconnected =    
+label-connected = %essid%
+label-disconnected =
 label-disconnected-foreground = #66
+
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -172,7 +171,7 @@ animation-packetloss-framerate = 500
 
 [module/wired-network]
 type = internal/network
-interface = enp0s20u1u1
+interface = enp0s20u1
 interval = 3.0
 
 label-connected =     
@@ -278,13 +277,14 @@ label-urgent-padding = ${self.pad}
 
 [module/pulseaudio]
 type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_03.0.hdmi-stereo-extra1
 
 format-volume = <ramp-volume> <label-volume>
 label-volume = %{A3:pavucontrol &:}%percentage%%%{A}
 label-volume-foreground = ${root.foreground}
 
 label-muted =   muted
-label-muted-foreground = #5F5F5F
+label-muted-foreground = #6F5F5F
 
 ramp-volume-0 =   
 ramp-volume-1 = 
@@ -322,10 +322,10 @@ thermal-zone = 1
 
 ; Full path of temperature sysfs path
 ; Use `sensors` to find preferred temperature source, then run
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
 
 base-temperature = 40
 warn-temperature = 80

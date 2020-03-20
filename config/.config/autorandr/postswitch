@@ -1,13 +1,5 @@
 #! /bin/bash
 
-if [[ $AUTORANDR_CURRENT_PROFILE == "native" ]]; then
-    termsz=10
-else
-    termsz=12
-fi
-
-#sed -i s/Mono,[1-9]*/Mono,$termsz/g /home/colby/.config/termite/config
-
 killall picom
 picom --xrender-sync-fence &
 

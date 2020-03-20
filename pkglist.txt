@@ -1,6 +1,7 @@
 adwaita-qt
 alsa-utils
 apfs-fuse-git
+arandr
 arch-audit
 auracle-git
 autoconf
@@ -26,6 +27,7 @@ dhcpcd
 discount
 dmenu
 etckeeper
+facetimehd-firmware
 fakeroot
 feh
 firefox
@@ -33,6 +35,7 @@ flex
 fzf
 gcc
 git
+gksu
 gnu-netcat
 go
 groff
@@ -50,6 +53,7 @@ lightdm-webkit-theme-aether
 lightdm-webkit2-greeter
 linux-firmware
 linux-lts
+linux-lts-headers
 lostfiles
 lsof
 m4
@@ -57,10 +61,12 @@ make
 man-db
 man-pages
 mbpfan-git
+meson
 mlocate
 neofetch
 network-manager-applet
 networkmanager
+networkmanager-dmenu-git
 noto-fonts
 numlockx
 openssh
@@ -75,6 +81,7 @@ polybar
 pulseaudio
 pulseaudio-bluetooth
 python-i3ipc
+python-pandas
 python-pipenv
 qemu
 qemu-arch-extra
@@ -105,6 +112,7 @@ ttf-croscore
 ttf-dejavu
 ttf-font-awesome
 ttf-material-design-icons
+twmn-git
 udisks2
 ufw
 unclutter
@@ -118,6 +126,7 @@ vim-youcompleteme-git
 vlc
 wget
 which
+wireless_tools
 wireshark-qt
 xbindkeys
 xcalib
@@ -139,3 +148,4 @@ xterm
 yay
 zathura
 zathura-pdf-mupdf
+zoom

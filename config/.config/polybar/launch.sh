@@ -13,7 +13,7 @@ else
   export MONITOR="eDP1"
 fi
 
-FONT_SZ=14
+FONT_SZ=20
 
 [[ $MONITOR != "eDP1" ]]  && FONT_SZ=18
 
