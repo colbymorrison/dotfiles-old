@@ -1,0 +1,9 @@
+# Move dir to version control
+
+if [ $1 ]; then
+    dir=/home/colby/dotfiles/config/.config
+    mv $1 $dir
+    ln -s $dir/$1 $1
+else
+    echo "usage: to_git <path>"
+fi
