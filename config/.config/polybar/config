@@ -45,9 +45,10 @@ scroll-down = i3wm-wsprev
 
 tray-position = right 
 tray-padding = 2 
-tray-transparent = true
+# tray-transparent = true
 
 enable-ipc = true
+
 
 [module/backlight]
 type = internal/xbacklight
@@ -152,10 +153,9 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
-label-disconnected =
+label-connected = %{A1:networkmanager_dmenu:}%essid%%{A}
+label-disconnected =%{A1:networkmanager_dmenu:}%{A}
 label-disconnected-foreground = #66
-
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -283,7 +283,7 @@ format-volume = <ramp-volume> <label-volume>
 label-volume = %{A3:pavucontrol &:}%percentage%%%{A}
 label-volume-foreground = ${root.foreground}
 
-label-muted =   muted
+label-muted = 
 label-muted-foreground = #6F5F5F
 
 ramp-volume-0 =   
@@ -325,7 +325,7 @@ thermal-zone = 1
 ; for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+hwmon-path = ${env:HWMON}
 
 base-temperature = 40
 warn-temperature = 80
@@ -344,5 +344,5 @@ ramp-2 = 
 [module/system-bluetooth-bluetoothctl]
 type = custom/script
 exec = ~/scripts/polybar-scripts/system-bluetooth-bluetoothctl.sh
-tail = true
+; tail = true
 click-left = blueman-manager &

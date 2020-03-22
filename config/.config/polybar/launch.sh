@@ -1,26 +1,23 @@
 #! /bin/bash
 
 # Terminate already running bar instances
-killall polybar
-killall polybar
+kill -9 $(pgrep polybar)
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 3; done
 
-if [[ -n $1 ]]; then
- export MONITOR=$1 
-else
-  export MONITOR="eDP1"
-fi
+# Temp file (it changes)
+base=/sys/devices/platform/coretemp.0/hwmon
+[[ -d $base/hwmon0 ]] && export HWMON="$base/hwmon0/temp1_input" || export HWMON="$base/hwmon1/temp1_input"
 
-FONT_SZ=20
+# Start on all monitors with right font size
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    [[ $m != "eDP1" ]]  && FONT_SZ=21 || FONT_SZ=16
+    
+    export NOTOT="NotoSans-Regular:size=$FONT_SZ;-1"
+    export MATRT="MaterialIcons:size=$(($FONT_SZ+2));0"
+    export TERMST="Termsynu:size=$FONT_SZ:antialias=false;-2"
+    export AWST="Font Awesome 5 Free Solid:size=$(($FONT_SZ+2));0"
 
-[[ $MONITOR != "eDP1" ]]  && FONT_SZ=18
-
-# TODO: change to multiple bars started in if above w/ no env vars? 
-export NOTOT="NotoSans-Regular:size=$FONT_SZ;-1"
-export MATRT="MaterialIcons:size=$(($FONT_SZ+2));0"
-export TERMST="Termsynu:size=$FONT_SZ:antialias=false;-2"
-export AWST="Font Awesome 5 Free Solid:size=$(($FONT_SZ+2));0"
-
-polybar laptop &
+    MONITOR=$m polybar --reload laptop &
+done
