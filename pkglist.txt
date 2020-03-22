@@ -6,7 +6,6 @@ arch-audit
 auracle-git
 autoconf
 automake
-autorandr
 base
 base16-manager
 bash-completion
@@ -17,15 +16,19 @@ blueman
 bluez-utils
 chrony
 cmake
+conky
 cowsay
 cpio
 cronie
+cups
+cups-pdf
 dconf-editor
 deepin-screenshot
 dhclient
 dhcpcd
 discount
 dmenu
+dpkg
 etckeeper
 facetimehd-firmware
 fakeroot
@@ -51,7 +54,9 @@ libtool
 lightdm
 lightdm-webkit-theme-aether
 lightdm-webkit2-greeter
+linux
 linux-firmware
+linux-headers
 linux-lts
 linux-lts-headers
 lostfiles
@@ -63,9 +68,11 @@ man-pages
 mbpfan-git
 meson
 mlocate
+nemo
 neofetch
 network-manager-applet
 networkmanager
+networkmanager-dispatcher-chrony
 networkmanager-dmenu-git
 noto-fonts
 numlockx
@@ -87,7 +94,6 @@ qemu
 qemu-arch-extra
 ranger
 redshift
-riscv64-linux-gnu-glibc
 rofi
 rxvt-unicode
 slock

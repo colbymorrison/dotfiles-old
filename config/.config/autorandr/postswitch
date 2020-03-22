@@ -1,8 +1,0 @@
-#! /bin/bash
-
-killall picom
-picom --xrender-sync-fence &
-
-/home/colby/.fehbg &
-
-/home/colby/.config/polybar/launch.sh $AUTORANDR_MONITORS

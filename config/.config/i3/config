@@ -1,5 +1,6 @@
 # i3 config file (v4)
 #
+#
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #
 # This config file uses keycodes (bindsym) and was written for the QWERTY
@@ -9,7 +10,7 @@
 # layout, use the i3-config-wizard
 #
 
-set $MOD Mod1
+set $MOD MOD1
 set $TERM urxvt
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -42,7 +43,7 @@ bindsym $MOD+q exec /home/colby/scripts/qemu-protecc.py
 bindsym $MOD+Shift+q kill
 
 # Rofi
-bindsym $MOD+d exec rofi -show run
+bindsym $MOD+d exec rofi -show drun -show-icons
 
 #bindsym $MOD+$left focus left
 #bindsym $MOD+$down focus down
@@ -195,7 +196,10 @@ gaps inner 2
 gaps outer 0
 smart_gaps on
 smart_borders on
-#
+
+# Floating by default
+for_window [class="Blueman-manager"] floating enable
+
 
 
 
