@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-syntax on
+filetype plugin on            " for vim-latex 
+filetype indent on            " for vim-latex 
 
 " Vundle
 " set the runtime path to include Vundle and initialize
@@ -14,9 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/YouCompleteMe'
 Plugin 'vim-latex/vim-latex'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'wincent/command-t'
-Plugin 'dense-analysis/ale'
-Plugin 'jalvesaq/Nvim-R'
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,37 +30,63 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-" Lets
-"let mapleader = "-"
-let g:tex_flavor='latex'
-let g:tex_no_error=1
-
-" Settings
+"
+" general
+syntax on
+let mapleader = "\\"
+set number
+set path+=**
 set spelllang=en              
 set spellfile=$HOME/.vim/spell/en.utf-8.add
+set shellslash
 set mouse=a
+set iskeyword+=:
+set sw=2
+set autoindent
+
+" vim-latex-suite
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+let g:tex_no_error=1
+let g:Tex_DefaultTargetFormat='pdf'
+
+" Incemental search
+set incsearch
+set hlsearch
+
+" Status line
+" set statusline=%F
+set laststatus=2
+
+"" Indents
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set shellslash
-set iskeyword+=:
-set sw=2
-set grepprg=grep\ -nH\ $*
-set ruler
-set number
-set hlsearch
-set laststatus=2
 
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
+nmap <leader>c :noh<cr>
+nmap <leader>f :FZF<cr>
 inoremap jj <Esc>
-tnoremap <C-x> <C-\><C-n>
 
-let R_assign = 0
 
-set background=dark
-let g:solarized_termcolors=16
-colorscheme solarized
+" File selection
+nnoremap <leader>e :Lexplore<cr>
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
 
+" Tabs
+nmap <C-t>j :tabp<cr>
+nmap <C-t>k :tabn<cr>
+nmap <C-t>t :tabnew<cr>
+nmap <C-t>d :tabc<cr>
+
+" Colors
+let base16colorspace=256
+" disables opaque background
+source ~/.vim/colorscheme.vim
+hi Normal ctermbg=none
+hi NonText ctermbg=none
