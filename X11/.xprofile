@@ -2,13 +2,6 @@
 # Ran by .xinitrc (when starting X from command line)
 # and by lightdm
 
-# Hidpi -- for MacBookPro
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.4
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-#export QT_SCREEN_SCALE_FACTORS=0.5
-#export QT_SCALE_FACTOR=1
-
 # Remap CapsLock to Control
 setxkbmap -layout us -option ctrl:nocaps
 

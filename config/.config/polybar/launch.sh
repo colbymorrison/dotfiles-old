@@ -12,12 +12,11 @@ base=/sys/devices/platform/coretemp.0/hwmon
 
 # Start on all monitors with right font size
 for m in $(polybar --list-monitors | cut -d":" -f1); do
-    [[ $m != "eDP1" ]]  && FONT_SZ=21 || FONT_SZ=16
-    
+    FONT_SZ=10
     export NOTOT="NotoSans-Regular:size=$FONT_SZ;-1"
     export MATRT="MaterialIcons:size=$(($FONT_SZ+2));0"
     export TERMST="Termsynu:size=$FONT_SZ:antialias=false;-2"
     export AWST="Font Awesome 5 Free Solid:size=$(($FONT_SZ+2));0"
 
-    MONITOR=$m polybar --reload laptop &
+    MONITOR=$m polybar --reload top &
 done

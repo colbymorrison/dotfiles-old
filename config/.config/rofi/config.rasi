@@ -16,7 +16,7 @@ configuration {
 
 * {
   background-color: rgba(0,0,0,0);
-  font: "Iosevka Term bold 20";
+  font: "Iosevka Term bold 10";
 }
 
 window {

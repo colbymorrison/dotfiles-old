@@ -3,7 +3,6 @@ alsa-utils
 apfs-fuse-git
 arandr
 arch-audit
-auracle-git
 autoconf
 automake
 base
@@ -28,9 +27,7 @@ dhclient
 dhcpcd
 discount
 dmenu
-dpkg
 etckeeper
-facetimehd-firmware
 fakeroot
 feh
 firefox
@@ -40,13 +37,12 @@ gcc
 git
 gksu
 gnu-netcat
-go
 groff
+grub
 i3-gaps
 i3blocks
 i3lock
 intel-ucode
-kbdlight
 libdvdcss
 libdvdnav
 libdvdread
@@ -61,11 +57,11 @@ linux-lts
 linux-lts-headers
 lostfiles
 lsof
+lvm2
 m4
 make
 man-db
 man-pages
-mbpfan-git
 meson
 mlocate
 nemo
@@ -86,10 +82,8 @@ pkgconf
 playerctl
 polybar
 pulseaudio
-pulseaudio-bluetooth
+python-fontawesome
 python-i3ipc
-python-pandas
-python-pipenv
 qemu
 qemu-arch-extra
 ranger
@@ -101,7 +95,6 @@ spotify
 stalonetray
 stow
 sudo
-termite
 termsyn-font
 texinfo
 texlive-bibtexextra
@@ -109,9 +102,7 @@ texlive-core
 texlive-fontsextra
 texlive-formatsextra
 texlive-latexextra
-thermald
 timeshift
-tlp
 tmux
 tree
 ttf-croscore
@@ -124,7 +115,6 @@ ufw
 unclutter
 unzip
 vim
-vim-fugitive
 vim-latexsuite
 vim-markdown
 vim-tmux-navigator-git
@@ -139,7 +129,6 @@ xcalib
 xclip
 xdg-user-dirs
 xdotool
-xf86-input-mtrack-git
 xf86-video-intel
 xgetres
 xorg-server
@@ -154,4 +143,3 @@ xterm
 yay
 zathura
 zathura-pdf-mupdf
-zoom
