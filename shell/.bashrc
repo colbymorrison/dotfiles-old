@@ -19,6 +19,7 @@ alias ...='cd../..'
 alias ....='cd../../..'
 alias .....='cd../../../..'
 alias ......='cd../../../../..'
+alais v='vim'
 alias l='ls -lah'
 alias ls='ls -A --color=auto'
 alias ka='killall'
@@ -29,10 +30,14 @@ alias c='clear'
 alias e='exit'
 alias m='man'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias bt=bluetoothctl
+alias pag='ps aux | grep'
+
+## Tmux ##
+alias tmat='tmus a -t'
+alias tmls='tmus ls'
+
 alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
-alias cdexp='cd /usr/share/exploitdb/exploits'
 
 ## Systemctl ##
 alias stl='systemctl'
