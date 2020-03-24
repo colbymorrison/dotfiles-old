@@ -46,6 +46,7 @@ intel-ucode
 libdvdcss
 libdvdnav
 libdvdread
+libreoffice-fresh
 libtool
 lightdm
 lightdm-webkit-theme-aether
@@ -84,6 +85,7 @@ polybar
 pulseaudio
 python-fontawesome
 python-i3ipc
+qalculate-gtk
 qemu
 qemu-arch-extra
 ranger
@@ -124,6 +126,7 @@ wget
 which
 wireless_tools
 wireshark-qt
+xautolock
 xbindkeys
 xcalib
 xclip

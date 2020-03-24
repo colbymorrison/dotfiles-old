@@ -162,7 +162,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-# --Base16 Shell--
+# --Base16 Shell--#
 BASE16_SHELL="$XDG_DATA_HOME/base16-manager/chriskempson/base16-shell"
 BASE16_SHELL_SET_BACKGROUND=false
 [ -n "$PS1" ] && \
