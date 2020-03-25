@@ -22,7 +22,7 @@ monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 3% 
 
-background = #000000
+background = #cc212024
 foreground = #ccffffff
 
 line-color = ${self.background}
@@ -40,7 +40,7 @@ font-4 = ${env:AWSB}
 
 modules-left = i3 
 modules-center = date
-modules-right = temperature cpu memory pulseaudio wired-network 
+modules-right = pulseaudio wired-network temperature memory cpu 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -111,21 +111,21 @@ animation-charging-framerate = 750
 [module/cpu]
 type = internal/cpu
 interval = 0.5
-format = <label> <ramp-coreload>
+format = <ramp-coreload>
 label =  
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = #aaff77
+ramp-coreload-0-foreground = #7780ff
 ramp-coreload-1 = ▂
 ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = #aaff77
+ramp-coreload-1-foreground = #7780ff
 ramp-coreload-2 = ▃
 ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = #aaff77
+ramp-coreload-2-foreground = #7780ff
 ramp-coreload-3 = ▄
 ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = #aaff77
+ramp-coreload-3-foreground = #7780ff
 ramp-coreload-4 = ▅
 ramp-coreload-4-font = 2
 ramp-coreload-4-foreground = #fba922
@@ -141,8 +141,9 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date = %%{F#99}%m-%d-%Y%%{F-}  %%{F#fff}%H:%M%%{F-}
-date-alt = %%{F#fff}%A, %B %d %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+label-font = 4
+date = %%{F#fff}%I:%M%%{F-}
+date-alt = %%{F#99}%m-%d-%Y%%{F-}  %%{F#fff}%I:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
 type = internal/memory
@@ -176,7 +177,7 @@ type = internal/network
 interface = enp3s0
 interval = 3.0
 
-label-connected =     
+label-connected =   %local_ip%  
 label-disconnected-foreground = #66
 
 label-disconnected = 
@@ -239,7 +240,6 @@ menu-2-2-exec = menu-open-0
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-; index-sort = true
 wrapping-scroll = false
 primary = #706E6B
 pad = 4
@@ -255,8 +255,8 @@ label-mode-background = ${self.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %name%
 label-focused-foreground = #ff8300
-label-focused-background = #000000
-label-focused-underline = #000000
+label-focused-background = #cc212024
+label-focused-underline = #cc212024
 label-focused-padding = ${self.pad}
 
 ; unfocused = Inactive workspace on any monitor
@@ -286,12 +286,12 @@ format-volume = <ramp-volume> <label-volume>
 label-volume = %{A3:pavucontrol &:}%percentage%%%{A}
 label-volume-foreground = ${root.foreground}
 
-label-muted = 
+label-muted = 
 label-muted-foreground = #6F5F5F
 
-ramp-volume-0 =   
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 =  
+ramp-volume-1 =   
+ramp-volume-2 = 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55

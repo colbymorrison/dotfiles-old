@@ -11,8 +11,6 @@ bash-completion
 bind-tools
 binutils
 bison
-blueman
-bluez-utils
 chrony
 cmake
 conky
@@ -86,6 +84,7 @@ polybar
 pulseaudio
 python-fontawesome
 python-i3ipc
+python-pywal
 qalculate-gtk
 qemu
 qemu-arch-extra

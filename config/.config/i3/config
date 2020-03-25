@@ -180,7 +180,7 @@ bindsym $MOD+r mode "resize"
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Workspace bindings
-for_window [class="Spotify"] move container to workspace number 4
+for_window [class="Spotify"] move container to workspace number 3
 for_window [class="firefox"] move container to workspace number 2
 for_window [class="Qemu-system-x86_64"] move container to workspace number 3
 

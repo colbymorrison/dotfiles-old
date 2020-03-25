@@ -94,7 +94,7 @@ WINDOW_ICONS = {
     'robo3t': fa.icons['database'],
     'slack': fa.icons['slack'],
     'slic3r.pl': fa.icons['cube'],
-    'spotify': fa.icons['music'],  # could also use the 'spotify' icon
+    'spotify': fa.icons['spotify'],  # could also use the 'spotify' icon
     'steam': fa.icons['steam'],
     'subl': fa.icons['file-alt'],
     'subl3': fa.icons['file-alt'],
@@ -108,6 +108,7 @@ WINDOW_ICONS = {
     'yelp': fa.icons['code'],
     'zenity': fa.icons['window-maximize'],
     'zoom': fa.icons['comment'],
+    'zathura': fa.icons['file-pdf'],
 }
 
 # This icon is used for any application not in the list above
