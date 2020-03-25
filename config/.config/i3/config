@@ -39,7 +39,7 @@ bindsym $MOD+Return exec $TERM
 bindsym $Mod+Shift+Return exec $TERM -d $(xcwd) 
 
 # kill focused window
-bindsym $MOD+q exec /home/colby/scripts/qemu-protecc.py
+bindsym $MOD+q exec /home/colby/scripts/i3-scripts/qemu-protecc.py
 bindsym $MOD+Shift+q kill
 
 # Rofi
@@ -116,28 +116,28 @@ set $ws10 "10"
 
 
 # switch to workspace
-bindsym $MOD+1 workspace number $ws1
-bindsym $MOD+2 workspace number $ws2
-bindsym $MOD+3 workspace number $ws3
-bindsym $MOD+4 workspace number $ws4
-bindsym $MOD+5 workspace number $ws5
-bindsym $MOD+6 workspace number $ws6
-bindsym $MOD+7 workspace number $ws7
-bindsym $MOD+8 workspace number $ws8
-bindsym $MOD+9 workspace number $ws9
-bindsym $MOD+0 workspace number $ws10
+bindsym $MOD+1 workspace number 1
+bindsym $MOD+2 workspace number 2
+bindsym $MOD+3 workspace number 3
+bindsym $MOD+4 workspace number 4
+bindsym $MOD+5 workspace number 5
+bindsym $MOD+6 workspace number 6
+bindsym $MOD+7 workspace number 7
+bindsym $MOD+8 workspace number 8
+bindsym $MOD+9 workspace number 9
+bindsym $MOD+0 workspace number 10
 
 # move focused container to workspace
-bindsym $MOD+Shift+1 move container to workspace number $ws1
-bindsym $MOD+Shift+2 move container to workspace number $ws2
-bindsym $MOD+Shift+3 move container to workspace number $ws3
-bindsym $MOD+Shift+4 move container to workspace number $ws4
-bindsym $MOD+Shift+5 move container to workspace number $ws5
-bindsym $MOD+Shift+6 move container to workspace number $ws6
-bindsym $MOD+Shift+7 move container to workspace number $ws7
-bindsym $MOD+Shift+8 move container to workspace number $ws8
-bindsym $MOD+Shift+9 move container to workspace number $ws9
-bindsym $MOD+Shift+0 move container to workspace number $ws10
+bindsym $MOD+Shift+1 move container to workspace number 1
+bindsym $MOD+Shift+2 move container to workspace number 2
+bindsym $MOD+Shift+3 move container to workspace number 3
+bindsym $MOD+Shift+4 move container to workspace number 4
+bindsym $MOD+Shift+5 move container to workspace number 5
+bindsym $MOD+Shift+6 move container to workspace number 6
+bindsym $MOD+Shift+7 move container to workspace number 7
+bindsym $MOD+Shift+8 move container to workspace number 8
+bindsym $MOD+Shift+9 move container to workspace number 9
+bindsym $MOD+Shift+0 move container to workspace number 10
 
 # move workspaces between displays
 bindsym $MOD+p move workspace to output right
@@ -180,9 +180,10 @@ bindsym $MOD+r mode "resize"
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Workspace bindings
-for_window [class="Spotify"] move container to workspace 4
-for_window [class="firefox"] move container to workspace 2
-for_window [class="Qemu-system-x86_64"] move container to workspace 3
+for_window [class="Spotify"] move container to workspace number 4
+for_window [class="firefox"] move container to workspace number 2
+for_window [class="Qemu-system-x86_64"] move container to workspace number 3
+
 
 # Program hotkeys
 bindsym $Mod+Shift+S exec spotify
@@ -197,16 +198,14 @@ gaps outer 0
 smart_gaps on
 smart_borders on
 
-# Floating by default
+# Floating window settings
 for_window [class="Nemo"] floating enable
 for_window [class="Nemo"] resize set 850 750 
-
 for_window [floating] move position center
 
+# Change icon to currently running
+exec_always --no-startup-id  ~/scripts/i3-scripts/autoname_workspaces.py &
 
-
-# exec_always --no-startup-id  ~/scripts/i3scripts/autoname_workspaces.py &
-#
 
 
 

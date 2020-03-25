@@ -22,7 +22,7 @@ monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 3% 
 
-background = #00000000
+background = #000000
 foreground = #ccffffff
 
 line-color = ${self.background}
@@ -35,10 +35,12 @@ module-margin = 4
 font-0 = ${env:NOTOT}
 font-1 = ${env:MATRT}
 font-2 = ${env:TERMST}
-font-3 = ${env:AWST}
+font-3 = ${env:AWSM}
+font-4 = ${env:AWSB}
 
-modules-left = i3 temperature cpu memory
-modules-right = pulseaudio backlight wired-network battery date
+modules-left = i3 
+modules-center = date
+modules-right = temperature cpu memory pulseaudio wired-network 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -237,13 +239,14 @@ menu-2-2-exec = menu-open-0
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = true
+; index-sort = true
 wrapping-scroll = false
 primary = #706E6B
-pad = 5
+pad = 4
+strip-wsnumbers=true
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2 
 label-mode-foreground = #000
@@ -252,8 +255,8 @@ label-mode-background = ${self.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %name%
 label-focused-foreground = #ff8300
-label-focused-background = #00
-label-focused-underline = #00
+label-focused-background = #000000
+label-focused-underline = #000000
 label-focused-padding = ${self.pad}
 
 ; unfocused = Inactive workspace on any monitor

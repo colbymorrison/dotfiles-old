@@ -74,6 +74,7 @@ networkmanager-dmenu-git
 noto-fonts
 numlockx
 openssh
+otf-font-awesome
 pacman-contrib
 patch
 pavucontrol
@@ -94,6 +95,7 @@ rofi
 rxvt-unicode
 slock
 spotify
+st
 stalonetray
 stow
 sudo
@@ -109,7 +111,6 @@ tmux
 tree
 ttf-croscore
 ttf-dejavu
-ttf-font-awesome
 ttf-material-design-icons
 twmn-git
 udisks2

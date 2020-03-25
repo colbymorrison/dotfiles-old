@@ -1,5 +1,4 @@
 #! /bin/bash
-export PATH="$PATH:/home/colby/scripts"
 export TERMINAL=urxvt
 export GOPATH=$(go env GOPATH)
 export GOROOT=$(go env GOROOT)

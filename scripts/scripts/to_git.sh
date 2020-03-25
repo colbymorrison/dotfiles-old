@@ -1,4 +1,4 @@
-# Move dir to version control
+# Move dir to dotfiles version control & simlink
 
 if [ $1 ]; then
     dir=/home/colby/dotfiles/config/.config

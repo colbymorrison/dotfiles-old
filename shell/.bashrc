@@ -125,7 +125,7 @@ alias gup='git pull --rebase'
 alias gupv='git pull --rebase -v'
 
 ## Custom ##
-alias base16-manager='~/Repos/base16-manager/base16-manager'
+# alias base16-manager='~/Repos/base16-manager/base16-manager'
 alias polyrs='~/.config/polybar/launch.sh'
 alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
 

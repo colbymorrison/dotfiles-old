@@ -16,7 +16,8 @@ for m in $(polybar --list-monitors | cut -d":" -f1); do
     export NOTOT="NotoSans-Regular:size=$FONT_SZ;-1"
     export MATRT="MaterialIcons:size=$(($FONT_SZ+2));0"
     export TERMST="Termsynu:size=$FONT_SZ:antialias=false;-2"
-    export AWST="Font Awesome 5 Free Solid:size=$(($FONT_SZ+2));0"
+    export AWSM="Font Awesome 5 Free Solid:size=$(($FONT_SZ+2));0"
+    export AWSB="FontAwesome 5 Brands Regular:size=$(($FONT_SZ+2));0"
 
     MONITOR=$m polybar --reload top &
 done
