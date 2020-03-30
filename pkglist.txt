@@ -6,11 +6,12 @@ arch-audit
 autoconf
 automake
 base
-base16-manager
 bash-completion
+betterlockscreen
 bind-tools
 binutils
 bison
+bspwm
 chrony
 cmake
 conky
@@ -39,8 +40,8 @@ groff
 grub
 i3-gaps
 i3blocks
-i3lock
 intel-ucode
+jupyter-notebook
 libdvdcss
 libdvdnav
 libdvdread
@@ -72,7 +73,6 @@ networkmanager-dmenu-git
 noto-fonts
 numlockx
 openssh
-otf-font-awesome
 pacman-contrib
 patch
 pavucontrol
@@ -82,8 +82,11 @@ pkgconf
 playerctl
 polybar
 pulseaudio
+python-dbus
 python-fontawesome
 python-i3ipc
+python-matplotlib
+python-pandas
 python-pywal
 qalculate-gtk
 qemu
@@ -92,12 +95,12 @@ ranger
 redshift
 rofi
 rxvt-unicode
-slock
 spotify
 st
 stalonetray
 stow
 sudo
+sxhkd
 termsyn-font
 texinfo
 texlive-bibtexextra
@@ -110,6 +113,8 @@ tmux
 tree
 ttf-croscore
 ttf-dejavu
+ttf-font-awesome
+ttf-liberation
 ttf-material-design-icons
 twmn-git
 udisks2

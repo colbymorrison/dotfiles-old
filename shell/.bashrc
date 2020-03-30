@@ -139,17 +139,6 @@ function ec(){
     echo  "No directory in ~/.config with name $1"
 }
 
-function mdv(){
-    full_path=$(realpath $1) 
-    html_path=$(echo $full_path | sed s/md/html/g)
-
-    markdown $full_path > $html_path
-
-    firefox $html_path
-
-    rm $html_path
-}
-
 # ---Share History--- #
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
@@ -162,9 +151,5 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-# --Base16 Shell--#
-BASE16_SHELL="$XDG_DATA_HOME/base16-manager/chriskempson/base16-shell"
-BASE16_SHELL_SET_BACKGROUND=false
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-    eval "$("$BASE16_SHELL/profile_helper.sh")"
+# --pywal-- #
+(cat ~/.cache/wal/sequences &)

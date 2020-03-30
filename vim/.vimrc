@@ -59,8 +59,7 @@ nmap <C-t>t :tabnew<cr>
 nmap <C-t>d :tabc<cr>
 
 " Colors
-let base16colorspace=256
-source ~/.vim/colorscheme.vim "created by base16-manager
+colorscheme wal
 " disables opaque background
 hi Normal ctermbg=none
 hi NonText ctermbg=none
