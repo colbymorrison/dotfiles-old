@@ -6,11 +6,14 @@
 setxkbmap -layout us -option ctrl:nocaps
 
 # Startup programs
-xbindkeys
+sxhkd & 
 numlockx &
 unclutter &
 redshift &
 picom --xrender-sync-fence &
+# Lock on suspend
+xss-lock -- /usr/bin/betterlockscreen --lock blur & 
+
+# Feh set backround, wal might override
 feh --bg-scale --randomize ~/backgrounds & 
-xss-lock -- /usr/bin/slock &
-twmnd &
+wal -R

@@ -57,6 +57,3 @@ if [ -x "$script" -a ! -d "$script" ]; then
     echo "Loading xsession script $script"
     . "$script"
 fi
-
-
-exec i3

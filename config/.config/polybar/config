@@ -16,97 +16,51 @@
 ;
 ;==========================================================
 
+[colors]
+background = ${env:COLOR0:#222}
+; make foreground white by default
+foreground = ${xrdb:color15:#222}
+; foreground as per theme
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
 
 [bar/top]
-monitor = ${env:MONITOR:eDP1} 
+monitor = ${env:MONITOR:HDMI2} 
 width = 100%
 height = 3% 
 
-background = #cc212024
-foreground = #ccffffff
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 line-color = ${self.background}
 line-size = 5 
 
 spacing = 2
+padding-left = 5
 padding-right = 5
-module-margin = 4
+module-margin = 3.5
 
-font-0 = ${env:NOTOT}
-font-1 = ${env:MATRT}
-font-2 = ${env:TERMST}
-font-3 = ${env:AWSM}
-font-4 = ${env:AWSB}
+font-0 = ${env:DEJA}
+font-1 = ${env:TERMST}
+font-2 = ${env:AWSM}
+font-3 = ${env:AWSB}
 
-modules-left = i3 
+modules-left = power bspwm spotify
 modules-center = date
 modules-right = pulseaudio wired-network temperature memory cpu 
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
 tray-position = right 
 tray-padding = 2 
-# tray-transparent = true
 
 enable-ipc = true
 
-
-[module/backlight]
-type = internal/xbacklight
-format = <ramp> <label>
-label = %percentage%%
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-font = 3
-bar-indicator-foreground = #ff
-bar-fill = —
-bar-fill-font = 3
-bar-fill-foreground = #c9665e
-bar-empty = —
-bar-empty-font = 3
-bar-empty-foreground = #44
-
-[module/battery]
-type = internal/battery
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
-
-#format-charging =  <label-charging>
-#format-discharging = <label-discharging>
-#format-full =  <label-full>
-
-ramp-capacity-0 = 
-ramp-capacity-0-foreground = #f53c3c
-ramp-capacity-1 = 
-ramp-capacity-1-foreground = #ffa900
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-bar-capacity-width = 10
-bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-bar-capacity-fill = █
-bar-capacity-fill-foreground = #ddffffff
-bar-capacity-fill-font = 3
-bar-capacity-empty = █
-bar-capacity-empty-font = 3
-bar-capacity-empty-foreground = #44ffffff
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
+wm-restack = bspwm
+fixed-center=true
 
 [module/cpu]
 type = internal/cpu
@@ -115,80 +69,55 @@ format = <ramp-coreload>
 label =  
 
 ramp-coreload-0 = ▁
-ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = #7780ff
+ramp-coreload-0-font = 1
+ramp-coreload-0-foreground = ${colors.secondary}
 ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = #7780ff
+ramp-coreload-1-font = 1
+ramp-coreload-1-foreground = ${colors.secondary}
 ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = #7780ff
+ramp-coreload-2-font = 1
+ramp-coreload-2-foreground = ${colors.secondary}
 ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = #7780ff
+ramp-coreload-3-font = 1
+ramp-coreload-3-foreground = ${colors.secondary}
 ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
+ramp-coreload-4-font = 1
 ramp-coreload-4-foreground = #fba922
 ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
+ramp-coreload-5-font = 1
 ramp-coreload-5-foreground = #fba922
 ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
+ramp-coreload-6-font = 1
 ramp-coreload-6-foreground = #ff5555
 ramp-coreload-7 = █
-ramp-coreload-7-font = 2
+ramp-coreload-7-font = 1
 ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-label-font = 4
-date = %%{F#fff}%I:%M%%{F-}
-date-alt = %%{F#99}%m-%d-%Y%%{F-}  %%{F#fff}%I:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+format= <label>
+
+label = %date%
+label-font = 1
+date =  %B %d    %I:%M%
+date-alt = %m-%d-%Y    %I:%M:%%{F#fba922}%S%%{F-}
 
 [module/memory]
 type = internal/memory
 format = <label>
-label = l   %percentage_used% %
-
-[module/wireless-network]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-label-connected = %{A1:networkmanager_dmenu:}%essid%%{A}
-label-disconnected =%{A1:networkmanager_dmenu:}%{A}
-label-disconnected-foreground = #66
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = #ffa64c
-animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${bar/top.foreground}
-animation-packetloss-framerate = 500
+label =    %percentage_used%%
+label-foreground = ${colors.foreground}
 
 [module/wired-network]
 type = internal/network
 interface = enp3s0
 interval = 3.0
 
-label-connected =   %local_ip%  
+label-connected =   
 label-disconnected-foreground = #66
 
 label-disconnected = 
-
-[module/network-stats-wireless]
-type = internal/network
-interface = wlan0
-interval = 3.0
-ping-interval = 3
-
-label-connected =   %local_ip%  %signal%% 
 
 [module/network-stats-wired]
 type = internal/network
@@ -196,119 +125,60 @@ interface = eth0
 interval = 3.0
 ping-interval = 3
 
-label-connected =   %local_ip%  %linkspeed%  
+label-connected =   %local_ip%  %linkspeed%  
 
-[module/powermenu]
-type = custom/menu
+[module/bspwm]
+type = internal/bspwm
 
-format-padding = 5
+ws-icon-0 = I;
+ws-icon-1 = II;
+ws-icon-2 = III;
+ws-icon-3 = IV;IV
+ws-icon-4 = V;V
+ws-icon-5 = VI;VI
+ws-icon-6 = VII;VII
+ws-icon-7 = VIII;VIII
+ws-icon-8 = IX;IX
+ws-icon-9 = X;X
 
-label-open =  
-label-close = 
-label-sperator = | 
+format = <label-state> 
 
-menu-0-0 = Terminate i3  
-menu-0-0-foreground = #fba922
-menu-0-0-exec = i3-msg restart
+pad = 2
 
-menu-0-1 = Reboot  
-menu-0-1-foreground = #fba922
-menu-0-1-exec = menu-open-1
-
-menu-0-2 = Power off
-menu-0-2-foreground = #fba922
-menu-0-2-exec = menu-open-2
-
-menu-1-0 = Are you sure?  
-menu-1-0-foreground = #fba922
-menu-1-1 = yes  
-menu-1-1-foreground = #fba922
-menu-1-1-exec = sudo reboot
-menu-1-2 = no
-menu-1-2-foreground = #fba922
-menu-1-2-exec = menu-open-0
-
-menu-2-0 = Power off  
-menu-2-0-foreground = #fba922
-menu-2-1 = yes  
-menu-2-1-foreground = #fba922
-menu-2-1-exec = sudo poweroff
-menu-2-2 = no
-menu-2-2-foreground = #fba922
-menu-2-2-exec = menu-open-0
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-wrapping-scroll = false
-primary = #706E6B
-pad = 4
-strip-wsnumbers=true
-
-; Only show workspaces on the same output as the bar
-pin-workspaces = true
-
-label-mode-padding = 2 
-label-mode-foreground = #000
-label-mode-background = ${self.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %name%
-label-focused-foreground = #ff8300
-label-focused-background = #cc212024
-label-focused-underline = #cc212024
+label-focused = %icon%
+label-focused-foreground = ${colors.primary}
 label-focused-padding = ${self.pad}
 
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
-label-unfocused-foreground = #ffffff
-label-unfocused-padding = ${self.pad}
+label-occupied = %icon%
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = ${self.pad}
 
-; visible = Active workspace on unfocused monitor
-label-visible = %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %name%
-label-urgent-background = #bd2c40
+label-urgent = %icon%
+label-urgent-foreground = ${colors.alert}
 label-urgent-padding = ${self.pad}
 
-; Separator in between workspaces
-; label-separator = |
+label-empty = 
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = ${self.pad}
+
+label-separator =   
+label-separator-padding = 0
+label-separator-foreground = ${colors.foreground}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_03.0.hdmi-stereo-extra1
 
 format-volume = <ramp-volume> <label-volume>
-label-volume = %{A3:pavucontrol &:}%percentage%%%{A}
-label-volume-foreground = ${root.foreground}
+label-volume = %{T0}%{A3:pavucontrol &:}%percentage%%%{A}
+label-volume-foreground = ${colors.foreground}
 
 label-muted = 
-label-muted-foreground = #6F5F5F
+label-muted-foreground = ${colors.foreground}
 
 ramp-volume-0 =  
 ramp-volume-1 =   
 ramp-volume-2 = 
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = —
-bar-volume-fill-font = 2
-bar-volume-empty = —
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = #555
 
 [module/temperature]
 type = internal/temperature
@@ -343,3 +213,17 @@ label-warn-foreground = #f00
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
+
+[module/power]
+type = custom/script
+exec = echo 
+click-left = ~/scripts/polybar-scripts/rofi-power.sh
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = "  "
+format = <label>
+exec = python ~/scripts/polybar-scripts/spotify_status.py -t 20 -f '{artist}  -  {song}'
+
+
