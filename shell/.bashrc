@@ -12,7 +12,8 @@ export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[00m\]\$ "
 # ---Alias--- #
 ## ~/.config files ##
 alias not="$EDITOR ~/Notes/notes.md"
-alias ei3='ec i3'
+alias ebsp='$EDITOR ~/.config/bspwm/bspwmrc'
+alias esxh='$EDITOR ~/.config/sxhkd/sxhkdrc'
 alias epb="$EDITOR '+set syntax=dosini' ~/.config/polybar/config"
 alias exr="$EDITOR ~/.Xresources"
 
@@ -142,14 +143,11 @@ function ec(){
 # ---Share History--- #
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
-export HISTFILESIZE=100000               # big big history
-shopt -s histappend                      # append to history, don't overwrite it
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 # --Use bash-completion package-- #
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-# --pywal-- #
-(cat ~/.cache/wal/sequences &)
+# --wpgtk-- #
+(cat $HOME/.config/wpg/sequences &)

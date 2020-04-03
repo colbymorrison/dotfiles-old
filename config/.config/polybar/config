@@ -37,19 +37,19 @@ foreground = ${colors.foreground}
 line-color = ${self.background}
 line-size = 5 
 
-spacing = 2
 padding-left = 5
 padding-right = 5
-module-margin = 3.5
+module-margin = 3
 
 font-0 = ${env:DEJA}
 font-1 = ${env:TERMST}
 font-2 = ${env:AWSM}
 font-3 = ${env:AWSB}
+font-4 = ${env:MATRT}
 
 modules-left = power bspwm spotify
 modules-center = date
-modules-right = pulseaudio wired-network temperature memory cpu 
+modules-right = pulseaudio filesystem temperature cpu memory
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
@@ -62,11 +62,19 @@ enable-ipc = true
 wm-restack = bspwm
 fixed-center=true
 
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+
+format-mounted = <label-mounted>
+label-mounted =   %percentage_used%%
+
 [module/cpu]
 type = internal/cpu
-interval = 0.5
-format = <ramp-coreload>
-label =  
+interval = 3
+format =<label>
+label =  %percentage%% 
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 1
@@ -100,13 +108,13 @@ format= <label>
 
 label = %date%
 label-font = 1
-date =  %B %d    %I:%M%
-date-alt = %m-%d-%Y    %I:%M:%%{F#fba922}%S%%{F-}
+date =  %B %d   %I:%M%
+date-alt =  %m-%d-%Y   %I:%M:%%{F#fba922}%S%%{F-}
 
 [module/memory]
 type = internal/memory
 format = <label>
-label =    %percentage_used%%
+label =   %percentage_used%%
 label-foreground = ${colors.foreground}
 
 [module/wired-network]
@@ -176,9 +184,9 @@ label-volume-foreground = ${colors.foreground}
 label-muted = 
 label-muted-foreground = ${colors.foreground}
 
-ramp-volume-0 =  
-ramp-volume-1 =   
-ramp-volume-2 = 
+ramp-volume-0 = " " 
+ramp-volume-1 = " "
+ramp-volume-2 = " "
 
 [module/temperature]
 type = internal/temperature
@@ -210,9 +218,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = #f00
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = " "
+ramp-1 = " "
+ramp-2 = " "
 
 [module/power]
 type = custom/script
