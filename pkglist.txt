@@ -18,6 +18,7 @@ conky
 cowsay
 cpio
 cronie
+cuneiform
 cups
 cups-pdf
 dconf-editor
@@ -27,6 +28,7 @@ dhcpcd
 discount
 dmenu
 etckeeper
+evince
 fakeroot
 feh
 firefox
@@ -58,12 +60,14 @@ linux-lts-headers
 lostfiles
 lsof
 lvm2
+lxappearance
 m4
 make
 man-db
 man-pages
 meson
 mlocate
+nautilus
 nemo
 neofetch
 network-manager-applet
@@ -131,11 +135,14 @@ wget
 which
 wireless_tools
 wireshark-qt
+wmctrl
+wpgtk-git
 xautolock
 xbindkeys
 xcalib
 xclip
 xdg-user-dirs
+xdo
 xdotool
 xf86-video-intel
 xgetres

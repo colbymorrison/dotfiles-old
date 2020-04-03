@@ -29,7 +29,7 @@ case $option in
         systemctl hibernate
         ;;
     *"Lock Screen")
-        betterlockscreen -l blur
+        betterlockscreen -l dim
         ;;
     *)
         ;;

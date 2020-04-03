@@ -1,6 +1,5 @@
-#
-# wm independent hotkeys
-#
+#### wm independent hotkeys ###
+
 
 # terminal emulator
 alt + Return
@@ -16,7 +15,7 @@ alt + Escape
 
 # Program hotkeys
 alt + shift + {s, f, x, p}
-    {spotify, firefox, betterscreenlocker -l blur, ~/scripts/polybar-scripts/rofi-power.sh}
+    {spotify, firefox, betterlockscreen -l dim, ~/scripts/polybar-scripts/rofi-power.sh}
 
 # Audio
 XF86Audio{Raise,Lower}Volume
@@ -28,9 +27,8 @@ XF86AudioMute
 XF86Audio{Play,Next,Prev}
     playerctl {play-pause, next, previous}
 
-#
-# bspwm hotkeys
-#
+
+#### bspwm hotkeys ####
 
 # quit/restart bspwm
 alt + shift + {q,r}

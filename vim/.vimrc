@@ -21,6 +21,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:tex_no_error=1
 let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf = 'zathura'
 imap <C-j> <Plug>IMAP_JumpForward
 let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemize,figure,table,theorem,lemma,tikzpicture'
 
