@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/YouCompleteMe'
 Plugin 'vim-latex/vim-latex'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'junegunn/fzf.vim' 
 " Plugin 'L9'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,6 +88,7 @@ nmap <C-t>d :tabc<cr>
 " Colors
 let base16colorspace=256
 " disables opaque background
-source ~/.vim/colorscheme.vim
+" source ~/.vim/colorscheme.vim
 hi Normal ctermbg=none
 hi NonText ctermbg=none
+colo desert

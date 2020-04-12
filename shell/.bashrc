@@ -6,8 +6,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # ---Prompt--- #
-export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[00m\]\$ "
+parse_git_branch() {
+         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+     }
+
+export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
 
 # ---Alias--- #
 ## ~/.config files ##
@@ -26,7 +32,7 @@ alias ......='cd ../../../../..'
 ## Common Commands ## 
 alias v='vim'
 alias l='ls -lah'
-alias ls='ls -A --color=auto'
+alias ls='ls -AG'
 alias df='df -h'
 alias du='du -h'
 alias free='free -h'
@@ -37,6 +43,8 @@ alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias g='grep'
 alias pag='ps aux | grep'
 alias open='xdg-open'
+alias python='python3'
+alias pip='pip3'
 
 ## Tmux ##
 alias tmat='tmux a -t'
