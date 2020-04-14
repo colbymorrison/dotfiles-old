@@ -11,6 +11,7 @@ numlockx &
 unclutter &
 redshift &
 picom --xrender-sync-fence &
+xss-lock -- betterlockscreen -l dim &
 
 # pywal
 wal -R
