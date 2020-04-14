@@ -19,7 +19,7 @@ alt + shift + {s, f, x, p}
 
 # Audio
 XF86Audio{Raise,Lower}Volume
-    ~/scripts/set-running-sink.sh {up,down}
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}1000
 
 XF86AudioMute
     ~/scripts/set-running-sink.sh mute

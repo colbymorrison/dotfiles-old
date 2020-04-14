@@ -5,6 +5,7 @@ arandr
 arch-audit
 autoconf
 automake
+aws-cli
 base
 bash-completion
 betterlockscreen
@@ -27,6 +28,8 @@ dhclient
 dhcpcd
 discount
 dmenu
+dmidecode
+eslint
 etckeeper
 evince
 fakeroot
@@ -40,8 +43,6 @@ gksu
 gnu-netcat
 groff
 grub
-i3-gaps
-i3blocks
 intel-ucode
 jupyter-notebook
 libdvdcss
@@ -75,6 +76,7 @@ networkmanager
 networkmanager-dispatcher-chrony
 networkmanager-dmenu-git
 noto-fonts
+npm
 numlockx
 openssh
 pacman-contrib
@@ -92,6 +94,7 @@ python-i3ipc
 python-matplotlib
 python-pandas
 python-pywal
+python-scipy
 qalculate-gtk
 qemu
 qemu-arch-extra
@@ -99,6 +102,7 @@ ranger
 redshift
 rofi
 rxvt-unicode
+slack-desktop
 spotify
 st
 stalonetray

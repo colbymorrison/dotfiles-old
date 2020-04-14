@@ -47,12 +47,12 @@ font-2 = ${env:AWSM}
 font-3 = ${env:AWSB}
 font-4 = ${env:MATRT}
 
-modules-left = power bspwm spotify
+modules-left = power bspwm spotify 
 modules-center = date
-modules-right = pulseaudio filesystem temperature cpu memory
+modules-right = pulseaudio temperature cpu memory
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
 
 tray-position = right 
 tray-padding = 2 
@@ -138,30 +138,19 @@ label-connected =   %local_ip%  %linkspeed%
 [module/bspwm]
 type = internal/bspwm
 
-ws-icon-0 = I;
-ws-icon-1 = II;
-ws-icon-2 = III;
-ws-icon-3 = IV;IV
-ws-icon-4 = V;V
-ws-icon-5 = VI;VI
-ws-icon-6 = VII;VII
-ws-icon-7 = VIII;VIII
-ws-icon-8 = IX;IX
-ws-icon-9 = X;X
-
 format = <label-state> 
 
 pad = 2
 
-label-focused = %icon%
+label-focused = %name%
 label-focused-foreground = ${colors.primary}
 label-focused-padding = ${self.pad}
 
-label-occupied = %icon%
+label-occupied = %name%
 label-occupied-foreground = ${colors.foreground}
 label-occupied-padding = ${self.pad}
 
-label-urgent = %icon%
+label-urgent = %name%
 label-urgent-foreground = ${colors.alert}
 label-urgent-padding = ${self.pad}
 
@@ -232,6 +221,6 @@ type = custom/script
 interval = 1
 format-prefix = "  "
 format = <label>
-exec = python ~/scripts/polybar-scripts/spotify_status.py -t 20 -f '{artist}  -  {song}'
+exec = python ~/scripts/polybar-scripts/spotify_status.py -t 10 -f '{artist}  -  {song}'
 
 

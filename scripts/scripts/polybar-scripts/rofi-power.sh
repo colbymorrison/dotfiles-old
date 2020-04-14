@@ -23,7 +23,7 @@ case $option in
         bspc quit
         ;;
     *"Suspend")
-        systemctl suspend
+        betterlockscreen -s dim
         ;;
     *"Hibernate")
         systemctl hibernate

@@ -1,3 +1,3 @@
 #! /bin/bash
 
-export COLOR0=#80{color0.strip}
+export COLOR0=#CC{color0.strip}

@@ -1,5 +1,3 @@
-#
-
 # ~/.bashrc
 # Run by interactive shells (after /etc/bash.bashrc)
 
@@ -7,7 +5,14 @@
 [[ $- != *i* ]] && return
 
 # ---Prompt--- #
-export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[00m\]\$ "
+parse_git_branch() {
+    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
+
+    if [[ ! -z $branch ]]; then
+        echo "$branch "
+    fi
+}
+export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
 
 # ---Alias--- #
 ## ~/.config files ##
@@ -38,6 +43,7 @@ alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias g='grep'
 alias pag='ps aux | grep'
 alias open='xdg-open'
+alias ka='killall'
 
 ## Tmux ##
 alias tmat='tmux a -t'
@@ -52,7 +58,7 @@ alias pm='pacman'
 
 ## Systemctl ##
 alias stl='systemctl'
-alias spd='systemctl suspend'
+alias spd='betterlockscreen -s dim'
 alias jnl='journalctl'
 
 ## Zathura ##
@@ -140,7 +146,7 @@ function ec(){
     echo  "No directory in ~/.config with name $1"
 }
 
-# ---Share History--- #
+# ---History--- #
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 
@@ -151,3 +157,4 @@ export HISTSIZE=100000                   # big big history
 
 # --wpgtk-- #
 (cat $HOME/.config/wpg/sequences &)
+source ~/.cache/wal/colors.sh # Sets fzf theme and allows use of $color[n] vars in scripts

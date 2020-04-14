@@ -17,13 +17,15 @@ set sw=2
 set autoindent
 
 " vim-latex-suite
-set grepprg=grep\ -nH\ $*
+set grepprg=grep\ -nH\ $* 
 let g:tex_flavor='latex'
 let g:tex_no_error=1
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_ViewRule_pdf = 'zathura'
-imap <C-j> <Plug>IMAP_JumpForward
+imap <C-g> <Plug>IMAP_JumpForward
+nmap <C-g> <Plug>IMAP_JumpForward
 let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemize,figure,table,theorem,lemma,tikzpicture'
+let g:Tex_GotoError=0 
 
 " Incemental search
 set incsearch
@@ -60,7 +62,7 @@ nmap <C-t>t :tabnew<cr>
 nmap <C-t>d :tabc<cr>
 
 " Colors
-colorscheme wal
+colorscheme wpgtkAlt
 " disables opaque background
 hi Normal ctermbg=none
 hi NonText ctermbg=none
