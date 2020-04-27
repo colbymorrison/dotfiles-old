@@ -10,8 +10,12 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # ---Prompt--- #
 parse_git_branch() {
-         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-     }
+    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
+
+    if [[ ! -z $branch ]]; then
+        echo "$branch "
+    fi
+}
 
 export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
 
