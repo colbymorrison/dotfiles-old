@@ -28,7 +28,7 @@
     /* Window border & padding */
     border: 3;
     padding: 55;
-    border-color: {color2};
+    border-color: {color1};
     /* Background for everything */
     background-color: argb:D9{background.strip};
 }}
@@ -62,7 +62,7 @@
     fixed-height: 0;
     /* Border below text box before list */
     border: 2px 0px 0px;
-    border-color: {color2};
+    border-color: {color1};
     spacing: 0px;
     scrollbar: true;
     /* No space between list elements */

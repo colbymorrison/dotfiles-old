@@ -1,5 +1,6 @@
 #! /bin/bash
 export TERMINAL=urxvt
+export PATH=$PATH:~/scripts
 export GOPATH=$(go env GOPATH)
 export GOROOT=$(go env GOROOT)
 export VISUAL=vim

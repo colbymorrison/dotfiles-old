@@ -2,6 +2,7 @@ adwaita-qt
 alsa-utils
 apfs-fuse-git
 arandr
+arch
 arch-audit
 autoconf
 automake
@@ -15,6 +16,8 @@ bison
 bspwm
 chrony
 cmake
+code
+compiledb
 conky
 cowsay
 cpio
@@ -41,6 +44,7 @@ gcc
 git
 gksu
 gnu-netcat
+go
 groff
 grub
 intel-ucode
@@ -88,6 +92,7 @@ pkgconf
 playerctl
 polybar
 pulseaudio
+python-airtable-wrapper
 python-dbus
 python-fontawesome
 python-i3ipc
@@ -104,6 +109,7 @@ rofi
 rxvt-unicode
 slack-desktop
 spotify
+spotify-tui
 st
 stalonetray
 stow
@@ -130,10 +136,6 @@ ufw
 unclutter
 unzip
 vim
-vim-latexsuite
-vim-markdown
-vim-tmux-navigator-git
-vim-youcompleteme-git
 vlc
 wget
 which

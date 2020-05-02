@@ -5,7 +5,7 @@ filetype indent on            " for vim-latex
 
 " general
 syntax on
-let mapleader = "\\"
+let mapleader = ","
 set number
 set path+=**
 set spelllang=en              
@@ -56,13 +56,44 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
 " Tabs
-nmap <C-t>j :tabp<cr>
-nmap <C-t>k :tabn<cr>
-nmap <C-t>t :tabnew<cr>
-nmap <C-t>d :tabc<cr>
+nmap <leader>tj :tabp<cr>
+nmap <leader>tk :tabn<cr>
+nmap <leader>tt :tabnew<cr>
+map <leader>td  :tabc<cr>
+
+" YouCompleteMe
+" use :ln and :lp to cycle through errors
+let g:ycm_always_populate_location_list = 1 
+map <leader>jc :YcmCompleter GoTo<CR>
+map <leader>jf :YcmCompleter FixIt<CR>
+
+" this doesn't really work
+let s:lsp = '~/Repos/lsp'
+let g:ycm_language_server = [
+  \   {
+  \     'name': 'yaml',
+  \     'cmdline': [ 'node', expand( s:lsp . '/yaml/node_modules/.bin/yaml-language-server' ), '--stdio' ],
+  \     'filetypes': [ 'yaml' ],
+  \   },
+  \   { 'name': 'vue',
+  \     'filetypes': [ 'vue' ], 
+  \     'cmdline': [ expand( s:lsp . '/vue/node_modules/.bin/vls' ), '--stdio' ]
+  \   },
+  \ ]
+
+" vim-emmet
+let g:user_emmet_settings = {
+            \  'html': {
+            \      'block_elements' :  'v-row, v-col',
+            \  },
+            \ }
 
 " Colors
-colorscheme wpgtkAlt
+colo wal
 " disables opaque background
 hi Normal ctermbg=none
 hi NonText ctermbg=none
+
+
+
+

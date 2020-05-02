@@ -1,8 +1,11 @@
 # ~/.bashrc
+
 # Run by interactive shells (after /etc/bash.bashrc)
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+export PATH=$PATH:~/scripts
 
 # ---Prompt--- #
 parse_git_branch() {
@@ -157,4 +160,4 @@ export HISTSIZE=100000                   # big big history
 
 # --wpgtk-- #
 (cat $HOME/.config/wpg/sequences &)
-source ~/.cache/wal/colors.sh # Sets fzf theme and allows use of $color[n] vars in scripts
+# source ~/.cache/wal/colors.sh # Sets fzf theme and allows use of $color[n] vars in scripts

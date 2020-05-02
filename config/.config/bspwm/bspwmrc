@@ -5,12 +5,13 @@
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
-bspc config border_width 2
-bspc config window_gap 3
+bspc config border_width 0
+bspc config window_gap 0
 
-bspc config split_ratio          0.52
+bspc config split_ratio          0
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+bspc config borderless_monocle true
 
 # Per-application preferences
 bspc rule -a "firefox" desktop=^2
@@ -24,9 +25,9 @@ bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/spotify-rules";
 # Colors
 source $HOME/.cache/wal/colors.sh
 
-bspc config normal_border_color "$color1"
-bspc config active_border_color "$color2"
-bspc config focused_border_color "$color2"
+bspc config normal_border_color "$color0"
+bspc config active_border_color "$color0"
+bspc config focused_border_color "$color0"
 
 # Launch polybar
 $HOME/.config/polybar/launch.sh
