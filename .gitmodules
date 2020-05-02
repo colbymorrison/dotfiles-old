@@ -1,0 +1,15 @@
+[submodule "vim/.vim/pack/plugins/start/vim-tmux-navigator"]
+	path = vim/.vim/pack/plugins/start/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
+[submodule "vim/.vim/pack/plugins/start/vim-latex"]
+	path = vim/.vim/pack/plugins/start/vim-latex
+	url = git@github.com:vim-latex/vim-latex.git
+[submodule "vim/.vim/pack/plugins/start/YouCompleteMe"]
+	path = vim/.vim/pack/plugins/start/YouCompleteMe
+	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "vim/.vim/pack/plugins/start/vim-vue"]
+	path = vim/.vim/pack/plugins/start/vim-vue
+	url = https://github.com/posva/vim-vue
+[submodule "vim/.vim/pack/plugins/start/emmet-vim"]
+	path = vim/.vim/pack/plugins/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim
