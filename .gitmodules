@@ -10,3 +10,6 @@
 [submodule "vim/.vim/pack/plugins/start/emmet-vim"]
 	path = vim/.vim/pack/plugins/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim
+[submodule "vim/.vim/pack/plugins/start/YouCompleteMe"]
+	path = vim/.vim/pack/plugins/start/YouCompleteMe
+	url = git@github.com:ycm-core/YouCompleteMe.git
