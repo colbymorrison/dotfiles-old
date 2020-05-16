@@ -13,3 +13,12 @@
 [submodule "vim/.vim/pack/plugins/start/YouCompleteMe"]
 	path = vim/.vim/pack/plugins/start/YouCompleteMe
 	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "vim/.vim/pack/plugins/start/vim-prettier"]
+	path = vim/.vim/pack/plugins/start/vim-prettier
+	url = https://github.com/prettier/vim-prettier
+[submodule "st"]
+	path = st
+	url = https://aur.archlinux.org/st.git
+[submodule "vim/.vim/pack/plugins/start/vim-gitgutter"]
+	path = vim/.vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter

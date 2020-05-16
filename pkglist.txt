@@ -16,7 +16,6 @@ bison
 bspwm
 chrony
 cmake
-code
 compiledb
 conky
 cowsay
@@ -26,7 +25,7 @@ cuneiform
 cups
 cups-pdf
 dconf-editor
-deepin-screenshot
+deepin-screen-recorder
 dhclient
 dhcpcd
 discount
@@ -37,6 +36,7 @@ etckeeper
 evince
 fakeroot
 feh
+firebase-tools
 firefox
 flex
 fzf
@@ -48,6 +48,7 @@ go
 groff
 grub
 intel-ucode
+jdk-openjdk
 jupyter-notebook
 libdvdcss
 libdvdnav
@@ -65,14 +66,12 @@ linux-lts-headers
 lostfiles
 lsof
 lvm2
-lxappearance
 m4
 make
 man-db
 man-pages
 meson
 mlocate
-nautilus
 nemo
 neofetch
 network-manager-applet
@@ -107,6 +106,7 @@ ranger
 redshift
 rofi
 rxvt-unicode
+simplescreenrecorder
 slack-desktop
 spotify
 spotify-tui
@@ -131,6 +131,7 @@ ttf-font-awesome
 ttf-liberation
 ttf-material-design-icons
 twmn-git
+typescript
 udisks2
 ufw
 unclutter

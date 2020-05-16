@@ -67,27 +67,6 @@ let g:ycm_always_populate_location_list = 1
 map <leader>jc :YcmCompleter GoTo<CR>
 map <leader>jf :YcmCompleter FixIt<CR>
 
-" this doesn't really work
-let s:lsp = '~/Repos/lsp'
-let g:ycm_language_server = [
-  \   {
-  \     'name': 'yaml',
-  \     'cmdline': [ 'node', expand( s:lsp . '/yaml/node_modules/.bin/yaml-language-server' ), '--stdio' ],
-  \     'filetypes': [ 'yaml' ],
-  \   },
-  \   { 'name': 'vue',
-  \     'filetypes': [ 'vue' ], 
-  \     'cmdline': [ expand( s:lsp . '/vue/node_modules/.bin/vls' ), '--stdio' ]
-  \   },
-  \ ]
-
-" vim-emmet
-let g:user_emmet_settings = {
-            \  'html': {
-            \      'block_elements' :  'v-row, v-col',
-            \  },
-            \ }
-
 " Colors
 colo wal
 " disables opaque background
