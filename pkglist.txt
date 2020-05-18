@@ -1,6 +1,5 @@
 adwaita-qt
 alsa-utils
-apfs-fuse-git
 arandr
 arch
 arch-audit
@@ -42,7 +41,6 @@ flex
 fzf
 gcc
 git
-gksu
 gnu-netcat
 go
 groff
@@ -109,7 +107,6 @@ rxvt-unicode
 simplescreenrecorder
 slack-desktop
 spotify
-spotify-tui
 st
 stalonetray
 stow
@@ -130,8 +127,6 @@ ttf-dejavu
 ttf-font-awesome
 ttf-liberation
 ttf-material-design-icons
-twmn-git
-typescript
 udisks2
 ufw
 unclutter
