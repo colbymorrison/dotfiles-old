@@ -3,6 +3,19 @@ filetype off                  " required
 filetype plugin on            " for vim-latex 
 filetype indent on            " for vim-latex 
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-latex/vim-latex'
+Plug 'mattn/emmet-vim'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'mxw/vim-jsx'
+
+call plug#end()
+
 " general
 syntax on
 let mapleader = ","

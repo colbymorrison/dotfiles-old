@@ -14,9 +14,11 @@ option=$(echo -e $options | rofi -dmenu -p " ")
 echo $option
 case $option in
     *"Power Off")
+        tmux-session save
         poweroff
         ;;
     *"Reboot")
+        tmux-session save
         systemctl reboot
         ;;
     *"Log Out")
