@@ -7,7 +7,7 @@ SUSPEND="\tSuspend"
 HIBERNATE="\tHibernate"
 LOCK="\tLock Screen"
 
-options="$POWER_OFF\n$REBOOT\n$LOG_OUT\n$LOCK\n$SUSPEND\n$HIBERNATE"
+options="$POWER_OFF\n$REBOOT\n$LOG_OUT\n$SUSPEND\n$HIBERNATE\n$LOCK"
 
 option=$(echo -e $options | rofi -dmenu -p " ")
 

@@ -5,8 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export PATH=$PATH:~/scripts
-
 # ---Prompt--- #
 parse_git_branch() {
     branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
@@ -24,6 +22,7 @@ alias ebsp='$EDITOR ~/.config/bspwm/bspwmrc'
 alias esxh='$EDITOR ~/.config/sxhkd/sxhkdrc'
 alias epb="$EDITOR '+set syntax=dosini' ~/.config/polybar/config"
 alias exr="$EDITOR ~/.Xresources"
+alias evi="$EDITOR ~/.vimrc"
 
 ## Directories ## 
 alias ..='cd ..'
@@ -42,7 +41,7 @@ alias free='free -h'
 alias c='clear'
 alias e='exit'
 alias m='man'
-alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_modules}'
 alias g='grep'
 alias pag='ps aux | grep'
 alias open='xdg-open'

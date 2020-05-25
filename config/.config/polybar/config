@@ -47,7 +47,7 @@ font-2 = ${env:AWSM}
 font-3 = ${env:AWSB}
 font-4 = ${env:MATRT}
 
-modules-left = power bspwm spotify 
+modules-left = power menu bspwm spotify 
 modules-center = date
 modules-right = pulseaudio temperature cpu memory
 
@@ -222,5 +222,10 @@ interval = 1
 format-prefix = "  "
 format = <label>
 exec = python ~/scripts/polybar-scripts/spotify_status.py -t 10 -f '{artist}  -  {song}'
+
+[module/menu]
+type = custom/script
+exec = echo 
+click-left = rofi -show drun
 
 
