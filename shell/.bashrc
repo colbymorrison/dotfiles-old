@@ -77,6 +77,7 @@ alias wicon='nmcli d wifi connect'
 ## Git ##
 alias ga='git add'
 alias gau='git add -u'
+alias gaa='git add --all'
 alias gb='git branch'
 alias gbD='git branch -D'
 alias gc='git commit -v'
