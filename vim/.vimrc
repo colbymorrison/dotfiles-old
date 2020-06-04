@@ -14,6 +14,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'deviantfero/wpgtk.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -29,6 +31,7 @@ set mouse=a
 set iskeyword+=:
 set sw=2
 set autoindent
+set nofixendofline
 
 " vim-latex-suite
 set grepprg=grep\ -nH\ $* 
@@ -133,11 +136,11 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>fc  <Plug>(coc-format-selected)
-nmap <leader>fc  <Plug>(coc-format-selected)
+xmap <leader>mt  <Plug>(coc-format-selected)
+nmap <leader>mt  <Plug>(coc-format-selected)

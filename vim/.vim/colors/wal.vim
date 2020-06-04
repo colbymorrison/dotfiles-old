@@ -48,9 +48,9 @@ hi helpNormal ctermbg=NONE ctermfg=7
 hi Visual ctermbg=0 ctermfg=15 cterm=reverse term=reverse
 hi VisualNOS ctermbg=NONE ctermfg=1
 hi Pmenu ctermbg=7 ctermfg=0
-hi PmenuSbar ctermbg=6 ctermfg=7
-hi PmenuSel ctermbg=4 ctermfg=0
-hi PmenuThumb ctermbg=8 ctermfg=8
+hi PmenuSbar ctermbg=7 ctermfg=0
+hi PmenuSel ctermbg=7 ctermfg=0
+hi PmenuThumb ctermbg=7 ctermfg=0
 hi FoldColumn ctermbg=NONE ctermfg=7
 hi Folded ctermbg=NONE ctermfg=8
 hi WildMenu ctermbg=2 ctermfg=0

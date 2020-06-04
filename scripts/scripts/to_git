@@ -1,3 +1,4 @@
+#! /bin/bash
 # Move dir to dotfiles version control & simlink
 
 if [ $1 ]; then
