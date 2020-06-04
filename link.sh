@@ -1,8 +1,5 @@
-#!/bin/bash
+#! /bin/bash
 
 for file in ~/dotfiles/*; do
-   [ -d "$file" ] && stow ${file##*/} 
-done 
-  
-
-    
+    [ -d "$file" ] && stow ${file##*/}
+done

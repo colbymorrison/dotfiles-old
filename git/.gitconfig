@@ -5,3 +5,4 @@
 	ui = auto
 [core]
 	autocrlf = input
+	editor = vim
