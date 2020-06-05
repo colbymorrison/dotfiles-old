@@ -5,17 +5,26 @@ filetype indent on            " for vim-latex
 
 call plug#begin('~/.vim/plugged')
 
+" Essentials
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-latex/vim-latex'
-Plug 'mattn/emmet-vim'
+Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+
+" LaTeX
+Plug 'vim-latex/vim-latex'
+
+" Javascript
+Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'deviantfero/wpgtk.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
+
+" Colorscheme
+Plug 'morhetz/gruvbox'
+
 
 call plug#end()
 
@@ -48,10 +57,6 @@ let g:Tex_GotoError=0
 set incsearch
 set hlsearch
 
-" Status line
-set statusline=%f
-set laststatus=2
-
 "" Indents
 set softtabstop=4
 set tabstop=4
@@ -80,9 +85,11 @@ nmap <leader>tt :tabnew<cr>
 map <leader>td  :tabc<cr>
 
 " Colors
-colo wal
-hi Normal ctermbg=none
-hi NonText ctermbg=none
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set background=dark
+colo gruvbox
 
 " Coc
 " More options in Coc readme but let's try these for now
@@ -144,3 +151,6 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>mt  <Plug>(coc-format-selected)
 nmap <leader>mt  <Plug>(coc-format-selected)
+
+
+let g:airline#extensions#branch#enabled=1

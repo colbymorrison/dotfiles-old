@@ -24,6 +24,7 @@ alias epb="$EDITOR '+set syntax=dosini' ~/.config/polybar/config"
 alias exr="$EDITOR ~/.Xresources"
 alias evi="$EDITOR ~/.vimrc"
 alias ebh="$EDITOR ~/.bashrc"
+alias etm="$EDITOR ~/.tmux.conf"
 
 ## Directories ## 
 alias ..='cd ..'
@@ -130,4 +131,4 @@ checkout_fzf() {
 
 # --wpgtk-- #
 (cat $HOME/.config/wpg/sequences &)
- source ~/.cache/wal/colors.sh # Sets fzf theme and allows use of $color[n] vars in scripts
+source ~/.cache/wal/colors.sh # Sets fzf theme and allows use of $color[n] vars in scripts
