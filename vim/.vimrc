@@ -16,6 +16,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'deviantfero/wpgtk.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
