@@ -12,11 +12,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'deviantfero/wpgtk.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -80,13 +81,14 @@ nmap <C-t>t :tabnew<cr>
 nmap <C-t>d :tabc<cr>
 
 " Colors
-let base16colorspace=256
+set termguicolors
+colo gruvbox
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
 " Coc
 " More options in Coc readme but let's try these for now
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json' ]
+" let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json' ]
 
 set hidden
 

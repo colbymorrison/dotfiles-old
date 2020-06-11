@@ -1,0 +1,33 @@
+{
+  "title": "Command-Q",
+  "rules": [
+    {
+      "description": "swap control-q and command-q except for iterm2",
+      "manipulators": [
+          {
+              "type": "basic",
+              "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                      "mandatory": [
+                          "control"
+                      ]
+                  }
+              },
+              "to": [{
+                  "key_code": "q",
+                  "modifiers": ["command"]
+              }],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2"
+              ]
+            }
+          ]
+          }
+      ]
+    }
+  ]
+}
