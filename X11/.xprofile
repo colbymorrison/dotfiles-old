@@ -12,6 +12,5 @@ unclutter &
 redshift &
 picom --xrender-sync-fence &
 xss-lock -- betterlockscreen -l dim &
-
-# pywal
+tmux-session restore
 wal -R

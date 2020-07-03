@@ -6,14 +6,7 @@
 [[ $- != *i* ]] && return
 
 # ---Prompt--- #
-parse_git_branch() {
-    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
-
-    if [[ ! -z $branch ]]; then
-        echo "$branch "
-    fi
-}
-export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
+export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
 
 # ---Alias--- #
 ## ~/.config files ##
@@ -64,7 +57,6 @@ alias spm='sudo pacman'
 
 ## Systemctl ##
 alias stl='systemctl'
-alias spd='betterlockscreen -s dim'
 alias jnl='journalctl'
 
 ## Zathura ##
@@ -87,7 +79,8 @@ alias gcamd='git commit --amend'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gcmsg='git commit -m'
-alias gco=checkout_fzf
+alias gco='git checkout'
+alias gcof=checkout_fzf
 alias gd='git diff'
 alias gf='git fetch'
 alias ggsup='git branch --set-upstream-to=origin/$(parse_git_branch)'
@@ -95,6 +88,7 @@ alias gl='git pull'
 alias glg='git log --stat'
 alias gm='git merge'
 alias gp='git push'
+alias gpsu='git push --set-upstream origin $(parse_git_branch)'
 alias gst='git status'
 alias ggrep='git grep'
 
@@ -114,11 +108,11 @@ ec(){
 
 # Fzf magic, stolen from https://www.youtube.com/watch?v=QeJkAs_PEQQ
 cd_fzf() {
-    cd "$(fd . -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)" && echo "$PWD$"
+    cd "$(fd . -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)" && echo "$PWD"
 }
 
 checkout_fzf() {
-    [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
+    [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf)
 }
 
 # --Completion-- #

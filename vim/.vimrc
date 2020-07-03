@@ -10,6 +10,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
 " LaTeX
@@ -69,6 +70,7 @@ nmap <CR> o<Esc>
 nmap <leader>c :noh<cr>
 nmap <leader>f :FZF<cr>
 nmap <leader>r :so ~/.vimrc<cr>
+nmap <leader>rl :set invrelativenumber<CR> 
 inoremap jj <Esc>
 
 
@@ -93,7 +95,7 @@ colo gruvbox
 
 " Coc
 " More options in Coc readme but let's try these for now
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json' ]
+let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-go' ]
 
 set hidden
 
@@ -131,6 +133,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Fold
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -152,5 +157,3 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>mt  <Plug>(coc-format-selected)
 nmap <leader>mt  <Plug>(coc-format-selected)
 
-
-let g:airline#extensions#branch#enabled=1
