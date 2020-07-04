@@ -19,7 +19,7 @@ alias ...='cd../..'
 alias ....='cd../../..'
 alias .....='cd../../../..'
 alias ......='cd../../../../..'
-alais v='vim'
+alias v='vim'
 alias l='ls -lah'
 alias ls='ls -A --color=auto'
 alias ka='killall'
@@ -121,33 +121,12 @@ function ec(){
   echo  "No directory in ~/.config with name $1"
 }
 
-function mdview(){
-  full_path=$(realpath $1)
-  html_path=$(echo $full_path | sed s/md/html/g)
-
-  markdown $full_path > $html_path
-
-  brave $html_path
-
-  rm $html_path
-}
-
-
 # ---Share History--- #
-#export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-#export HISTSIZE=100000                   # big big history
-#export HISTFILESIZE=100000               # big big history
-#shopt -s histappend                      # append to history, don't overwrite it
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
 
 # ---Bind--- #
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 set -o vi
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"

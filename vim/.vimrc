@@ -5,21 +5,20 @@ filetype indent on            " for vim-latex
 
 " Only use Vundle for non-arch plugins
 " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-" 
-" " let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
-" Plugin 'valloric/YouCompleteMe'
-" Plugin 'christoomey/vim-tmux-navigator'
+ set rtp+=~/.vim/bundle/Vundle.vim
+ call vundle#begin()
+ " alternatively, pass a path where Vundle should install plugins
+ call vundle#begin('~/some/path/here')
+ 
+ " let Vundle manage Vundle, required
+ Plugin 'VundleVim/Vundle.vim'
+ Plugin 'valloric/YouCompleteMe'
+ Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'vim-latex/vim-latex'
-" Plugin 'chriskempson/base16-vim'
-" " The following are examples of different formats supported.
-" " Keep Plugin commands between vundle#begin/end.
-" call vundle#end()            " required
-"filetype plugin indent on    " required
+ " The following are examples of different formats supported.
+ " Keep Plugin commands between vundle#begin/end.
+ call vundle#end()            " required
+ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "
 " Brief help
