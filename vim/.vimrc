@@ -5,17 +5,27 @@ filetype indent on            " for vim-latex
 
 call plug#begin('~/.vim/plugged')
 
+" Essentials
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-latex/vim-latex'
-Plug 'mattn/emmet-vim'
+Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+
+" LaTeX
+Plug 'vim-latex/vim-latex'
+
+" Javascript
+Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'deviantfero/wpgtk.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
+
+" Colorscheme
+Plug 'morhetz/gruvbox'
+
 
 call plug#end()
 
@@ -48,10 +58,6 @@ let g:Tex_GotoError=0
 set incsearch
 set hlsearch
 
-" Status line
-set statusline=%f
-set laststatus=2
-
 "" Indents
 set softtabstop=4
 set tabstop=4
@@ -64,6 +70,7 @@ nmap <CR> o<Esc>
 nmap <leader>c :noh<cr>
 nmap <leader>f :FZF<cr>
 nmap <leader>r :so ~/.vimrc<cr>
+nmap <leader>rl :set invrelativenumber<CR> 
 inoremap jj <Esc>
 
 
@@ -80,13 +87,15 @@ nmap <leader>tt :tabnew<cr>
 map <leader>td  :tabc<cr>
 
 " Colors
-colo wal
-hi Normal ctermbg=none
-hi NonText ctermbg=none
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set background=dark
+colo gruvbox
 
 " Coc
 " More options in Coc readme but let's try these for now
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json' ]
+let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-go' ]
 
 set hidden
 
@@ -124,6 +133,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Fold
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -144,3 +156,4 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>mt  <Plug>(coc-format-selected)
 nmap <leader>mt  <Plug>(coc-format-selected)
+
