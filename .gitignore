@@ -1,3 +1,4 @@
-vim/.vim/bundle
+vim/.vim/plugged
 vim/.vim/.netrwhist
+vim/.vim/autoload
 README.md

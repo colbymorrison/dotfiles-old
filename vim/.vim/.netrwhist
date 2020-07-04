@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/colby/Repos/Awesome-CV/resume'
+let g:netrw_dirhist_0='/home/colby/Repos/Awesome-CV/examples/resume'
+let g:netrw_dirhist_9='/home/colby/Repos/Awesome-CV/.circleci'
+let g:netrw_dirhist_8='/home/colby/Repos/covid-watch/permission-portal'
+let g:netrw_dirhist_7='/home/colby/Repos/covid-watch/permission-portal/permission-portal-cloud-functions/functions/node_modules'
+let g:netrw_dirhist_6='/home/colby/.config/coc'
+let g:netrw_dirhist_5='/home/colby/.config'
+let g:netrw_dirhist_4='/home/colby'
+let g:netrw_dirhist_3='/home/colby/Repos'
+let g:netrw_dirhist_2='/home/colby/Repos/covid-watch'

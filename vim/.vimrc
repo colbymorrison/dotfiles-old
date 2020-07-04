@@ -3,36 +3,35 @@ filetype off                  " required
 filetype plugin on            " for vim-latex 
 filetype indent on            " for vim-latex 
 
-" Only use Vundle for non-arch plugins
-" set the runtime path to include Vundle and initialize
- set rtp+=~/.vim/bundle/Vundle.vim
- call vundle#begin()
- " alternatively, pass a path where Vundle should install plugins
- call vundle#begin('~/some/path/here')
- 
- " let Vundle manage Vundle, required
- Plugin 'VundleVim/Vundle.vim'
- Plugin 'valloric/YouCompleteMe'
- Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'vim-latex/vim-latex'
- " The following are examples of different formats supported.
- " Keep Plugin commands between vundle#begin/end.
- call vundle#end()            " required
- filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#begin('~/.vim/plugged')
+
+" Essentials
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+
+" LaTeX
+Plug 'vim-latex/vim-latex'
+
+" Javascript
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
+
+" Colorscheme
+Plug 'morhetz/gruvbox'
+
+
+call plug#end()
 
 " general
 syntax on
-let mapleader = "\\"
+let mapleader = ","
 set number
 set path+=**
 set spelllang=en              
@@ -42,22 +41,22 @@ set mouse=a
 set iskeyword+=:
 set sw=2
 set autoindent
-set encoding=utf-8 "for ycm
-hi Search ctermbg=2
+set nofixendofline
 
 " vim-latex-suite
-set grepprg=grep\ -nH\ $*
+set grepprg=grep\ -nH\ $* 
 let g:tex_flavor='latex'
 let g:tex_no_error=1
 let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf = 'zathura'
+imap <C-g> <Plug>IMAP_JumpForward
+nmap <C-g> <Plug>IMAP_JumpForward
+let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemize,figure,table,theorem,lemma,tikzpicture'
+let g:Tex_GotoError=0 
 
 " Incemental search
 set incsearch
 set hlsearch
-
-" Status line
-set statusline=%F
-set laststatus=2
 
 "" Indents
 set softtabstop=4
@@ -68,7 +67,12 @@ set expandtab
 " mappings
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
+nmap <leader>c :noh<cr>
+nmap <leader>f :FZF<cr>
+nmap <leader>r :so ~/.vimrc<cr>
+nmap <leader>rl :set invrelativenumber<CR> 
 inoremap jj <Esc>
+
 
 " File selection
 nnoremap <leader>e :Lexplore<cr>
@@ -77,13 +81,79 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
 " Tabs
-nmap <C-t>j :tabn<cr>
-nmap <C-t>k :tabp<cr>
-nmap <C-t>t :tabnew<cr>
-nmap <C-t>d :tabc<cr>
+nmap <leader>tj :tabp<cr>
+nmap <leader>tk :tabn<crk
+nmap <leader>tt :tabnew<cr>
+map <leader>td  :tabc<cr>
 
 " Colors
-let base16colorspace=256
-if filereadable(expand("~/.vimrc_background"))
-      source ~/.vimrc_background
-endif
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set background=dark
+colo gruvbox
+
+" Coc
+" More options in Coc readme but let's try these for now
+let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-go' ]
+
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Fold
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>mt  <Plug>(coc-format-selected)
+nmap <leader>mt  <Plug>(coc-format-selected)
+
