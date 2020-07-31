@@ -5,9 +5,6 @@ These are my dotfiles!
 There is a branch for each system I use, navigate to one to see the dotfiles. 
 This branch (`master`) has dotfiles common across all systems (Linux and MacOS). They are:
 
-- vimrc
-- tmux.conf
-
 To sync one of these files from another branch run `git checkout master -- [file]`
 
 ### Sync with System
