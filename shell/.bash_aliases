@@ -15,7 +15,7 @@ alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_module
 alias pag='ps aux | grep'
 alias open='xdg-open'
 alias ka='killall'
-alias sbr='. ~/.bashrc'
+alias sbh='. ~/.bashrc'
 alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
 
 ## config files ##
