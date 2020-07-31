@@ -43,6 +43,12 @@ ec(){
     echo  "No directory in ~/.config with name $1"
 }
 
+# Run prev command w/ different options
+difo(){
+    last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
+    $last_command $1
+}
+
 
 # --Completion-- #
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \

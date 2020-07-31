@@ -16,7 +16,7 @@ source  ~/.cache/wal/polybar-colors.sh
 # Start on all monitors with right font size
 for m in $(polybar --list-monitors | cut -d":" -f1); do
     # Can change font size by monitor here
-    FONT_SZ=11
+    FONT_SZ=10
 
     export NOTOT="NotoSans-Bold:size=$FONT_SZ;0"
     export DEJA="DejaVuSans-Bold:size=$FONT_SZ;1"
@@ -25,6 +25,6 @@ for m in $(polybar --list-monitors | cut -d":" -f1); do
     export AWSB="FontAwesome 5 Brands Regular:size=$(($FONT_SZ+2));0"
     export MATRT="MaterialIcons:size=$(($FONT_SZ+3));0"
 
-    MONITOR=$m polybar --reload top &
+    MONITOR=$m polybar --reload top & > /dev/null
 done
 

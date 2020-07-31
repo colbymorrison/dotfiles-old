@@ -25,6 +25,7 @@ Plug 'posva/vim-vue'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 
 call plug#end()
@@ -82,7 +83,7 @@ let g:netrw_winsize = 25
 
 " Tabs
 nmap <leader>tj :tabp<cr>
-nmap <leader>tk :tabn<crk
+nmap <leader>tk :tabn<cr>
 nmap <leader>tt :tabnew<cr>
 map <leader>td  :tabc<cr>
 
@@ -91,7 +92,7 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 set background=dark
-colo gruvbox
+colo nord
 
 " Coc
 " More options in Coc readme but let's try these for now

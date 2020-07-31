@@ -6,11 +6,12 @@
 setxkbmap -layout us -option ctrl:nocaps
 
 # Startup programs
+wal -R
+feh --bg-scale --randomize ~/backgrounds
 sxhkd & 
 numlockx &
 unclutter &
 redshift &
 picom --xrender-sync-fence &
 xss-lock -- betterlockscreen -l dim &
-tmux-session restore
-wal -R
+# tmux-session restore
