@@ -52,7 +52,6 @@ difo(){
 theme(){
     theme=$(wal --theme | fzf | cut -d ' ' -f 3)
     theme_basename=$(echo $theme | sed s/base16-//)
-    theme_basename=${theme%-*}
     echo $theme_basename > ~/.colorscheme
     wpg --theme $theme
 }
