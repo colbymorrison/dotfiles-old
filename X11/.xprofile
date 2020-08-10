@@ -6,7 +6,6 @@
 setxkbmap -layout us -option ctrl:nocaps
 
 # Startup programs
-wal -R
 feh --bg-scale --randomize ~/backgrounds
 sxhkd & 
 numlockx &

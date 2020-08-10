@@ -49,6 +49,14 @@ difo(){
     $last_command $1
 }
 
+theme(){
+    theme=$(wal --theme | fzf | cut -d ' ' -f 3)
+    theme_basename=$(echo $theme | sed s/base16-//)
+    theme_basename=${theme%-*}
+    echo $theme_basename > ~/.colorscheme
+    wpg --theme $theme
+}
+
 
 # --Completion-- #
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
@@ -57,7 +65,9 @@ difo(){
 [[ -f ~/dotfiles/shell/git-completion.bash ]] && \
     . ~/dotfiles/shell/git-completion.bash
 
+# Keep autocompletion on git aliases
+__git_complete gco _git_checkout
 
-# --wpgtk-- #
-(cat $HOME/.config/wpg/sequences &)
+# --pywal-- #
+(cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors.sh # Sets fzf theme and allows use of $color[n] vars in scripts

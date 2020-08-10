@@ -17,7 +17,8 @@ bspc config borderless_monocle true
 bspc rule -a "firefox" desktop=^2
 bspc rule -a "qemu" desktop=^3
 bspc rule -a "Slack" desktop=^4
-bspc rule -a "Nemo" state=floating rectangle="800x500"
+bspc rule -a "Nemo" state=floating rectangle="900x500"
+bspc rule -a "nemo" state=floating rectangle="900x500"
 bspc rule -a "Wpg" state=floating
 bspc rule -a "Zathura" state=tiled
 bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/spotify-rules";

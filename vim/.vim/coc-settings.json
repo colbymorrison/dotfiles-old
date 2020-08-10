@@ -1,0 +1,4 @@
+{
+      "eslint.options": {"configFile": ".eslintrc.js"},
+      "eslint.autoFixOnSave": true
+}

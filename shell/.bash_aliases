@@ -56,7 +56,6 @@ alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
-alias gcof=checkout_fzf
 alias gd='git diff'
 alias gf='git fetch'
 alias ggsup='git branch --set-upstream-to=origin/$(parse_git_branch)'
