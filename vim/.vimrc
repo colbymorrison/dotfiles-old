@@ -3,6 +3,8 @@ filetype off                  " required
 filetype plugin on            " for vim-latex 
 filetype indent on            " for vim-latex 
 
+let colorschemes = ['gruvbox', 'nord', 'dracula']
+
 call plug#begin('~/.vim/plugged')
 
 " Essentials
@@ -25,7 +27,8 @@ Plug 'posva/vim-vue'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
-
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -73,7 +76,6 @@ nmap <leader>r :so ~/.vimrc<cr>
 nmap <leader>rl :set invrelativenumber<CR> 
 inoremap jj <Esc>
 
-
 " File selection
 nnoremap <leader>e :Lexplore<cr>
 let g:netrw_liststyle = 3
@@ -82,20 +84,31 @@ let g:netrw_winsize = 25
 
 " Tabs
 nmap <leader>tj :tabp<cr>
-nmap <leader>tk :tabn<crk
+nmap <leader>tk :tabn<cr>
 nmap <leader>tt :tabnew<cr>
 map <leader>td  :tabc<cr>
 
 " Colors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
 set background=dark
-colo gruvbox
+" if current colorscheme is in ~/colorschemes use it
+" otherwise use wal theme
+let data = readfile("/home/colby/.colorscheme")
+
+for scheme in colorschemes
+    if scheme == data[0]
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+        set termguicolors
+        execute ':colo ' . scheme
+        break
+    else
+        colo wal
+    endif
+endfor
 
 " Coc
 " More options in Coc readme but let's try these for now
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-go' ]
+let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-go', 'coc-eslint' ]
 
 set hidden
 
@@ -133,8 +146,14 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Fold
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+"
+" " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+"
+" " Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport') 
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -157,3 +176,21 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>mt  <Plug>(coc-format-selected)
 nmap <leader>mt  <Plug>(coc-format-selected)
 
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+
+augroup mygroup
+      autocmd!
+        " Setup formatexpr specified filetype(s).
+          autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+            " Update signature help on jump placeholder.
+              autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+          augroup end
