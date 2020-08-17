@@ -6,7 +6,8 @@
 setxkbmap -layout us -option ctrl:nocaps
 
 # Startup programs
-feh --bg-scale --randomize ~/backgrounds
+wal -R
+feh --bg-scale ~/backgrounds/forest_trees_winter_132797_3840x2160.jpg 
 sxhkd & 
 numlockx &
 unclutter &

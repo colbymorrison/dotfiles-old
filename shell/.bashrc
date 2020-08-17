@@ -53,16 +53,20 @@ theme(){
     theme=$(wal --theme | fzf | cut -d ' ' -f 3)
     theme_basename=$(echo $theme | sed s/base16-//)
     echo $theme_basename > ~/.colorscheme
-    wpg --theme $theme
+    wal --theme $theme
 }
 
 
 # --Completion-- #
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+[[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
 [[ -f ~/dotfiles/shell/git-completion.bash ]] && \
     . ~/dotfiles/shell/git-completion.bash
+
+[[ -f /usr/share/fzf/completion.bash ]]  &&  [[ -f /usr/share/fzf/key-bindings.bash ]] && \
+    . /usr/share/fzf/completion.bash 
+    . /usr/share/fzf/key-bindings.bash
 
 # Keep autocompletion on git aliases
 __git_complete gco _git_checkout

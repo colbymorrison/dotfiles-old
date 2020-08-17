@@ -17,7 +17,7 @@
 ;==========================================================
 
 [colors]
-background = #d7000000
+background = #000000
 ; make foreground white by default
 foreground = #ffffff
 ; foreground as per theme
@@ -49,7 +49,7 @@ font-4 = ${env:MATRT}
 
 modules-left = power menu bspwm spotify 
 modules-center = date
-modules-right = pulseaudio cpu memory
+modules-right = pulseaudio temperature cpu memory
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -213,8 +213,13 @@ ramp-2 = " "
 
 [module/power]
 type = custom/script
-exec = echo 
-click-left = ~/scripts/polybar-scripts/rofi-power.sh
+exec = echo  
+click-left = ~/scripts/rofi-scripts/power.sh
+
+[module/search]
+type = custom/script
+exec = echo ?
+click-left = ~/scripts/rofi-scripts/search.sh
 
 [module/spotify]
 type = custom/script

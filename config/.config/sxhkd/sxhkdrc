@@ -15,7 +15,7 @@ alt + Escape
 
 # Program hotkeys
 alt + shift + {s, f, x, p}
-    {spotify, firefox, betterlockscreen -l dim, ~/scripts/polybar-scripts/rofi-power.sh}
+    {~/scripts/rofi-scripts/search.sh, firefox, betterlockscreen -l dim, ~/scripts/rofi-scripts/power.sh}
 
 # Audio
 XF86Audio{Raise,Lower}Volume
