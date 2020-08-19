@@ -53,7 +53,7 @@ theme(){
     theme=$(wal --theme | fzf | cut -d ' ' -f 3)
     theme_basename=$(echo $theme | sed s/base16-//)
     echo $theme_basename > ~/.colorscheme
-    wal --theme $theme
+    wpg --theme $theme
 }
 
 

@@ -47,7 +47,7 @@ font-2 = ${env:AWSM}
 font-3 = ${env:AWSB}
 font-4 = ${env:MATRT}
 
-modules-left = power menu bspwm spotify 
+modules-left = power menu search bspwm spotify 
 modules-center = date
 modules-right = pulseaudio temperature cpu memory
 
@@ -218,7 +218,7 @@ click-left = ~/scripts/rofi-scripts/power.sh
 
 [module/search]
 type = custom/script
-exec = echo ?
+exec = echo 
 click-left = ~/scripts/rofi-scripts/search.sh
 
 [module/spotify]
