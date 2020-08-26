@@ -5,80 +5,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
 # ---Prompt--- #
-parse_git_branch() {
-    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
-
-    if [[ ! -z $branch ]]; then
-        echo "$branch "
-    fi
-}
-export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
+export PS1="\[\033[0;31m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
 
 # ---Alias--- #
-## ~/.config files ##
-alias evi="$EDITOR ~/.vimrc"
-alias ebh="$EDITOR ~/.bashrc"
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
-## Directories ## 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-
-## Common Commands ## 
-alias c='clear'
-alias e='exit'
-alias g='grep'
-alias l='ls -lah'
-alias m='man'
-alias r='ranger'
-alias v='vim'
-alias ls='ls -AG'
-alias df='df -h'
-alias du='du -h'
-alias free='free -h'
-alias cdf='cd_fzf'
-alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_modules}'
-alias pag='ps aux | grep'
-alias ka='killall'
-alias sbr='. ~/.bashrc'
-
-## Tmux ##
-alias tmat='tmux a -t'
-alias tmls='tmux ls'
-
-## Pacman ##
+## Arch specific aliases ##
+# Homebrew #
 alias brewin='brew install'
 alias brewup='brew upgrade'
 alias brewrm='brew remove'
-
-## Git ##
-alias ga='git add'
-alias gau='git add -u'
-alias gaa='git add --all'
-alias gb='git branch'
-alias gbD='git branch -D'
-alias gc='git commit -v'
-alias gcam='git commit -a -m'
-alias gcamd='git commit --amend'
-alias gcb='git checkout -b'
-alias gcm='git checkout master'
-alias gcmsg='git commit -m'
-alias gco=checkout_fzf
-alias gd='git diff'
-alias gf='git fetch'
-alias ggsup='git branch --set-upstream-to=origin/$(parse_git_branch)'
-alias gl='git pull'
-alias glg='git log --stat'
-alias gm='git merge'
-alias gp='git push'
-alias gst='git status'
-alias ggrep='git grep'
-
 
 # ---Functions--- #
 
@@ -89,14 +28,19 @@ ec(){
     echo  "No directory in ~/.config with name $1"
 }
 
-# Fzf magic, stolen from https://www.youtube.com/watch?v=QeJkAs_PEQQ
-cd_fzf() {
-    cd "$(fd . -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)" && echo "$PWD$"
+# Run prev command w/ different options
+difo(){
+    last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
+    $last_command $1
 }
 
-checkout_fzf() {
-    [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
+theme(){
+    theme=$(wal --theme | fzf | cut -d ' ' -f 3)
+    theme_basename=$(echo $theme | sed s/base16-//)
+    echo $theme_basename > ~/.colorscheme
+    wal --theme $theme
 }
+
 
 # --Completion-- #
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
@@ -105,3 +49,5 @@ checkout_fzf() {
 [[ -f ~/dotfiles/shell/git-completion.bash ]] && \
     . ~/dotfiles/shell/git-completion.bash
 
+# Keep autocompletion on git aliases
+__git_complete gco _git_checkout

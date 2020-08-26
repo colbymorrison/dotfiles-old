@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 " Essentials
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -19,11 +20,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
 
 " Javascript
-Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
-Plug 'posva/vim-vue'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
@@ -71,7 +70,7 @@ set expandtab
 nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
 nmap <leader>c :noh<cr>
-nmap <leader>f :FZF<cr>
+nmap <leader>f :Files<cr>
 nmap <leader>r :so ~/.vimrc<cr>
 nmap <leader>rl :set invrelativenumber<CR> 
 inoremap jj <Esc>
@@ -90,25 +89,13 @@ map <leader>td  :tabc<cr>
 
 " Colors
 set background=dark
-" if current colorscheme is in ~/colorschemes use it
-" otherwise use wal theme
-let data = readfile("/home/colby/.colorscheme")
+set termguicolors
+colorscheme gruvbox
 
-for scheme in colorschemes
-    if scheme == data[0]
-        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-        set termguicolors
-        execute ':colo ' . scheme
-        break
-    else
-        colo wal
-    endif
-endfor
 
 " Coc
 " More options in Coc readme but let's try these for now
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-go', 'coc-eslint' ]
+let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-eslint' ]
 
 set hidden
 
