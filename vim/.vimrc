@@ -3,7 +3,7 @@ filetype off                  " required
 filetype plugin on            " for vim-latex 
 filetype indent on            " for vim-latex 
 
-let colorschemes = ['gruvbox', 'nord', 'dracula']
+let colorschemes = ['gruvbox', 'nord', 'dracula', 'solarized' ]
 
 call plug#begin('~/.vim/plugged')
 
@@ -19,7 +19,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
 
 " Javascript
-Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
@@ -29,6 +28,8 @@ Plug 'posva/vim-vue'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'altercation/vim-colors-solarized'
+Plug 'hzchirs/vim-material'
 
 call plug#end()
 
@@ -72,6 +73,7 @@ nmap <S-ENTER> O<Esc>
 nmap <CR> o<Esc>
 nmap <leader>c :noh<cr>
 nmap <leader>f :FZF<cr>
+imap <leader>f {<Esc>o}<Esc>O
 nmap <leader>r :so ~/.vimrc<cr>
 nmap <leader>rl :set invrelativenumber<CR> 
 inoremap jj <Esc>
@@ -90,107 +92,28 @@ map <leader>td  :tabc<cr>
 
 " Colors
 set background=dark
+set termguicolors
+
+colo vim-material
+let g:airline_theme='material'
+
+source ~/.cache/wal/colors-wal.vim
+execute ':hi SignColumn guibg=' . color0
+
 " if current colorscheme is in ~/colorschemes use it
 " otherwise use wal theme
-let data = readfile("/home/colby/.colorscheme")
-
-for scheme in colorschemes
-    if scheme == data[0]
-        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-        set termguicolors
-        execute ':colo ' . scheme
-        break
-    else
-        colo wal
-    endif
-endfor
+" let data = readfile("/home/colby/.colorscheme")
+"for scheme in colorschemes
+"    if scheme == data[0]
+"        execute ':colo ' . scheme
+"        break
+"    else
+"        colo wal
+"    endif
+"endfor
 
 " Coc
-" More options in Coc readme but let's try these for now
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-go', 'coc-eslint' ]
+let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-eslint' ]
 
-set hidden
+source ~/.vim/coc-config.vim
 
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-"
-" " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-"
-" " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport') 
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>mt  <Plug>(coc-format-selected)
-nmap <leader>mt  <Plug>(coc-format-selected)
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-
-augroup mygroup
-      autocmd!
-        " Setup formatexpr specified filetype(s).
-          autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-            " Update signature help on jump placeholder.
-              autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-          augroup end
