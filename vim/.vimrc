@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 " Essentials
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
@@ -22,7 +23,6 @@ Plug 'vim-latex/vim-latex'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
-Plug 'posva/vim-vue'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
@@ -93,24 +93,9 @@ map <leader>td  :tabc<cr>
 " Colors
 set background=dark
 set termguicolors
-
 colo vim-material
 let g:airline_theme='material'
 
-source ~/.cache/wal/colors-wal.vim
-execute ':hi SignColumn guibg=' . color0
-
-" if current colorscheme is in ~/colorschemes use it
-" otherwise use wal theme
-" let data = readfile("/home/colby/.colorscheme")
-"for scheme in colorschemes
-"    if scheme == data[0]
-"        execute ':colo ' . scheme
-"        break
-"    else
-"        colo wal
-"    endif
-"endfor
 
 " Coc
 let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-eslint' ]
