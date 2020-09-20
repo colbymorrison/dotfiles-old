@@ -13,26 +13,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-## Arch specific aliases ##
+## Linux specific aliases ##
 # ~/.config files #
-alias ebsp="$EDITOR ~/.config/bspwm/bspwmrc"
-alias esxh="$EDITOR ~/.config/sxhkd/sxhkdrc"
-alias epb="$EDITOR '+set syntax=dosini' ~/.config/polybar/config"
 alias exr="$EDITOR ~/.Xresources"
-
-# Pacman #
-alias pmin='yay -S'
-alias pmup='yay -Syu'
-alias pmrm='sudo pacman -Rns'
-alias spm='sudo pacman'
 
 # Zathura #
 alias zth='zathura'
 alias ztf='zathura --fork'
-
-# Custom #
-alias polyrs='~/.config/polybar/launch.sh'
-
 
 # ---Functions--- #
 
@@ -88,7 +75,3 @@ checkout_fzf() {
 
 # Keep autocompletion on git aliases
 __git_complete gco _git_checkout
-
-# --pywal-- #
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors.sh # Sets fzf theme and allows use of $color[n] vars in scripts
