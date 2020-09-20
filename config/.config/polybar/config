@@ -1,3 +1,4 @@
+; vim:set syntax=dosini: 
 ;==========================================================
 ;
 ;
@@ -34,7 +35,6 @@ height = 2.9%
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-color = ${self.background}
 line-size = 5 
 
 padding-left = 5
@@ -71,6 +71,8 @@ format-mounted = <label-mounted>
 label-mounted =   %percentage_used%%
 
 [module/cpu]
+format-underline = ${xrdb:color3}
+
 type = internal/cpu
 interval = 3
 format =<label>
@@ -111,11 +113,14 @@ label-font = 1
 date =  %B %d   %I:%M%
 date-alt =  %m-%d-%Y   %I:%M:%%{F#fba922}%S%%{F-}
 
+format-underline = ${xrdb:color6}
+
 [module/memory]
 type = internal/memory
 format = <label>
 label =   %percentage_used%%
 label-foreground = ${colors.foreground}
+format-underline = ${xrdb:color4}
 
 [module/wired-network]
 type = internal/network
@@ -177,6 +182,9 @@ ramp-volume-0 = " "
 ramp-volume-1 = " "
 ramp-volume-2 = " "
 
+format-volume-underline = ${colors.primary}
+format-muted-underline = ${colors.primary}
+
 [module/temperature]
 type = internal/temperature
 
@@ -211,6 +219,8 @@ ramp-0 = " "
 ramp-1 = " "
 ramp-2 = " "
 
+format-underline = ${xrdb:color2}
+
 [module/power]
 type = custom/script
 exec = echo  
@@ -232,5 +242,4 @@ exec = python ~/scripts/polybar-scripts/spotify_status.py -t 10 -f '{artist}  - 
 type = custom/script
 exec = echo 
 click-left = rofi -show drun
-
 

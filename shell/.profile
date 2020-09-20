@@ -1,6 +1,6 @@
 #! /bin/bash
 export TERMINAL=st
-export PATH=$PATH:~/scripts
+export PATH=$PATH:~/scripts:/home/colby/.gem/ruby/2.7.0/bin 
 export GOPATH=$(go env GOPATH)
 export GOROOT=$(go env GOROOT)
 export VISUAL=vim
