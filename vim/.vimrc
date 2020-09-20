@@ -3,16 +3,16 @@ filetype off                  " required
 filetype plugin on            " for vim-latex 
 filetype indent on            " for vim-latex 
 
-let colorschemes = ['gruvbox', 'nord', 'dracula', 'solarized' ]
+let colorschemes = ['gruvbox', 'nord', 'dracula', 'solarized', 'material', 'monokai']
+
 
 call plug#begin('~/.vim/plugged')
 
 " Essentials
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
@@ -23,13 +23,15 @@ Plug 'vim-latex/vim-latex'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'altercation/vim-colors-solarized'
-Plug 'hzchirs/vim-material'
+Plug 'kaicataldo/material.vim'
+Plug 'sickill/vim-monokai'
 
 call plug#end()
 
@@ -43,9 +45,9 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 set shellslash
 set mouse=a
 set iskeyword+=:
-set sw=2
-set autoindent
 set nofixendofline
+" save 1000 files' marks/registers
+set viminfo='1000 
 
 " vim-latex-suite
 set grepprg=grep\ -nH\ $* 
@@ -63,16 +65,17 @@ set incsearch
 set hlsearch
 
 "" Indents
-set softtabstop=4
+set autoindent
 set tabstop=4
 set shiftwidth=4
-set expandtab
+"replace all tabs with tabstop spaces
+set expandtab 
 
 " mappings
 nmap <S-ENTER> O<Esc>
-nmap <CR> o<Esc>
 nmap <leader>c :noh<cr>
-nmap <leader>f :FZF<cr>
+nmap <C-p> :FZF<cr>
+nmap <C-x> :close<cr>
 imap <leader>f {<Esc>o}<Esc>O
 nmap <leader>r :so ~/.vimrc<cr>
 nmap <leader>rl :set invrelativenumber<CR> 
@@ -90,12 +93,34 @@ nmap <leader>tk :tabn<cr>
 nmap <leader>tt :tabnew<cr>
 map <leader>td  :tabc<cr>
 
+" Signify
+set updatetime=100
+nmap <leader>hu :SignifyHunkUndo<cr>
+nmap <leader>hp :SignifyHunkDiff<cr>
+
+" Airline
+let g:airline#extensions#hunks#enabled=0
+
 " Colors
 set background=dark
 set termguicolors
-colo vim-material
-let g:airline_theme='material'
 
+let g:material_theme_style = 'default'
+
+source ~/.cache/wal/colors-wal.vim
+" execute ':hi SignColumn guibg=' . color0
+
+" if current colorscheme is in ~/colorschemes use it
+" otherwise use wal theme
+let data = readfile("/home/colby/.colorscheme")
+for scheme in colorschemes
+    if scheme == data[0]
+        execute ':colo ' . scheme
+        break
+    else
+        colo wal
+    endif
+endfor
 
 " Coc
 let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-eslint' ]
