@@ -9,18 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-
-" LaTeX
-Plug 'vim-latex/vim-latex'
-
-" Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
