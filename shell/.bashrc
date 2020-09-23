@@ -1,9 +1,19 @@
-# ~/.bashrc
-
-# Run by interactive shells (after /etc/bash.bashrc)
-
-# If not running interactively, don't do anything
+# .bashrc
+# bashrc is for aliases, functions, and shell configuration intended for use in
+# interactive shells.  However, in some circumstances, bash sources bashrc even
+# in non-interactive shells (e.g., when using scp), so it is standard practice
+# to check for interactivity at the top of .bashrc and return immediately if
+# the shell is not interactive.  The following line does that; don't remove it!
 [[ $- != *i* ]] && return
+
+# Load CentOS stuff and Facebook stuff (don't remove these lines).
+source /etc/bashrc
+source /usr/facebook/ops/rc/master.bashrc
+
+# Keep oodles of command history (see https://fburl.com/bashhistory).
+HISTFILESIZE=-1
+HISTSIZE=1000000
+shopt -s histappend
 
 # ---Prompt--- #
 export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
@@ -72,6 +82,3 @@ checkout_fzf() {
 
 [[ -f /usr/share/fzf/completion.bash ]] && \
     . /usr/share/fzf/completion.bash 
-
-# Keep autocompletion on git aliases
-__git_complete gco _git_checkout
