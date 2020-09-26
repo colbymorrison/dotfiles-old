@@ -1,41 +1,27 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-filetype plugin on            " for vim-latex 
-filetype indent on            " for vim-latex 
-
-let colorschemes = ['gruvbox', 'nord', 'dracula', 'solarized', 'material', 'monokai']
-
-
 call plug#begin('~/.vim/plugged')
 
 " Essentials
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 
-" LaTeX
-Plug 'vim-latex/vim-latex'
-
-" Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx'
-Plug 'posva/vim-vue'
-
 " Colorscheme
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'altercation/vim-colors-solarized'
 Plug 'kaicataldo/material.vim'
-Plug 'sickill/vim-monokai'
 
 call plug#end()
 
+source $ADMIN_SCRIPTS/master.vimrc   " sets shiftwidth, tabstop, softtabstop, expandtab
+let g:fb_default_opts = 0            " use my settings below
+
+
 " general
+set nocompatible              " be iMproved, required
+filetype off                  " required
+filetype plugin on            
+filetype indent on           
 syntax on
 let mapleader = ","
 set number
@@ -46,30 +32,22 @@ set shellslash
 set mouse=a
 set iskeyword+=:
 set nofixendofline
-" save 1000 files' marks/registers
-set viminfo='1000 
-
-" vim-latex-suite
-set grepprg=grep\ -nH\ $* 
-let g:tex_flavor='latex'
-let g:tex_no_error=1
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_ViewRule_pdf = 'zathura'
-imap <C-g> <Plug>IMAP_JumpForward
-nmap <C-g> <Plug>IMAP_JumpForward
-let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemize,figure,table,theorem,lemma,tikzpicture'
-let g:Tex_GotoError=0 
+set noerrorbells
+set tags=tags;/                " no bells in terminal
+set undolevels=1000
+set viminfo='50,"50
+set modelines=0
 
 " Incemental search
 set incsearch
-set hlsearch
+set nohlsearch
+
+" Scrolling.
+set scrolljump=5    " scroll five lines at a time vertically
+set sidescroll=10   " minumum columns to scroll horizontally
 
 "" Indents
 set autoindent
-set tabstop=4
-set shiftwidth=4
-"replace all tabs with tabstop spaces
-set expandtab 
 
 " mappings
 nmap <S-ENTER> O<Esc>
@@ -81,7 +59,7 @@ nmap <leader>r :so ~/.vimrc<cr>
 nmap <leader>rl :set invrelativenumber<CR> 
 inoremap jj <Esc>
 
-" File selection
+" Netrw
 nnoremap <leader>e :Lexplore<cr>
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
@@ -103,27 +81,29 @@ let g:airline#extensions#hunks#enabled=0
 
 " Colors
 set background=dark
-set termguicolors
-
 let g:material_theme_style = 'default'
+color material
 
-source ~/.cache/wal/colors-wal.vim
-" execute ':hi SignColumn guibg=' . color0
+" BigGrep
+source $ADMIN_SCRIPTS/vim/biggrep.vim
 
-" if current colorscheme is in ~/colorschemes use it
-" otherwise use wal theme
-let data = readfile("/home/colby/.colorscheme")
-for scheme in colorschemes
-    if scheme == data[0]
-        execute ':colo ' . scheme
-        break
-    else
-        colo wal
-    endif
-endfor
+function! BigGrepFzf(query, fullscreen)
+  let command_fmt = 'fbgs --ignore-case --stripdir %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
 
-" Coc
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-eslint' ]
+command! -nargs=* -bang Fbgs call BigGrepFzf(<q-args>, <bang>0)
 
-source ~/.vim/coc-config.vim
+" Signify
+let g:signify_sign_delete = '-'
 
+" MYC
+set rtp+=/usr/local/share/myc/vim
+nmap <c-p> :MYC<CR>
+
+" ALE
+
+nnoremap gd 

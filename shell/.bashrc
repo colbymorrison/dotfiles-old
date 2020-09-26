@@ -10,10 +10,6 @@
 source /etc/bashrc
 source /usr/facebook/ops/rc/master.bashrc
 
-# Keep oodles of command history (see https://fburl.com/bashhistory).
-HISTFILESIZE=-1
-HISTSIZE=1000000
-shopt -s histappend
 
 # ---Prompt--- #
 export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
@@ -23,19 +19,17 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-## Linux specific aliases ##
-# ~/.config files #
-alias exr="$EDITOR ~/.Xresources"
-
-# Zathura #
-alias zth='zathura'
-alias ztf='zathura --fork'
+# --History--#
+HISTFILESIZE=-1
+HISTSIZE=1000000
+HISTCONTROL=ignoredups
+shopt -s histappend
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # share history between open terminals
 
 # ---Functions--- #
 
-# Edit config files
-ec(){
-    $EDITOR $(fd . "/home/colby/.config/$1" -t f -t d -H | fzf) 
+mkcd() {
+  mkdir -p "$1" && cd "$1"
 }
 
 # Run prev command w/ different options
@@ -52,10 +46,6 @@ theme(){
     wal --theme $theme
 }
 
-# Fzf all files
-search() {
-        fd . -t f -H '/home/colby' | fzf -m --preview="bat {}" | xargs -ro -d "\n" xdg-open 2>&-
-    }
 
 # Fzf files in current directory
 opf() {
@@ -65,7 +55,7 @@ opf() {
 
 # Fzf all directories under ~
 cdf() {
-        cd "$(fd . -t d  -H '/home/colby' | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
+        cd "$(fd . -t d  -H '/home/cmorrison/fbcode' | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
     }
 
 checkout_fzf() {
@@ -77,8 +67,6 @@ checkout_fzf() {
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-[[ -f ~/dotfiles/shell/git-completion.bash ]] && \
-    . ~/dotfiles/shell/git-completion.bash
-
-[[ -f /usr/share/fzf/completion.bash ]] && \
-    . /usr/share/fzf/completion.bash 
+[[ -f $HOME/.fzf/ ]] && \
+    . $HOME/.fzf/shell/completion.bash ; \
+    . $HOME/.fzf/shell/key-bindings.bash

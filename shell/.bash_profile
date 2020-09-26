@@ -16,4 +16,8 @@ export EDITOR=vim
 export VISUAL=$EDITOR
 export CLICOLOR=1
 export PATH=$PATH:$HOME/bin
-export FZF_DEFAULT_COMMAND='fd -H --type f'
+if [[ ! "$PATH" == */home/cmorrison/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/cmorrison/.fzf/bin"
+  export FZF_DEFAULT_COMMAND='fd -H --type f'
+fi
+export MYPY_CACHE_DIR=~/.cache/mypy

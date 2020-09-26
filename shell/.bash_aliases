@@ -19,7 +19,7 @@ alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -
 
 ## config files ##
 alias not="$EDITOR ~/Notes/notes.md"
-alias evi="$EDITOR ~/.vimrc"
+alias evi="$EDITOR ~/dotfiles/vim/.vimrc"
 alias ebh="$EDITOR ~/.bashrc"
 alias etm="$EDITOR ~/.tmux.conf"
 
