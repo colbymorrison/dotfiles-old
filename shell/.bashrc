@@ -38,25 +38,34 @@ difo(){
     $last_command $1
 }
 
-theme(){
-    theme=$(wal --theme | fzf | cut -d ' ' -f 3)
-    theme_basename=$(echo $theme | sed s/base16-//)
-    echo $theme_basename > ~/.colorscheme
-    wpg --theme $theme
-    wal --theme $theme
-}
-
-
 # Fzf files in current directory
 opf() {
-    fle=$(fd . -t f -t d -d 1 -H | fzf -m --preview="bat {}")
-    [[ -f $fle ]] && xdg-open $fle || cd $fle
+    fle=$(fd . -t f -t d -d 1 -H | fzf -m --preview="less {}")
+    [[ -f $fle ]] && $EDITOR $fle || cd $fle
     }
 
-# Fzf all directories under ~
+# Fzf system files, use myc to fuzzy search repo files
+ops(){
+    fle=$(fd . -t f -t d -H -E 'fbsource' '/home/cmorrison' | fzf -m --preview="less {}")
+    [[ -f $fle ]] && $EDITOR $fle || cd $fle
+}
+
+# Fzf fbcode directories
 cdf() {
-        cd "$(fd . -t d  -H '/home/cmorrison/fbcode' | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
+  cd ~/fbcode
+  cd "$(fd -t d | fzf --preview="tree -L 2 {}" --bind="space:toggle-preview")"
     }
+
+tmux_connect(){
+	if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
+		first_unattached=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' 2>/dev/null | grep -v '^$' | head -1)
+		if [[ $first_unattached ]]; then
+			tmux $TMUX_OPTIONS attach-session -t $first_unattached
+		else
+			tmux $TMUX_OPTIONS new-session
+		fi
+	fi
+}
 
 checkout_fzf() {
         [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
@@ -70,3 +79,7 @@ checkout_fzf() {
 [[ -f $HOME/.fzf/ ]] && \
     . $HOME/.fzf/shell/completion.bash ; \
     . $HOME/.fzf/shell/key-bindings.bash
+
+# --Auto Connect tmux-- #
+tmux_connect
+

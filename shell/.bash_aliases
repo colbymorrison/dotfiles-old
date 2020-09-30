@@ -5,7 +5,7 @@ alias g='grep'
 alias l='ls -lah'
 alias m='man'
 alias r='ranger'
-alias v='vim'
+alias v=$EDITOR
 alias ls='ls -A --color=auto'
 alias df='df -h'
 alias du='du -h'
@@ -16,12 +16,15 @@ alias open='xdg-open'
 alias ka='killall'
 alias sbh='. ~/.bashrc'
 alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
+alias python='python3'
+alias fbc='cd ~/fbcode'
 
 ## config files ##
 alias not="$EDITOR ~/Notes/notes.md"
 alias evi="$EDITOR ~/dotfiles/vim/.vimrc"
-alias ebh="$EDITOR ~/.bashrc"
+alias ebh="$EDITOR ~/dotfiles/shell/.bashrc"
 alias etm="$EDITOR ~/.tmux.conf"
+alias eba="$EDITOR ~/dotfiles/shell/.bash_aliases"
 
 ## Directories ## 
 alias ..='cd ..'
@@ -42,27 +45,37 @@ alias jnl='journalctl'
 alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
 
+## Hg ##
+alias hgst='hg status'
+alias hgd='hg diff'
+alias hgrv='hg revert'
+alias hgrva='hg revert --all'
+alias hgc='hg commit'
+alias hga='hg amend'
+alias ssl='hg ssl'
+alias hgsh='hg show'
+alias hgco='hg checkout'
+
+## Jellyfish ###
+alias jfs='jf submit'
+
+### Arc ###
+alias arcp='arc pull'
+alias arcl='arc lint'
+alias arcf='arc fix'
+
 ## Git ##
 alias ga='git add'
 alias gau='git add -u'
 alias gaa='git add --all'
 alias gb='git branch'
 alias gbD='git branch -D'
-alias gc='git commit -v'
-alias gcam='git commit -a -m'
-alias gcamd='git commit --amend'
-alias gcb='git checkout -b'
-alias gcm='git checkout master'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch'
-alias ggsup='git branch --set-upstream-to=origin/$(parse_git_branch)'
 alias gl='git pull'
-alias glg='git log --stat'
-alias gm='git merge'
 alias gp='git push'
-alias gpsu='git push --set-upstream origin $(parse_git_branch)'
 alias gst='git status'
 alias ggrep='git grep'
 

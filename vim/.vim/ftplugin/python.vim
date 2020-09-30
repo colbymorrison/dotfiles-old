@@ -1,6 +1,7 @@
 let g:ale_python_pyls_executable = '/usr/local/bin/pyls-language-server'
-let g:ale_fixers = {'python': ['pyfmt']}
-let g:ale_linters = { 'python': ['flake8', 'pyls'] }
+let g:ale_python_black_executable='pyfmt'
+let g:ale_fixers = {'python': ['black']}
+let g:ale_linters = { 'python': ['flake8', 'pyls', 'pyre'] }
 
 let g:ale_lint_on_enter = 1
 let g:ale_python_autopep8_use_global=1

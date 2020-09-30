@@ -12,7 +12,7 @@ if [[ -f ~/.bashrc ]]; then
 fi
 
 # Export environment variables, start background programs, etc.
-export EDITOR=vim
+export EDITOR=nvim
 export VISUAL=$EDITOR
 export CLICOLOR=1
 export PATH=$PATH:$HOME/bin
