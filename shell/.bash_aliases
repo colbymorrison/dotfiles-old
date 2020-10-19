@@ -5,7 +5,7 @@ alias g='grep'
 alias l='ls -lah'
 alias m='man'
 alias r='ranger'
-alias v=$EDITOR
+alias v='nvim'
 alias ls='ls -A --color=auto'
 alias df='df -h'
 alias du='du -h'
@@ -20,11 +20,11 @@ alias python='python3'
 alias fbc='cd ~/fbcode'
 
 ## config files ##
-alias not="$EDITOR ~/Notes/notes.md"
-alias evi="$EDITOR ~/dotfiles/vim/.vimrc"
-alias ebh="$EDITOR ~/dotfiles/shell/.bashrc"
-alias etm="$EDITOR ~/.tmux.conf"
-alias eba="$EDITOR ~/dotfiles/shell/.bash_aliases"
+alias not="nvim ~/Notes/notes.md"
+alias evi="nvim ~/dotfiles/vim/.vimrc"
+alias ebh="nvim ~/dotfiles/shell/.bashrc"
+alias etm="nvim ~/.tmux.conf"
+alias eba="nvim ~/dotfiles/shell/.bash_aliases"
 
 ## Directories ## 
 alias ..='cd ..'
@@ -63,6 +63,11 @@ alias jfs='jf submit'
 alias arcp='arc pull'
 alias arcl='arc lint'
 alias arcf='arc fix'
+
+## Buck ##
+alias br='buck run'
+alias bb='buck build'
+alias bt='buck test'
 
 ## Git ##
 alias ga='git add'

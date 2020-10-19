@@ -15,9 +15,4 @@ fi
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export CLICOLOR=1
-export PATH=$PATH:$HOME/bin
-if [[ ! "$PATH" == */home/cmorrison/.fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/cmorrison/.fzf/bin"
-  export FZF_DEFAULT_COMMAND='fd -H --type f'
-fi
-export MYPY_CACHE_DIR=~/.cache/mypy
+export FZF_DEFAULT_COMMAND='fd -H --type f'
