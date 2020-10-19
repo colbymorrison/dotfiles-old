@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 
 " Colorscheme
@@ -80,11 +81,11 @@ map <leader>td  :tabc<cr>
 " Colors
 set background=dark
 set termguicolors
-colo nord
+colo gruvbox
 let g:airline_theme='material'
 
 " Coc
-let g:coc_global_extensions = [ 'coc-python', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-json', 'coc-eslint' ]
+let g:coc_global_extensions = [ 'coc-python' ]
 
 source ~/.vim/coc-config.vim
 

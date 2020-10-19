@@ -32,5 +32,6 @@
             }
         }
       },
-    "clangd.semanticHighlighting": true
+    "clangd.semanticHighlighting": true,
+    "python.setLinter": "flake8"
 }

@@ -12,7 +12,6 @@ alias du='du -h'
 alias free='free -h'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_modules}'
 alias pag='ps aux | grep'
-alias open='xdg-open'
 alias ka='killall'
 alias sbh='. ~/.bashrc'
 alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
@@ -21,6 +20,7 @@ alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -
 alias not="$EDITOR ~/Notes/notes.md"
 alias evi="$EDITOR ~/.vimrc"
 alias ebh="$EDITOR ~/.bashrc"
+alias eba="$EDITOR ~/.bash_aliases"
 alias etm="$EDITOR ~/.tmux.conf"
 
 ## Directories ## 
@@ -41,6 +41,9 @@ alias jnl='journalctl'
 ## Network Manager ##
 alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
+
+## Mac fb ##
+alias dev='et dev:8080'
 
 ## Git ##
 alias ga='git add'

@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/cmorrison/.vscode-fb/extensions/nuclide.pyls'
 let g:netrw_dirhist_2='/Users/Colby/.config/karabiner/assets/complex_modifications'
 let g:netrw_dirhist_1='/home/colby/Repos/Awesome-CV/resume'
 let g:netrw_dirhist_0='/home/colby/Repos/Awesome-CV/examples/resume'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_7='/home/colby/Repos/covid-watch/permission-portal/permissio
 let g:netrw_dirhist_6='/home/colby/.config/coc'
 let g:netrw_dirhist_5='/home/colby/.config'
 let g:netrw_dirhist_4='/home/colby'
-let g:netrw_dirhist_3='/home/colby/Repos'

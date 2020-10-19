@@ -2,7 +2,7 @@
     "title": "Command / Control ",
     "rules": [
         {
-            "description": "swap left control and left command except for iTerm",
+            "description": "swap left control and left command except for iTerm and VsCode",
             "manipulators": [
                 {
                     "type": "basic",
@@ -18,7 +18,8 @@
                         {
                             "type": "frontmost_application_unless",
                             "bundle_identifiers": [
-                                "^com.googlecode.iterm2"
+                                "^com.googlecode.iterm2",
+                                "^com.facebook.fbvscode"
                             ]
                         }
                     ]
@@ -37,7 +38,8 @@
                         {
                             "type": "frontmost_application_unless",
                             "bundle_identifiers": [
-                                "^com.googlecode.iterm2"
+                                "^com.googlecode.iterm2",
+                                "^com.facebook.fbvscode"
                             ]
                         }
                     ]
@@ -69,7 +71,55 @@
             ]
         },
         {
-            "description": "swap command-arrow-keys and control-arrow-keys in iTerm",
+            "description": "map option-w to command-w",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": [
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "w",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "map option-h to command-h",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "h",
+                        "modifiers": {
+                            "mandatory": [
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "h",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "swap command-arrow-keys and control-arrow-keys in iTerm and VsCode",
             "manipulators": [
                 {
                     "type": "basic",
@@ -93,7 +143,8 @@
                         {
                             "type": "frontmost_application_if",
                             "bundle_identifiers": [
-                                "^com.googlecode.iterm2"
+                                "^com.googlecode.iterm2",
+                                "^com.facebook.fbvscode"
                             ]
                         }
                     ]
@@ -120,7 +171,8 @@
                         {
                             "type": "frontmost_application_if",
                             "bundle_identifiers": [
-                                "^com.googlecode.iterm2"
+                                "^com.googlecode.iterm2",
+                                "^com.facebook.fbvscode"
                             ]
                         }
                     ]
@@ -147,7 +199,8 @@
                         {
                             "type": "frontmost_application_if",
                             "bundle_identifiers": [
-                                "^com.googlecode.iterm2"
+                                "^com.googlecode.iterm2",
+                                "^com.facebook.fbvscode"
                             ]
                         }
                     ]
@@ -174,7 +227,8 @@
                         {
                             "type": "frontmost_application_if",
                             "bundle_identifiers": [
-                                "^com.googlecode.iterm2"
+                                "^com.googlecode.iterm2",
+                                "^com.facebook.fbvscode"
                             ]
                         }
                     ]

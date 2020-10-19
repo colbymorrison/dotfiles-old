@@ -13,23 +13,26 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-## Arch specific aliases ##
+## Mac specific aliases ##
 # Homebrew #
 alias brewin='brew install'
 alias brewup='brew upgrade'
 alias brewrm='brew remove'
 
-# ---Functions--- #
+# iTerm 2 Shell Integration#
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# Edit config files
-ec(){
-    $EDITOR $(fd . "$HOME/.config/$1" -t f -t d -H | fzf) 
-}
+# ---Functions--- #
 
 # Run prev command w/ different options
 difo(){
     last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
     $last_command $1
+}
+
+## FZF ##
+ec(){
+    $EDITOR $(fd . "$HOME/.config/$1" -t f -t d -H | fzf) 
 }
 
 theme(){
@@ -59,6 +62,13 @@ checkout_fzf() {
         [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
     }
 
+## VPN ##
+alias vpn.status='/opt/cisco/anyconnect/bin/vpn state'
+alias vpn.disconnect='/opt/cisco/anyconnect/bin/vpn disconnect'
+alias vpn.status='/opt/cisco/anyconnect/bin/vpn state'
+
+export VPN_HOST='Americas West'
+vpn() { printf "$1" | /opt/cisco/anyconnect/bin/vpn -s connect "$VPN_HOST"; }
 
 # --Completion-- #
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
