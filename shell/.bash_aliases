@@ -43,7 +43,7 @@ alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
 
 ## Mac fb ##
-alias dev='et dev:8080'
+alias d='et dev:8080'
 
 ## Git ##
 alias ga='git add'
@@ -69,3 +69,4 @@ alias gpsu='git push --set-upstream origin $(parse_git_branch)'
 alias gst='git status'
 alias ggrep='git grep'
 
+alias fzf="fzf --preview=\"~/scripts/preview.sh {}\" --bind=\"space:toggle-preview\""

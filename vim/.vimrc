@@ -81,7 +81,7 @@ map <leader>td  :tabc<cr>
 " Colors
 set background=dark
 set termguicolors
-colo gruvbox
+colo dracula
 let g:airline_theme='material'
 
 " Coc

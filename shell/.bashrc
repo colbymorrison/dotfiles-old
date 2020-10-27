@@ -44,18 +44,20 @@ theme(){
 
 # Fzf all files
 search() {
-        fd . -t f -H "$HOME" | fzf -m --preview="bat {}" | xargs -ro -d "\n" xdg-open 2>&-
+        fd . -t f -H "$HOME" | fzf -m | xargs -ro -d "\n" xdg-open 2>&-
     }
 
 # Fzf files in current directory
 opf() {
-    fle=$(fd . -t f -t d -d 1 -H | fzf -m --preview="bat {}")
-    [[ -f $fle ]] && xdg-open $fle || cd $fle
+    fle=$(fzf)
+    if [[ -e $fle ]]; then
+        [[ -f $fle ]] && open $fle || cd $fle
+    fi
     }
 
 # Fzf all directories under ~
 cdf() {
-        cd "$(fd . -t d  -H "$HOME" | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
+        cd "$(fd . -t d  -H "$HOME" | fzf --bind="space:toggle-preview")"
     }
 
 checkout_fzf() {

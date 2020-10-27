@@ -1,3 +1,6 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
 " General settings
 set nocompatible              " be iMproved
 filetype off                  
@@ -38,14 +41,9 @@ nmap <silent> <leader>c :noh<cr>
 nmap <C-x> :close<cr>
 nmap <leader>s :so ~/.vimrc<cr>
 nmap <leader>p :set invpaste<CR>
-
-" Mappings for VSCode integration
 nmap <Enter> O<Esc>
 nmap <silent> <leader>c :noh<cr>
-nmap <C-x> :close<cr>
 nmap <leader>s :so ~/.vimrc<cr>
-nmap <leader>p :set invpaste<CR>
-nmap <leader>r :set invrelativenumber<CR> 
 imap <leader>f {<Esc>o}<Esc>O
 " Go no next/prev method name in python
 nmap [w [mw
@@ -54,3 +52,24 @@ nmap <leader>tj :tabp<cr>
 nmap <leader>tk :tabn<cr>
 nmap <leader>tt :tabnew<cr>
 nmap <leader>td :tabc<cr>
+
+if exists('g:vscode')
+    nmap gr :call VSCodeNotify("editor.action.goToReferences")<cr>
+    nmap <leader>j :call VSCodeNotify("editor.action.marker.next")<cr>
+    nmap <leader>k :call VSCodeNotify("editor.action.marker.prev")<cr>
+    nmap <leader>d :close<cr>
+    nmap <leader>f :call VSCodeNotify("editor.action.formatDocument")<cr>
+    nmap <leader>n :call VSCodeNotify("editor.action.rename")<cr>
+    nmap <leader>w :call VSCodeNotify("buck.lsp.open_nearest_buck_file")<cr>
+    nmap [c :call VSCodeNotify("workbench.action.editor.nextChange")<cr>
+    nmap ]c :call VSCodeNotify("workbench.action.editor.previousChange")<cr>
+    nmap <leader>hu :call VSCodeNotify("fb-hg.revertHunk")<cr>
+    nmap <leader>hp :call VSCodeNotify("editor.action.dirtydiff.next")<cr>
+    nmap <C-w>v :call VSCodeNotify("workbench.action.splitEditorRight")<cr>
+    nmap <C-w>s :call VSCodeNotify("workbench.action.splitEditorDown")<cr>
+    nmap <C-k> :call VSCodeNotify("workbench.action.focusAboveGroup")<cr>
+    nmap <C-j> :call VSCodeNotify("workbench.action.focusBelowGroup")<cr>
+    nmap <C-h> :call VSCodeNotify("workbench.action.focusLeftGroup")<cr>
+    nmap <C-l> :call VSCodeNotify("workbench.action.focusLeftGroup")<cr>
+    command A call VSCodeNotify("cpp:switch-header-source")<cr>
+endif

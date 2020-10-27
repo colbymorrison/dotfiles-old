@@ -4,5 +4,5 @@ export TERMINAL=iTerm
 export VISUAL=vim
 export EDITOR=$VISUAL
 export CLICOLOR=1
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd -t f -t d -H'
 export BASH_SILENCE_DEPRECATION_WARNING=1
