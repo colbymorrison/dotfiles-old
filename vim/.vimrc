@@ -5,15 +5,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
+Plug 'tpope/vim-dispatch'
+" C++
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/a.vim'
 " Deoplete
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 " Colorscheme
-Plug 'kaicataldo/material.vim'
 Plug 'morhetz/gruvbox'
-Plug 'rust-lang/rust.vim'
+Plug 'kaicataldo/material.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -22,44 +26,9 @@ let g:fb_default_opts = 0                  " use my settings below
 " read the top of this file for info about local admin scripts
 source $LOCAL_ADMIN_SCRIPTS/master.vimrc   " sets shiftwidth, tabstop, softtabstop, expandtab
 
-" Set neovim defaults if not neovim
-if !has("nvim")
-  set autoindent
-  set autoread
-  set background=dark
-  set backspace=indent,eol,start
-  set backupdir=$HOME/.vim/backup
-  set belloff=all
-  set complete-=i
-  set cscopeverbose
-  set directory=$HOME/.vim/swap
-  set display=lastline,msgsep
-  set encoding=UTF-8
-  set fillchars+=vert:│
-  set nofsync
-  set formatoptions=tcqj
-  set history=10000
-  set hlsearch
-  set incsearch
-  set langnoremap
-  set nolangremap
-  set laststatus=2
-  set listchars=tab:> ,trail:-,nbsp:+
-  set nocompatible
-  set nrformats=bin,hex
-  set ruler
-  set sessionoptions-=options
-  set shortmess+=F
-  set showcmd
-  set sidescroll=1
-  set smarttab
-  set tabpagemax=50
-  set tags=./tags;,tags
-  set ttimeoutlen=50
-  set ttyfast
-  set undodir=$HOME/.vim/undo/
-  set viminfo-=!
-  set wildmenu
+
+if filereadable("~/scripts/vim/nvim-defaults.vim")
+  source ~/scripts/vim/nvim-defaults.vim
 endif
 
 " General settings
@@ -110,7 +79,7 @@ imap <leader>f {<Esc>o}<Esc>O
 nmap [w [mw
 nmap ]w ]mw
 " arc lint current file
-nnoremap <leader>l :exec '!arc lint -a %'<cr>| :e!
+nnoremap <leader>l :exec '!arc lint -a %'<cr>
 nmap <leader>tj :tabp<cr>
 nmap <leader>tk :tabn<cr>
 nmap <leader>tt :tabnew<cr>
@@ -132,6 +101,11 @@ autocmd BufNewFile,BufRead TARGETS setlocal includeexpr=substitute(v:fname,'//\\
 " In progress: gf for @fbcode_macros
 "autocmd BufNewFile,BufRead TARGETS setlocal path+=,~/fbcode/tools 
 
+" Compiler
+if getcwd() =~ '/fbsource/fbcode$'
+  comp buck
+endif
+
 " Netrw
 nnoremap <leader>e :Lexplore<cr>
 let g:netrw_liststyle = 3
@@ -139,8 +113,11 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
 " Colors
-let g:material_theme_style = 'default'
-color gruvbox
+let g:material_theme_style = 'ocean'
+
+colo dracula
+let g:airline_theme='dracula'
+
 
 "--- Local Admin Scripts ---
 function! BigGrepFzf(query, fullscreen)
@@ -206,3 +183,7 @@ nnoremap <silent> <leader>n :ALERename<cr>
 " FZF
 nmap <silent> <leader>z :History<cr>
 nmap <silent> <leader>b :Buffers<cr>
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_class_decl_highlight = 1
+

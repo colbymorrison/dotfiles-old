@@ -20,8 +20,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # ---Forward Proxy Everywhere--#
-export HTTP_PROXY="http://fwdproxy:8080"
-export HTTPS_PROXY="http://fwdproxy:8080"
+#export HTTP_PROXY="http://fwdproxy:8080"
+#export HTTPS_PROXY="http://fwdproxy:8080"
 
 # --History--#
 HISTFILESIZE=-1
@@ -31,6 +31,11 @@ shopt -s histappend
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # share history between open terminals
 
 # ---Functions--- #
+open_if_exists(){
+  if [[ -e $1  ]]; then
+    [[ -f $1 ]] && $EDITOR $1 || cd $1
+  fi
+}
 
 mkcd() {
   mkdir -p "$1" && cd "$1"
@@ -42,32 +47,29 @@ difo(){
   $last_command $1
 }
 
-# Fzf files in current directory
+# Fzf all files and directories in current directory
 opf() {
-  fle=$(fd . -t f -t d -d 1 -H | fzf -m --preview="less {}")
-  [[ -f $fle ]] && $EDITOR $fle || cd $fle
+  open_if_exists $(fzf)
 }
 
 # Fzf system files, use myc to fuzzy search repo files
 ops(){
-  fle=$(fd . -t f -t d -H -E 'fbsource' '/home/cmorrison' | fzf -m --preview="less {}")
-  [[ -f $fle ]] && $EDITOR $fle || cd $fle
+  open_if_exists $(fd . -t f -t d -H -E 'fbsource' '/home/cmorrison' | fzf -m --preview="less {}")
 }
 
 # Fzf fbcode directories
 cdf() {
-  cd ~/fbcode
-  cd "$(fd -t d | fzf --preview="tree -L 2 {}" --bind="space:toggle-preview")"
+  cd "$(fd  . -t d '/home/cmorrison/fbcode' | fzf)"
 }
 
 tmux_connect(){
   if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
-    first_unattached=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' 2>/dev/null | grep -v '^$' | head -1)
-    if [[ $first_unattached ]]; then
-      tmux $TMUX_OPTIONS attach-session -t $first_unattached
+    fbc=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep fbc | head -1)
+    if [[ $fbc ]]; then
+      tmux $TMUX_OPTIONS attach-session -t fbc
     else
       cd ~/fbcode
-      tmux $TMUX_OPTIONS new-session
+      tmux $TMUX_OPTIONS new-session -s fbc
     fi
   fi
 }

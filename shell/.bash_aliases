@@ -55,6 +55,7 @@ alias hga='hg amend'
 alias ssl='hg ssl'
 alias hgsh='hg show'
 alias hgco='hg checkout'
+alias hgcw='hg checkout remote/fbcode/warm'
 
 ## Jellyfish ###
 alias jfs='jf submit'

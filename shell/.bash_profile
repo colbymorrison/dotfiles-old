@@ -15,4 +15,5 @@ fi
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export CLICOLOR=1
-export FZF_DEFAULT_COMMAND='fd -H --type f'
+export FZF_DEFAULT_COMMAND='fd -H -t f -t d'
+export FZF_DEFAULT_OPTS='--preview="~/scripts/preview.sh {}"'
