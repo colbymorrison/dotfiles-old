@@ -7,13 +7,6 @@
 
 # Source bashrc to pull in configuration for interactive shell use (the bashrc
 # will just return if the shell is not interactive).
-if [[ -f ~/.bashrc ]]; then
-  source ~/.bashrc
-fi
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 
-# Export environment variables, start background programs, etc.
-export EDITOR=nvim
-export VISUAL=$EDITOR
-export CLICOLOR=1
-export FZF_DEFAULT_COMMAND='fd -H -t f -t d'
-export FZF_DEFAULT_OPTS='--preview="~/scripts/preview.sh {}"'
+[[ -f ~/.profile ]]; source .profile

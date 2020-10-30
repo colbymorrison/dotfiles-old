@@ -11,8 +11,8 @@ source /etc/bashrc
 source /usr/facebook/ops/rc/master.bashrc
 
 # ---Env vars--- #
+[[ -f ~/.profile ]] && source ~/.profile
 export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
-export PATH="$HOME/bin:$PATH"
 
 # ---Alias--- #
 if [ -f ~/.bash_aliases ]; then
