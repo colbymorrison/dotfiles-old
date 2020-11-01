@@ -9,8 +9,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
+Plug 'dense-analysis/ale'
+" Deoplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
@@ -21,21 +25,95 @@ Plug 'hzchirs/vim-material'
 
 call plug#end()
 
-" general
+" ---Vanilla vim settings---
 syntax on
-let mapleader = ","
-set number
+
+if filereadable("~/scripts/vim/nvim-defaults.vim")
+  source ~/scripts/vim/nvim-defaults.vim
+endif
+
+" General settings
+set nocompatible              " be iMproved
+filetype off                  
+filetype indent plugin on           
+syntax enable
+let mapleader=","
+set number                    " line numbers
+set nolist                    " hide EOL chars
 set path+=**
 set spelllang=en              
-set spellfile=$HOME/.vim/spell/en.utf-8.add
-set shellslash
+set shellslash                " fileslash by OS
 set mouse=a
 set iskeyword+=:
+set nofixendofline            " add EOL at end of file
+set noerrorbells              " no terminal bells
+set tags=tags;/               " search up directory tree for tags
+set undolevels=10000          " number of undos stored 
+set viminfo='50,"50
+set modelines=0
+set scrolloff=8               " show 8 lines below cursor
+set linebreak                 " break on words
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+
+" Search
+set incsearch                 " search with typeahead
+set hlsearch                  " hilight all searches 
+
+" Scrolling
+set scrolljump=5              " scroll five lines at a time vertically when at bottom
+set sidescroll=10             " minumum columns to scroll horizontally
+
+"" Indents
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set sw=2
 set autoindent
-set nofixendofline
 
-" vim-latex-suite
+" Mappings
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>a :Rg<CR>
+nmap <Enter> O<Esc>
+nmap <silent> <leader>c :noh<cr>
+nmap <C-x> :close<cr>
+nmap <leader>s :so ~/.vimrc<cr>
+nmap <leader>p :set invpaste<CR>
+nmap <leader>r :set invrelativenumber<CR> 
+imap <leader>f {<Esc>o}<Esc>O
+" Go no next/prev method name in python
+nmap [w [mw
+nmap ]w ]mw
+nmap <leader>tj :tabp<cr>
+nmap <leader>tk :tabn<cr>
+nmap <leader>tt :tabnew<cr>
+nmap <leader>td :tabc<cr>
+" Tab complete for deoplete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" File selection
+nnoremap <leader>e :Lexplore<cr>
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+
+" Colors
+set background=dark
+set termguicolors
+colo dracula
+let g:airline_theme='material'
+
+"--- Plugins ----
+" Signify
+set updatetime=100
+nmap <leader>hu :SignifyHunkUndo<cr>
+nmap <leader>hp :SignifyHunkDiff<cr>
+let g:signify_sign_delete = '-'
+
+" Airline
+let g:airline#extensions#hunks#enabled=0
+
+"Vim-latex-suite
 set grepprg=grep\ -nH\ $* 
 let g:tex_flavor='latex'
 let g:tex_no_error=1
@@ -46,46 +124,23 @@ nmap <C-g> <Plug>IMAP_JumpForward
 let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemize,figure,table,theorem,lemma,tikzpicture'
 let g:Tex_GotoError=0 
 
-" Incemental search
-set incsearch
-set hlsearch
+" ALE
+let g:ale_disable_lsp = 1
+"let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 1
+let g:ale_set_balloons = 1
 
-"" Indents
-set softtabstop=4
-set tabstop=4
-set shiftwidth=4
-set expandtab
+nmap gd <Plug>(ale_go_to_definition)
+nmap gy <Plug>(ale_go_to_type_definition)
+nmap gr <Plug>(ale_find_references)
 
-" mappings
-nmap <S-ENTER> O<Esc>
-nmap <CR> o<Esc>
-nmap <leader>c :noh<cr>
-nmap <leader>f :FZF<cr>
-imap <leader>f {<Esc>o}<Esc>O
-nmap <leader>r :so ~/.vimrc<cr>
-nmap <leader>rl :set invrelativenumber<CR> 
-inoremap jj <Esc>
+nmap <leader>j <Plug>(ale_next_wrap)
+nmap <leader>k <Plug>(ale_previous_wrap)
+nmap <leader>d <Plug>(ale_detail)
+nnoremap <leader>f :ALEFix<cr>
+" doesn't really work?
+nnoremap <silent> <leader>n :ALERename<cr>
 
-" File selection
-nnoremap <leader>e :Lexplore<cr>
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-
-" Tabs
-nmap <leader>tj :tabp<cr>
-nmap <leader>tk :tabn<cr>
-nmap <leader>tt :tabnew<cr>
-map <leader>td  :tabc<cr>
-
-" Colors
-set background=dark
-set termguicolors
-colo dracula
-let g:airline_theme='material'
-
-" Coc
-let g:coc_global_extensions = [ 'coc-python' ]
-
-source ~/.vim/coc-config.vim
-
+" FZF
+nmap <silent> <leader>z :History<cr>
+nmap <silent> <leader>b :Buffers<cr>

@@ -44,8 +44,8 @@ theme(){
 
 # Fzf all files
 search() {
-        fd . -t f -H "$HOME" | fzf -m | xargs -ro -d "\n" xdg-open 2>&-
-    }
+    fd . -t f -H "$HOME" | fzf -m | xargs -ro -d "\n" xdg-open 2>&-
+}
 
 # Fzf files in current directory
 opf() {
@@ -53,16 +53,16 @@ opf() {
     if [[ -e $fle ]]; then
         [[ -f $fle ]] && open $fle || cd $fle
     fi
-    }
+}
 
 # Fzf all directories under ~
 cdf() {
-        cd "$(fd . -t d  -H "$HOME" | fzf --bind="space:toggle-preview")"
-    }
+    cd "$(fd . -t d  -H "$HOME" | fzf --bind="space:toggle-preview")"
+}
 
 checkout_fzf() {
-        [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
-    }
+    [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
+}
 
 ## VPN ##
 alias vpn.status='/opt/cisco/anyconnect/bin/vpn state'

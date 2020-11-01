@@ -43,7 +43,7 @@ alias wils='nmcli d wifi list'
 alias wicon='nmcli d wifi connect'
 
 ## Mac fb ##
-alias d='et dev:8080'
+alias d='et -r 8377:8377 dev:8080'
 
 ## Git ##
 alias ga='git add'
