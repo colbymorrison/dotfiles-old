@@ -1,10 +1,4 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-filetype plugin on            " for vim-latex 
-filetype indent on            " for vim-latex 
-
 call plug#begin('~/.vim/plugged')
-
 " Essentials
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -22,7 +16,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'hzchirs/vim-material'
-
 call plug#end()
 
 " ---Vanilla vim settings---
@@ -49,7 +42,7 @@ set nofixendofline            " add EOL at end of file
 set noerrorbells              " no terminal bells
 set tags=tags;/               " search up directory tree for tags
 set undolevels=10000          " number of undos stored 
-set viminfo='50,"50
+set viminfo='50,"50           " number of marks and registers stored
 set modelines=0
 set scrolloff=8               " show 8 lines below cursor
 set linebreak                 " break on words
@@ -76,10 +69,10 @@ nnoremap <C-p> :Files<CR>
 nnoremap <leader>a :Rg<CR>
 nmap <Enter> O<Esc>
 nmap <silent> <leader>c :noh<cr>
-nmap <C-x> :close<cr>
+nmap <silent> <C-x> :close<cr>
 nmap <leader>s :so ~/.vimrc<cr>
-nmap <leader>p :set invpaste<CR>
-nmap <leader>r :set invrelativenumber<CR> 
+nmap <silent> <leader>p :set invpaste<CR>
+nmap <silent> <leader>r :set invrelativenumber<CR> 
 imap <leader>f {<Esc>o}<Esc>O
 " Go no next/prev method name in python
 nmap [w [mw
@@ -125,7 +118,6 @@ let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemiz
 let g:Tex_GotoError=0 
 
 " ALE
-let g:ale_disable_lsp = 1
 "let g:ale_completion_enabled = 1
 let g:ale_lint_on_text_changed = 1
 let g:ale_set_balloons = 1

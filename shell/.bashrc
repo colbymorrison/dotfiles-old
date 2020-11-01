@@ -44,20 +44,23 @@ theme(){
 
 # Fzf all files
 search() {
-    fd . -t f -H "$HOME" | fzf -m | xargs -ro -d "\n" xdg-open 2>&-
+    fle=$(fd . -t f -H "$HOME" | fzf)
+    if [[ -e $fle ]]; then
+        [[ -f $fle ]] && $EDITOR $fle || cd $fle
+    fi
 }
 
 # Fzf files in current directory
 opf() {
     fle=$(fzf)
     if [[ -e $fle ]]; then
-        [[ -f $fle ]] && open $fle || cd $fle
+        [[ -f $fle ]] && $EDITOR $fle || cd $fle
     fi
 }
 
 # Fzf all directories under ~
 cdf() {
-    cd "$(fd . -t d  -H "$HOME" | fzf --bind="space:toggle-preview")"
+    cd "$(fd . -t d  -H "$HOME" | fzf)"
 }
 
 checkout_fzf() {
@@ -81,3 +84,5 @@ vpn() { printf "$1" | /opt/cisco/anyconnect/bin/vpn -s connect "$VPN_HOST"; }
 
 # Keep autocompletion on git aliases
 __git_complete gco _git_checkout
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
