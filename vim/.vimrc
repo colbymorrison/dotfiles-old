@@ -1,3 +1,4 @@
+let g:polyglot_disabled = ['autoindent', 'sensible']
 call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -7,17 +8,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-dispatch'
-" C++
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-scripts/a.vim'
-" Deoplete
 Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'vim-scripts/a.vim'
+Plug 'sheerun/vim-polyglot'
 " Colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'kaicataldo/material.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'sainnhe/sonokai'
 
 call plug#end()
 
@@ -40,18 +38,18 @@ let mapleader=","
 set number                    " line numbers
 set nolist                    " hide EOL chars
 set path+=**,~/fbcode         " goto fbcode files
-set spelllang=en              
 set shellslash                " fileslash by OS
-set mouse=a
-set iskeyword+=:
 set nofixendofline            " add EOL at end of file
 set noerrorbells              " no terminal bells
 set tags=tags;/               " search up directory tree for tags
 set undolevels=10000          " number of undos stored 
-set viminfo='50,"50
-set modelines=0
+set viminfo='50,"50           " number of marks and registers saved
+set modelines=0               " no modelines
 set scrolloff=8               " show 8 lines below cursor
 set linebreak                 " break on words
+set autoindent
+set mouse=a
+set spelllang=en              
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " Search
@@ -61,9 +59,6 @@ set hlsearch                  " hilight all searches
 " Scrolling
 set scrolljump=5              " scroll five lines at a time vertically when at bottom
 set sidescroll=10             " minumum columns to scroll horizontally
-
-"" Indents
-set autoindent
 
 " Mappings
 nmap <Enter> O<Esc>
@@ -98,13 +93,6 @@ autocmd BufWritePost TARGETS silent! exec
       \ '!~/fbsource/tools/third-party/buildifier/run_buildifier.py -i %' | :e
 " In TARGETS files, on go to file (gf), replace //PATH with PATH/TARGETS
 autocmd BufNewFile,BufRead TARGETS setlocal includeexpr=substitute(v:fname,'//\\(.*\\)','\\1/TARGETS','g')
-" In progress: gf for @fbcode_macros
-"autocmd BufNewFile,BufRead TARGETS setlocal path+=,~/fbcode/tools 
-
-" Compiler
-if getcwd() =~ '/fbsource/fbcode$'
-  comp buck
-endif
 
 " Netrw
 nnoremap <leader>e :Lexplore<cr>
@@ -115,8 +103,7 @@ let g:netrw_winsize = 25
 " Colors
 let g:material_theme_style = 'ocean'
 
-colo dracula
-let g:airline_theme='dracula'
+colo sonokai
 
 
 "--- Local Admin Scripts ---
@@ -175,7 +162,7 @@ nmap gr <Plug>(ale_find_references)
 
 nmap <leader>j <Plug>(ale_next_wrap)
 nmap <leader>k <Plug>(ale_previous_wrap)
-nmap <leader>d <Plug>(ale_detail)
+nmap <leader>v <Plug>(ale_detail)
 nnoremap <leader>f :ALEFix<cr>
 " doesn't really work?
 nnoremap <silent> <leader>n :ALERename<cr>
@@ -186,4 +173,8 @@ nmap <silent> <leader>b :Buffers<cr>
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_class_decl_highlight = 1
+
+" Dispatch
+nmap <leader>d :Dispatch buck 
+
 

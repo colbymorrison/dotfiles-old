@@ -19,10 +19,6 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-# ---Forward Proxy Everywhere--#
-#export HTTP_PROXY="http://fwdproxy:8080"
-#export HTTPS_PROXY="http://fwdproxy:8080"
-
 # --History--#
 HISTFILESIZE=-1
 HISTSIZE=1000000
@@ -78,7 +74,7 @@ checkout_fzf() {
   [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
 }
 
-# Pastry with command name as title
+# Pastry previous command with command name as title
 p() {
   "$@" | pastry -t "$*"
 }
@@ -89,13 +85,19 @@ buckout() {
   pushd "$repopath/buck-out/gen/$(realpath . --relative-to="$repopath")"
 }
 
+# Copy with clippy
+cpy(){
+  nc localhost 8377
+}
+  
+
 # --Completion-- #
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
   . /usr/share/bash-completion/bash_completion
 
-[[ -f $HOME/.fzf/ ]] && \
-  . $HOME/.fzf/shell/completion.bash ; \
-  . $HOME/.fzf/shell/key-bindings.bash
+[[ -d $HOME/.fzf/ ]] && \
+  . $HOME/scripts/fzf/completion.bash ; \
+  . $HOME/scripts/fzf/key-bindings.bash
 
 # --Auto Connect tmux-- #
 tmux_connect

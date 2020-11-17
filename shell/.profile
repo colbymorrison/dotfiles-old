@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Export environment variables, start background programs, etc.
 export PATH="$HOME/bin:$PATH"
 export EDITOR=nvim
 export VISUAL=$EDITOR
