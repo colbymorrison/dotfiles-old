@@ -6,7 +6,7 @@ alias l='ls -lah'
 alias m='man'
 alias r='ranger'
 alias v='vim'
-alias ls='ls -AG'
+alias ls='ls --color=auto -A'
 alias df='df -h'
 alias du='du -h'
 alias free='free -h'
@@ -70,3 +70,4 @@ alias gst='git status'
 alias ggrep='git grep'
 
 alias fzf="fzf --preview=\"~/scripts/preview.sh {}\" --bind=\"space:toggle-preview\""
+alias python="python3"

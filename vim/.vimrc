@@ -5,10 +5,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
-" Deoplete
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
@@ -16,6 +13,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'hzchirs/vim-material'
+Plug 'sainnhe/sonokai'
 call plug#end()
 
 " ---Vanilla vim settings---
@@ -83,6 +81,9 @@ nmap <leader>tt :tabnew<cr>
 nmap <leader>td :tabc<cr>
 " Tab complete for deoplete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+nnoremap <silent> <leader>y :call system('pbcopy', @0)<CR>
+
 
 " File selection
 nnoremap <leader>e :Lexplore<cr>
@@ -92,9 +93,7 @@ let g:netrw_winsize = 25
 
 " Colors
 set background=dark
-set termguicolors
-colo dracula
-let g:airline_theme='material'
+colo sonokai
 
 "--- Plugins ----
 " Signify
@@ -105,6 +104,9 @@ let g:signify_sign_delete = '-'
 
 " Airline
 let g:airline#extensions#hunks#enabled=0
+
+" Deoplete
+"let g:deoplete#enable_at_startup = 1
 
 "Vim-latex-suite
 set grepprg=grep\ -nH\ $* 

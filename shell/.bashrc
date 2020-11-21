@@ -4,7 +4,6 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 # ---Prompt--- #
 export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
 
@@ -12,6 +11,8 @@ export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+. ~/.profile
 
 ## Mac specific aliases ##
 # Homebrew #
@@ -25,6 +26,18 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # ---Functions--- #
 
 # Run prev command w/ different options
+tmux_connect(){
+  if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
+    home=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep home | head -1)
+    if [[ $home ]]; then
+      tmux $TMUX_OPTIONS attach-session -t home
+    else
+      cd
+      tmux $TMUX_OPTIONS new-session -s home
+    fi
+  fi
+}
+
 difo(){
     last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
     $last_command $1
@@ -68,11 +81,12 @@ checkout_fzf() {
 }
 
 ## VPN ##
-alias vpn.status='/opt/cisco/anyconnect/bin/vpn state'
-alias vpn.disconnect='/opt/cisco/anyconnect/bin/vpn disconnect'
-alias vpn.status='/opt/cisco/anyconnect/bin/vpn state'
-
 export VPN_HOST='Americas West'
+
+alias vd='/opt/cisco/anyconnect/bin/vpn disconnect'
+alias vs='/opt/cisco/anyconnect/bin/vpn state'
+alias vw='watch /opt/cisco/anyconnect/bin/vpn state'
+
 vpn() { printf "$1" | /opt/cisco/anyconnect/bin/vpn -s connect "$VPN_HOST"; }
 
 # --Completion-- #
@@ -85,4 +99,5 @@ vpn() { printf "$1" | /opt/cisco/anyconnect/bin/vpn -s connect "$VPN_HOST"; }
 # Keep autocompletion on git aliases
 __git_complete gco _git_checkout
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
