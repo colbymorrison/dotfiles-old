@@ -7,8 +7,8 @@ Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
-Plug 'Shougo/deoplete.nvim'
 Plug 'vim-scripts/a.vim'
 Plug 'sheerun/vim-polyglot'
 " Colorscheme
@@ -25,7 +25,7 @@ let g:fb_default_opts = 0                  " use my settings below
 source $LOCAL_ADMIN_SCRIPTS/master.vimrc   " sets shiftwidth, tabstop, softtabstop, expandtab
 
 
-if filereadable("~/scripts/vim/nvim-defaults.vim")
+if !has("nvim") && filereadable("~/scripts/vim/nvim-defaults.vim")
   source ~/scripts/vim/nvim-defaults.vim
 endif
 
@@ -82,7 +82,7 @@ nmap <leader>td :tabc<cr>
 " go to nearest TARGETS
 nmap <leader>w :tabnew !~/bin/tgt.sh<cr>
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+nnoremap <silent> <leader>y :call system('nc localhost 8377', @0)<CR>
 
 
 " Autocmds
@@ -149,6 +149,7 @@ endif
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = "/home/cmorrison/venv/bin/python3"
 
 " ALE
 let g:ale_disable_lsp = 1
@@ -163,18 +164,16 @@ nmap gr <Plug>(ale_find_references)
 nmap <leader>j <Plug>(ale_next_wrap)
 nmap <leader>k <Plug>(ale_previous_wrap)
 nmap <leader>v <Plug>(ale_detail)
-nnoremap <leader>f :ALEFix<cr>
+nmap <leader>f :ALEFix<cr>
 " doesn't really work?
-nnoremap <silent> <leader>n :ALERename<cr>
+nmap <silent> <leader>n :ALERename<cr>
 
 " FZF
 nmap <silent> <leader>z :History<cr>
 nmap <silent> <leader>b :Buffers<cr>
 
-let g:cpp_class_scope_highlight = 1
-let g:cpp_class_decl_highlight = 1
-
 " Dispatch
 nmap <leader>d :Dispatch buck 
+
 
 

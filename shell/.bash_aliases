@@ -9,15 +9,16 @@ alias v='nvim'
 alias ls='ls -A --color=auto'
 alias df='df -h'
 alias du='du -h'
+alias ka='killall'
+alias sbh='. ~/.bashrc'
+alias fbc='cd ~/fbcode'
+alias pbc='nc localhost 8377'
 alias free='free -h'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_modules}'
 alias pag='ps aux | grep'
 alias open='xdg-open'
-alias ka='killall'
-alias sbh='. ~/.bashrc'
 alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -net nic,model=virtio -net user,hostfwd=tcp::2222-:22'
 alias python='python3'
-alias fbc='cd ~/fbcode'
 
 ## config files ##
 alias not="nvim ~/Notes/notes.md"
@@ -53,22 +54,19 @@ alias hgrva='hg revert --all'
 alias hgc='hg commit'
 alias hga='hg amend'
 alias ssl='hg ssl'
+alias sl='hg sl'
 alias hgsh='hg show'
 alias hgco='hg checkout'
 alias hgcw='hg checkout remote/fbcode/warm'
 
 ## Jellyfish ###
 alias jfs='jf submit'
+alias jfd='jf submit --draft'
 
 ### Arc ###
-alias arcp='arc pull'
-alias arcl='arc lint'
-alias arcf='arc fix'
-
-## Buck ##
-alias br='buck run'
-alias bb='buck build'
-alias bt='buck test'
+alias ap='a pull'
+alias al='a lint'
+alias af='a fix'
 
 ## Git ##
 alias ga='git add'

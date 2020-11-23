@@ -1,9 +1,8 @@
 # .bashrc
-# bashrc is for aliases, functions, and shell configuration intended for use in
-# interactive shells.  However, in some circumstances, bash sources bashrc even
-# in non-interactive shells (e.g., when using scp), so it is standard practice
-# to check for interactivity at the top of .bashrc and return immediately if
-# the shell is not interactive.  The following line does that; don't remove it!
+
+# Run by interactive shells (after /etc/bash.bashrc)
+
+# only source in interactive shell
 [[ $- != *i* ]] && return
 
 # Load CentOS stuff and Facebook stuff (don't remove these lines).
@@ -27,11 +26,6 @@ shopt -s histappend
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # share history between open terminals
 
 # ---Functions--- #
-open_if_exists(){
-  if [[ -e $1  ]]; then
-    [[ -f $1 ]] && $EDITOR $1 || cd $1
-  fi
-}
 
 mkcd() {
   mkdir -p "$1" && cd "$1"
@@ -41,6 +35,12 @@ mkcd() {
 difo(){
   last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
   $last_command $1
+}
+
+open_if_exists(){
+  if [[ -e $1  ]]; then
+    [[ -f $1 ]] && $EDITOR $1 || cd $1
+  fi
 }
 
 # Fzf all files and directories in current directory
@@ -58,14 +58,16 @@ cdf() {
   cd "$(fd  . -t d '/home/cmorrison/fbcode' | fzf)"
 }
 
+# Autoconnect to tmux
 tmux_connect(){
+  DEFAULT_TMUX_SESSION=fbc
   if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
-    fbc=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep fbc | head -1)
-    if [[ $fbc ]]; then
-      tmux $TMUX_OPTIONS attach-session -t fbc
+    session_exists=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep $DEFAULT_TMUX_SESSION  | head -1)
+    if [[ $session_exists ]]; then
+      tmux $TMUX_OPTIONS attach-session -t $DEFAULT_TMUX_SESSION
     else
       cd ~/fbcode
-      tmux $TMUX_OPTIONS new-session -s fbc
+      tmux $TMUX_OPTIONS new-session -s $DEFAULT_TMUX_SESSION
     fi
   fi
 }
