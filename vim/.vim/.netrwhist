@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/cmorrison/dotfiles/config/.config/karabiner/assets/complex_modifications'
+let g:netrw_dirhist_5='/Users/cmorrison/dotfiles/config/.config/karabiner/assets'
 let g:netrw_dirhist_4='/Users/cmorrison/dotfiles/config/.config/nvim'
 let g:netrw_dirhist_3='/Users/cmorrison/.vscode-fb/extensions/nuclide.pyls'
 let g:netrw_dirhist_2='/Users/Colby/.config/karabiner/assets/complex_modifications'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_0='/home/colby/Repos/Awesome-CV/examples/resume'
 let g:netrw_dirhist_9='/home/colby/Repos/Awesome-CV/.circleci'
 let g:netrw_dirhist_8='/home/colby/Repos/covid-watch/permission-portal'
 let g:netrw_dirhist_7='/home/colby/Repos/covid-watch/permission-portal/permission-portal-cloud-functions/functions/node_modules'
-let g:netrw_dirhist_6='/home/colby/.config/coc'
-let g:netrw_dirhist_5='/home/colby/.config'

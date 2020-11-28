@@ -1,12 +1,16 @@
+let g:polyglot_disabled = ['autoindent', 'sensible']
 call plug#begin('~/.vim/plugged')
-" Essentials
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
+Plug 'tpope/vim-dispatch'
+Plug 'vim-scripts/a.vim'
+Plug 'sheerun/vim-polyglot'
 " Colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
@@ -32,18 +36,18 @@ let mapleader=","
 set number                    " line numbers
 set nolist                    " hide EOL chars
 set path+=**
-set spelllang=en              
 set shellslash                " fileslash by OS
-set mouse=a
-set iskeyword+=:
 set nofixendofline            " add EOL at end of file
 set noerrorbells              " no terminal bells
 set tags=tags;/               " search up directory tree for tags
 set undolevels=10000          " number of undos stored 
-set viminfo='50,"50           " number of marks and registers stored
-set modelines=0
+set viminfo='50,"50           " number of marks and registers saved
+set modelines=0               " no modelines
 set scrolloff=8               " show 8 lines below cursor
 set linebreak                 " break on words
+set autoindent
+set mouse=a
+set spelllang=en              
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " Search
@@ -81,11 +85,10 @@ nmap <leader>tt :tabnew<cr>
 nmap <leader>td :tabc<cr>
 " Tab complete for deoplete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 nnoremap <silent> <leader>y :call system('pbcopy', @0)<CR>
 
 
-" File selection
+" Netrw
 nnoremap <leader>e :Lexplore<cr>
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
@@ -130,10 +133,10 @@ nmap gr <Plug>(ale_find_references)
 
 nmap <leader>j <Plug>(ale_next_wrap)
 nmap <leader>k <Plug>(ale_previous_wrap)
-nmap <leader>d <Plug>(ale_detail)
-nnoremap <leader>f :ALEFix<cr>
+nmap <leader>v <Plug>(ale_detail)
+nmap <leader>f :ALEFix<cr>
 " doesn't really work?
-nnoremap <silent> <leader>n :ALERename<cr>
+nmap <silent> <leader>n :ALERename<cr>
 
 " FZF
 nmap <silent> <leader>z :History<cr>

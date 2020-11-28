@@ -1,18 +1,16 @@
-# ~/.bashrc
+# .bashrc
 
 # Run by interactive shells (after /etc/bash.bashrc)
 
-# If not running interactively, don't do anything
+# only source in interactive shell
 [[ $- != *i* ]] && return
-# ---Prompt--- #
+# ---Env vars--- #
 export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
 
 # ---Alias--- #
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
-
-. ~/.profile
 
 ## Mac specific aliases ##
 # Homebrew #
@@ -25,50 +23,30 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 
 # ---Functions--- #
 
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
 # Run prev command w/ different options
-tmux_connect(){
-  if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
-    home=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep home | head -1)
-    if [[ $home ]]; then
-      tmux $TMUX_OPTIONS attach-session -t home
-    else
-      cd
-      tmux $TMUX_OPTIONS new-session -s home
-    fi
+difo(){
+  last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
+  $last_command $1
+}
+
+open_if_exists(){
+  if [[ -e $1  ]]; then
+    [[ -f $1 ]] && $EDITOR $1 || cd $1
   fi
 }
 
-difo(){
-    last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
-    $last_command $1
-}
-
-## FZF ##
-ec(){
-    $EDITOR $(fd . "$HOME/.config/$1" -t f -t d -H | fzf) 
-}
-
-theme(){
-    theme=$(wal --theme | fzf | cut -d ' ' -f 3)
-    theme_basename=$(echo $theme | sed s/base16-//)
-    echo $theme_basename > ~/.colorscheme
-    wal --theme $theme
-}
-
-# Fzf all files
-search() {
-    fle=$(fd . -t f -H "$HOME" | fzf)
-    if [[ -e $fle ]]; then
-        [[ -f $fle ]] && $EDITOR $fle || cd $fle
-    fi
-}
-
-# Fzf files in current directory
+# Fzf all files and directories in current directory
 opf() {
-    fle=$(fzf)
-    if [[ -e $fle ]]; then
-        [[ -f $fle ]] && $EDITOR $fle || cd $fle
-    fi
+  open_if_exists $(fzf)
+}
+
+# Fzf system files, use myc to fuzzy search repo files
+ops(){
+  open_if_exists $(fd . -t f -t d -H -E 'fbsource' "$HOME" | fzf -m --preview="less {}")
 }
 
 # Fzf all directories under ~
@@ -76,8 +54,27 @@ cdf() {
     cd "$(fd . -t d  -H "$HOME" | fzf)"
 }
 
+# Autoconnect to tmux
+tmux_connect(){
+  DEFAULT_TMUX_SESSION=fbc
+  if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
+    session_exists=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep $DEFAULT_TMUX_SESSION  | head -1)
+    if [[ $session_exists ]]; then
+      tmux $TMUX_OPTIONS attach-session -t $DEFAULT_TMUX_SESSION
+    else
+      cd ~/fbcode
+      tmux $TMUX_OPTIONS new-session -s $DEFAULT_TMUX_SESSION
+    fi
+  fi
+}
+
 checkout_fzf() {
     [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
+}
+
+# Pastry previous command with command name as title
+p() {
+  "$@" | pastry -t "$*"
 }
 
 ## VPN ##

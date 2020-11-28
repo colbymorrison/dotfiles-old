@@ -1,5 +1,4 @@
 vim/.vim/plugged
 vim/.vim/.netrwhist
 vim/.vim/autoload/*
-config/.config/karabiner/*
-! config/.config/karabiner/assets
+config/.config/karabiner/automatic_backups
