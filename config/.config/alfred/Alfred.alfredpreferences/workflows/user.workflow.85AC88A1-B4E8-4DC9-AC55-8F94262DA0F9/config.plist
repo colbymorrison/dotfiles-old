@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command_update</key>
+	<dict>
+		<key>app</key>
+		<string>1769298389994993</string>
+		<key>token</key>
+		<string>AeN9Pl1AeNJx9girCbI</string>
+		<key>url</key>
+		<string>https://interngraph.intern.facebook.com/bunny/list</string>
+	</dict>
+	<key>fallbackuid</key>
+	<string>D8D051E8-5241-4D77-98C4-516875D2C27A</string>
+</dict>
+</plist>

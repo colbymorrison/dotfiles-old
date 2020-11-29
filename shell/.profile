@@ -5,7 +5,7 @@ for bindir in ${GNUBINS[@]}; do
   export PATH=$bindir:$PATH;
 done;
 
-export PATH="~/bin:$PATH:/home/colby/scripts"
+export PATH="~/bin:$PATH"
 export TERMINAL=iTerm
 export VISUAL=vim
 export EDITOR=$VISUAL
