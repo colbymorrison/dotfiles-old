@@ -6,6 +6,7 @@ alias l='ls -lah'
 alias m='man'
 alias r='ranger'
 alias v='nvim'
+alias t='tree -a'
 alias ls='ls -A --color=auto'
 alias df='df -h'
 alias du='du -h'
@@ -58,15 +59,19 @@ alias sl='hg sl'
 alias hgsh='hg show'
 alias hgco='hg checkout'
 alias hgcw='hg checkout remote/fbcode/warm'
+alias hgme='hg metaedit'
 
 ## Jellyfish ###
 alias jfs='jf submit'
 alias jfd='jf submit --draft'
 
 ### Arc ###
-alias ap='a pull'
-alias al='a lint'
-alias af='a fix'
+alias arcp='arc pull'
+alias arcl='arc lint'
+alias arcf='arc fix'
+
+#### Fb tools ###
+alias hs='hostselect'
 
 ## Git ##
 alias ga='git add'

@@ -6,7 +6,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
-Plug 'rust-lang/rust.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/a.vim'
@@ -16,6 +15,7 @@ Plug 'morhetz/gruvbox'
 Plug 'kaicataldo/material.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sainnhe/sonokai'
+Plug 'jsit/toast.vim'
 
 call plug#end()
 
@@ -34,10 +34,10 @@ set nocompatible              " be iMproved
 filetype off                  
 filetype indent plugin on           
 syntax enable
-let mapleader=","
-set number                    " line numbers
-set nolist                    " hide EOL chars
-set path+=**,~/fbcode         " goto fbcode files
+let mapleader=','
+set number                      " line numbers
+set nolist                      " hide EOL chars
+set path+=**,~/fbcode,~/configerator,~/fbcode2        " goto fbcode files
 set shellslash                " fileslash by OS
 set nofixendofline            " add EOL at end of file
 set noerrorbells              " no terminal bells
@@ -81,7 +81,6 @@ nmap <leader>tt :tabnew<cr>
 nmap <leader>td :tabc<cr>
 " go to nearest TARGETS
 nmap <leader>w :tabnew !~/bin/tgt.sh<cr>
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 nnoremap <silent> <leader>y :call system('nc localhost 8377', @0)<CR>
 
 
@@ -101,9 +100,10 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
 " Colors
-let g:material_theme_style = 'ocean'
 
+set background=dark
 colo sonokai
+
 
 
 "--- Local Admin Scripts ---
@@ -119,6 +119,9 @@ command! -nargs=* -bang Fbgs call BigGrepFzf(<q-args>, <bang>0)
 
 source $LOCAL_ADMIN_SCRIPTS/vim/pyre.vim
 source $LOCAL_ADMIN_SCRIPTS/vim/toggle_comment.vim
+autocmd BufReadPost *.cinc let b:comment_prefix = "#"
+autocmd BufReadPost *.cconf let b:comment_prefix = "#"
+autocmd BufReadPost *.mcconf let b:comment_prefix = "#"
 source $LOCAL_ADMIN_SCRIPTS/vim/biggrep.vim
 noremap <leader>m :call ToggleComment()<CR>
 
@@ -136,7 +139,7 @@ let g:airline#extensions#hunks#enabled=0
 set rtp+=/usr/local/share/myc/vim
 
 " FZF or MYC depending on dir (stolen P75711758)
-if getcwd() =~ '/fbsource/fbcode$'
+if getcwd() =~ '/fbsource[1-9]*/fbcode$'
   nnoremap <leader>a :Fbgs<Space>
   nnoremap <C-p> :MYC<CR>
 elseif getcwd() =~ '/configerator'
@@ -150,6 +153,8 @@ endif
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog = "/home/cmorrison/venv/bin/python3"
+" Use <tab> to continue completion 
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ALE
 let g:ale_disable_lsp = 1
