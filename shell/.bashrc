@@ -40,11 +40,6 @@ open_if_exists(){
   fi
 }
 
-# Fzf all files and directories in current directory
-opf() {
-  open_if_exists $(fzf)
-}
-
 # Fzf system files, use myc to fuzzy search repo files
 ops(){
   open_if_exists $(fd . -t f -t d -H -E 'fbsource' "$HOME" | fzf -m --preview="less {}")
@@ -78,7 +73,12 @@ p() {
   "$@" | pastry -t "$*"
 }
 
-## VPN ##
+### Bind ###
+bind -m vi-insert a'"\C-f":"open_if_exists $(fzf)\n"'
+bind -m vi-insert a'"\C-w":"ops\n"'
+bind -m vi-insert a'"\C-x":"cdf\n"'
+
+### VPN ###
 export VPN_HOST='Americas West'
 
 alias vd='/opt/cisco/anyconnect/bin/vpn disconnect'
@@ -98,4 +98,4 @@ vpn() { printf "$1" | /opt/cisco/anyconnect/bin/vpn -s connect "$VPN_HOST"; }
 __git_complete gco _git_checkout
 
 
-[[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+[[ -f ~/scripts/fzf.bash ]] && source ~/scripts/fzf.bash

@@ -96,6 +96,7 @@ let g:netrw_winsize = 25
 
 " Colors
 set background=dark
+let g:sonokai_disable_italic_comment = 1
 colo sonokai
 
 "--- Plugins ----
