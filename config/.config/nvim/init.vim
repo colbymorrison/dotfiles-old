@@ -1,4 +1,5 @@
 if exists('g:vscode')
+    let mapleader=","
 	" vscode-neovim mappings to get as close to terminal nvim with my plugins
 	" as possible
 	nmap <silent> <leader>c :noh<cr>
