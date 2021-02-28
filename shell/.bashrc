@@ -5,13 +5,14 @@
 # only source in interactive shell
 [[ $- != *i* ]] && return
 
-# Load CentOS stuff and Facebook stuff (don't remove these lines).
-source /etc/bashrc
-source /usr/facebook/ops/rc/master.bashrc
+if [[ $IS_FB == 0 ]]; then
+  # Load CentOS stuff and Facebook stuff (don't remove these lines).
+  source /etc/bashrc
+  source /usr/facebook/ops/rc/master.bashrc
+fi
 
 # ---Env vars--- #
-[[ -f ~/.profile ]] && source ~/.profile
-export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[00m\][\D{%T}] \[\033[32m\]\$(~/scripts/parse_git_branch)\[\033[00m\]$ "
+export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[00m\][\D{%T}] \[\033[32m\]\$(~/scripts/parse_git_branch.sh)\[\033[00m\]$ "
 
 # ---Alias--- #
 if [ -f ~/.bash_aliases ]; then
@@ -33,7 +34,7 @@ mkcd() {
 
 # Run prev command w/ different options
 difo(){
-  last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
+  last_command=$(history | tail -2 | head -1 | cut -d ' ' -f 5)
   $last_command $1
 }
 
@@ -60,38 +61,38 @@ cdf() {
 
 # Autoconnect to tmux
 tmux_connect(){
-  DEFAULT_TMUX_SESSION=fbc
   if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
     session_exists=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep $DEFAULT_TMUX_SESSION  | head -1)
     if [[ $session_exists ]]; then
       tmux $TMUX_OPTIONS attach-session -t $DEFAULT_TMUX_SESSION
     else
-      cd ~/fbcode
+      cd $DEFAULT_TMUX_DIR
       tmux $TMUX_OPTIONS new-session -s $DEFAULT_TMUX_SESSION
     fi
   fi
+}
+
+cpy(){
+  $CPY_PRG
 }
 
 checkout_fzf() {
   [ "$#" -eq 1 ] && git checkout $1 || git checkout $(git branch | fzf --height="10")
 }
 
-# Pastry previous command with command name as title
-p() {
-  "$@" | pastry -t "$*"
-}
+if [[ $IS_FB == 0 ]]; then
+  # Pastry previous command with command name as title
+  p() {
+    "$@" | pastry -t "$*"
+  }
 
-# Jump to corresponding buck-out directory
-buckout() {
-  local repopath="$(buck root)"
-  pushd "$repopath/buck-out/gen/$(realpath . --relative-to="$repopath")"
-}
+  # Jump to corresponding buck-out directory
+  buckout() {
+    local repopath="$(buck root)"
+    pushd "$repopath/buck-out/gen/$(realpath . --relative-to="$repopath")"
+  }
+fi
 
-# Copy with clippy
-cpy(){
-  nc localhost 8377
-}
-  
 
 # --Completion-- #
 [[ -f /usr/share/bash-completion/bash_completion ]] && \

@@ -1,0 +1,4 @@
+#!/bin/bash
+export http_proxy=fwdproxy:8080
+export https_proxy=fwdproxy:8080
+$*

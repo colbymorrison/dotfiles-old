@@ -22,7 +22,7 @@ alias qemuvm='qemu-system-x86_64 -enable-kvm -vga std -m 2048 -cpu host -smp 4 -
 alias python='python3'
 
 ## config files ##
-alias not="nvim ~/Notes/notes.md"
+alias not="nvim ~/Misc/notes.md"
 alias evi="nvim ~/dotfiles/vim/.vimrc"
 alias ebh="nvim ~/dotfiles/shell/.bashrc"
 alias etm="nvim ~/.tmux.conf"
@@ -50,6 +50,7 @@ alias wicon='nmcli d wifi connect'
 ## Hg ##
 alias hgst='hg status'
 alias hgd='hg diff'
+alias hgds='hg diff --since-last-submit'
 alias hgrv='hg revert'
 alias hgrva='hg revert --all'
 alias hgc='hg commit'
