@@ -1,9 +1,12 @@
-# .bashrc
+# ~/.bashrc
 
 # Run by interactive shells (after /etc/bash.bashrc)
 
 # only source in interactive shell
 [[ $- != *i* ]] && return
+
+OS=$(uname -s)
+DISTRO=$(cat /etc/os-release | head -n1 | grep NAME= | sed s/NAME=// | sed s/\"//g)
 
 if [[ $IS_FB == 0 ]]; then
   # Load CentOS stuff and Facebook stuff (don't remove these lines).
@@ -17,6 +20,31 @@ export PS1="\[\033[0;93m\]\u@\h\[\033[01;34m\] \W \[\033[00m\][\D{%T}] \[\033[32
 # ---Alias--- #
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
+fi
+
+if [[ OS == "Linux" ]] ; then
+    ## Arch specific aliases ##
+    # ~/.config files #
+    alias ebsp="$EDITOR ~/.config/bspwm/bspwmrc"
+    alias esxh="$EDITOR ~/.config/sxhkd/sxhkdrc"
+    alias epb="$EDITOR '+set syntax=dosini' ~/.config/polybar/config"
+    alias exr="$EDITOR ~/.Xresources"
+
+
+    # Zathura #
+    alias zth='zathura'
+    alias ztf='zathura --fork'
+
+    # Custom #
+    alias polyrs='~/.config/polybar/launch.sh'
+
+    if [[ DISTRO == "Arch Linux" ]]; then
+        # Pacman #
+        alias pmin='yay -S'
+        alias pmup='yay -Syu'
+        alias pmrm='sudo pacman -Rns'
+        alias spm='sudo pacman'
+    fi
 fi
 
 # --History--#
@@ -34,8 +62,15 @@ mkcd() {
 
 # Run prev command w/ different options
 difo(){
-  last_command=$(history | tail -2 | head -1 | cut -d ' ' -f 5)
+  last_command=$(history | tail -2 | head -1 | sed s/[0-9]//g)
   $last_command $1
+}
+
+theme(){
+    theme=$(wal --theme | fzf --preview="~/scripts/preview-colorsheme.py {}" | cut -d ' ' -f 3)
+    theme_basename=$(echo $theme | sed s/base16-//)
+    echo $theme_basename > ~/.colorscheme
+    wpg --theme $theme
 }
 
 open_if_exists(){
@@ -49,14 +84,20 @@ opf() {
   open_if_exists $(fzf)
 }
 
-# Fzf system files, use myc to fuzzy search repo files
-ops(){
-  open_if_exists $(fd . -t f -t d -H -E 'fbsource' '/home/cmorrison' | fzf -m --preview="less {}")
-}
+# Fzf all files
+if [[ $IS_FB == 0 ]];then
+    ops(){
+      open_if_exists $(fd . -t f -t d -H -E 'fbsource' '/home/cmorrison' | fzf -m --preview="less {}")
+    }
+else
+    ops(){
+      open_if_exists $(fd . -t f -t d -H $HOME | fzf)
+    }
+fi
 
-# Fzf fbcode directories
+# Fzf all directories under ~
 cdf() {
-  cd "$(fd  . -t d '/home/cmorrison/fbcode' | fzf)"
+  cd "$(fd  . -t d $HOME | fzf)"
 }
 
 # Autoconnect to tmux
@@ -66,7 +107,7 @@ tmux_connect(){
     if [[ $session_exists ]]; then
       tmux $TMUX_OPTIONS attach-session -t $DEFAULT_TMUX_SESSION
     else
-      cd $DEFAULT_TMUX_DIR
+      cd
       tmux $TMUX_OPTIONS new-session -s $DEFAULT_TMUX_SESSION
     fi
   fi
@@ -98,9 +139,10 @@ fi
 [[ -f /usr/share/bash-completion/bash_completion ]] && \
   . /usr/share/bash-completion/bash_completion
 
-[[ -d $HOME/.fzf/ ]] && \
-  . $HOME/scripts/fzf/completion.bash ; \
+if [[ -d $HOME/.fzf/ ]]; then 
+  . $HOME/scripts/fzf/completion.bash
   . $HOME/scripts/fzf/key-bindings.bash
+fi
 
 # --Auto Connect tmux-- #
 tmux_connect

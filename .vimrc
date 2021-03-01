@@ -1,28 +1,28 @@
 let g:polyglot_disabled = ['autoindent', 'sensible']
 call plug#begin('~/.vim/plugged')
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-signify'
+Plug 'vim-scripts/a.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
-Plug 'vim-scripts/a.vim'
+Plug 'junegunn/fzf.vim'
+"  Plug 'vim-latex/vim-latex'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
+Plug 'mhinz/vim-signify'
+
 " Colorscheme
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'kaicataldo/material.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/sonokai'
 Plug 'jsit/toast.vim'
-Plug 'arcticicestudio/nord-vim'
+
 call plug#end()
 
-let is_fb=substitute(system('echo $HOSTNAME | grep facebook.com > /dev/null; echo $?'),"\n","","")
-
 " ---Vanilla vim settings---
-if (is_fb == "0")
+if ($IS_FB == "0")
   let g:fb_default_opts = 0                  " use my settings below
   " read the top of this file for info about local admin scripts
   source $LOCAL_ADMIN_SCRIPTS/master.vimrc   " sets shiftwidth, tabstop, softtabstop, expandtab
@@ -37,9 +37,10 @@ set nocompatible              " be iMproved
 filetype off                  
 filetype indent plugin on           
 syntax enable
-let mapleader=','
-set number                    ",line numbers
+let mapleader=","
+set number                    " line numbers
 set nolist                    " hide EOL chars
+set path+=**                  " goto fbcode files
 set shellslash                " fileslash by OS
 set nofixendofline            " add EOL at end of file
 set noerrorbells              " no terminal bells
@@ -49,14 +50,10 @@ set viminfo='50,"50           " number of marks and registers saved
 set modelines=0               " no modelines
 set scrolloff=8               " show 8 lines below cursor
 set linebreak                 " break on words
-set autoindent
+set textwidth=80              " 80 chars per line
 set mouse=a
 set spelllang=en              
 set spellfile=$HOME/.vim/spell/en.utf-8.add
-
-if (is_fb == "0")
-  set path+=**,~/fbcode,~/configerator,~/fbcode2        " goto fbcode files
-endif
 
 " Search
 set incsearch                 " search with typeahead
@@ -66,6 +63,17 @@ set hlsearch                  " hilight all searches
 set scrolljump=5              " scroll five lines at a time vertically when at bottom
 set sidescroll=10             " minumum columns to scroll horizontally
 
+if ($IS_FB == "0")
+  set path+=,~/fbcode,~/configerator,~/fbcode2        " goto fbcode files
+else
+    " Indents
+    set autoindent
+    set tabstop=4
+    set shiftwidth=4
+    "replace all tabs with tabstop spaces
+    set expandtab 
+endif
+
 " Mappings
 nmap <Enter> O<Esc>
 nmap <silent> <leader>c :noh<cr>
@@ -73,25 +81,23 @@ nmap <C-x> :close<cr>
 nmap <leader>s :so ~/.vimrc<cr>
 nmap <leader>p :set invpaste<CR>
 nmap <leader>r :set invrelativenumber<CR> 
-" Fbgs word under cursor
-nmap <leader>g :Fbgs <C-R><C-W><CR>   
 imap <leader>f {<Esc>o}<Esc>O
+nnoremap <leader>y :call system('xclip -selection primary', @0)<CR>
 " Go no next/prev method name in python
 nmap [w [mw
 nmap ]w ]mw
-" arc lint current file
-nnoremap <leader>l :exec '!arc lint -a %'<cr>
+" Tabs
 nmap <leader>tj :tabp<cr>
 nmap <leader>tk :tabn<cr>
 nmap <leader>tt :tabnew<cr>
 nmap <leader>td :tabc<cr>
-" go to nearest TARGETS
-nmap <leader>w :tabnew !~/bin/tgt.sh<cr>
-nnoremap <silent> <leader>y :call system('nc localhost 8377', @0)<CR>
 
 
 " Autocmds
-if (is_fb == "0")
+if ($IS_FB == "0")
+  " go to nearest TARGETS
+  nmap <leader>w :tabnew !~/bin/tgt.sh<cr>
+  nnoremap <silent> <leader>y :call system('nc localhost 8377', @0)<CR>
   " Arc lint current file on write 
   "autocmd BufWritePost *.py,*.cpp,*.rs,TARGETS,*.thrift silent! exec '!arc lint -a %' | :e 
   " Format TARGETS on save, stolen from P75711758, lots of good stuff here
@@ -122,29 +128,19 @@ let g:signify_sign_delete = '-'
 " Airline
 let g:airline#extensions#hunks#enabled=0
 
-if (is_fb == "0")
-  " MYC
-  set rtp+=/usr/local/share/myc/vim
-
-  " FZF or MYC depending on dir (stolen P75711758)
-  if getcwd() =~ '/fbsource[1-9]*/fbcode$'
-    nnoremap <leader>a :Fbgs<Space>
-    nnoremap <C-p> :MYC<CR>
-  elseif getcwd() =~ '/configerator'
-    nnoremap <leader>a :CBGS<Space>
-    nnoremap <C-p> :Files<CR>
-  else
-    nnoremap <Leader>a :Rg<CR>
-    nnoremap <C-p> :Files<CR>
-  endif
-endif
+" Vim-latex-suite
+set grepprg=grep\ -nH\ $* 
+let g:tex_flavor='latex'
+let g:tex_no_error=1
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf = 'zathura'
+imap <C-g> <Plug>IMAP_JumpForward
+nmap <C-g> <Plug>IMAP_JumpForward
+let g:Tex_PromptedEnvironments='equation,equation*,align,align*,enumerate,itemize,figure,table,theorem,lemma,tikzpicture'
+let g:Tex_GotoError=0 
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-if (is_fb == "0")
-  let g:python3_host_prog = "/home/cmorrison/venv/bin/python3"
-endif
-" Use <tab> to continue completion 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ALE
@@ -161,12 +157,32 @@ nmap <leader>j <Plug>(ale_next_wrap)
 nmap <leader>k <Plug>(ale_previous_wrap)
 nmap <leader>v <Plug>(ale_detail)
 nmap <leader>f :ALEFix<cr>
+" doesn't really work?
+nmap <silent> <leader>n :ALERename<cr>
 
 " FZF
 nmap <silent> <leader>z :History<cr>
 nmap <silent> <leader>b :Buffers<cr>
 
-if (is_fb == "0")
+if ($IS_FB == "0")
+  " Deoplete
+  let g:python3_host_prog = "/home/cmorrison/venv/bin/python3"
+
+  " MYC
+  set rtp+=/usr/local/share/myc/vim
+
+  " FZF or MYC depending on dir (stolen P75711758)
+  if getcwd() =~ '/fbsource[1-9]*/fbcode$'
+    nnoremap <leader>a :Fbgs<Space>
+    nnoremap <C-p> :MYC<CR>
+  elseif getcwd() =~ '/configerator'
+    nnoremap <leader>a :CBGS<Space>
+    nnoremap <C-p> :Files<CR>
+  else
+    nnoremap <Leader>a :Rg<CR>
+    nnoremap <C-p> :Files<CR>
+  endif
+
   " Dispatch
   nmap <leader>d :Dispatch buck 
 
