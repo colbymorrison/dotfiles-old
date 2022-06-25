@@ -1,4 +1,6 @@
-## Dotfiles
+## Dotfiles [DEPERECATED]
+Deprecated for https://github.com/colbymorrison/dotfiles
+
 These are my dotfiles!
 
 ### Branches
